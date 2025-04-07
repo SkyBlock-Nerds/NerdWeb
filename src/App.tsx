@@ -1,12 +1,19 @@
 import './App.css'
+import Header from './components/header/Header.tsx'
+import {Outlet} from "react-router-dom";
+import Footer from "./components/footer/Footer.tsx";
 
 function App() {
     return (
-        <div className="container mt-5">
-            <div className="alert alert-dark text-center">
-                This site is under construction. Please check back later.
+        <>
+            <Header />
+
+            <div className="OutletContainer">
+                <Outlet />
             </div>
-        </div>
+
+            <Footer />
+        </>
     )
 }
 
