@@ -35,15 +35,15 @@ const router = createBrowserRouter([
                     },
                     {
                         path: import.meta.env.BASE_URL + "/Image-Generator/Multi-NPC-Dialogue-Generator",
-                        element: <div>Item Display Generator</div>,
+                        element: <div>Multi NPC Dialogue Generator</div>,
                     },
                     {
                         path: import.meta.env.BASE_URL + "/Image-Generator/Multi-NPC-Dialogue-Generator",
-                        element: <div>Item Display Generator</div>,
+                        element: <div>Single NPC Dialogue Generator</div>,
                     },
                     {
                         path: import.meta.env.BASE_URL + "/Image-Generator/Head-Generator",
-                        element: <div>Item Display Generator</div>,
+                        element: <div>Head Generator</div>,
                     },
                 ]
             }
