@@ -67,7 +67,7 @@ function ImageGeneratorSelect() {
             <div className="container mt-5">
                 <div className="row">
                     {imageGeneratorList.map((item, index) => (
-                        <div key={index} className="col-md-4 mb-3">
+                        <div key={index} className="col-md-4 mb-4">
                             <div className="card quaternary-color image-generator-item">
                                 <img src={item.exampleImg} className="card-img-top px-2 pt-2" alt={item.name + " example image"}/>
                                 <div className="card-body">
