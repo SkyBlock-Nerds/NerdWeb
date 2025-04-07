@@ -7,7 +7,7 @@ on:
       - dev
   pull_request:
     branches:
-      - *
+      - '*'
   workflow_dispatch:
 
 jobs:
@@ -16,6 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install modules
-        run: yarn
+        run: yarn install
+
+      - name: Install ESLint
+        run: yarn add eslint
+
       - name: Run ESLint
-        run: eslint . --ext .js,.jsx,.ts,.tsx
+        run: npx eslint . --ext .js,.jsx,.ts,.tsx
