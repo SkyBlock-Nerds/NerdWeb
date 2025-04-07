@@ -14,7 +14,7 @@ function Header() {
 
     return (
         <div className="main d-flex align-items-center secondary-color text-white">
-            <a href="/" className="d-flex m-2 align-items-center text-white text-decoration-none">
+            <a href={import.meta.env.BASE_URL} className="d-flex m-2 align-items-center text-white text-decoration-none">
                 <img src={NerdBotIcon} alt="NerdBot Icon" className="me-2" height="40" />
                 <h4 className="mb-0">NerdBot</h4>
             </a>
