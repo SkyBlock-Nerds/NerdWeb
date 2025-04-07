@@ -1,0 +1,13 @@
+.main {
+    height: 100%;
+    align-content: flex-start;
+    display: inline-block;
+}
+
+.NerdBotIcon {
+    width: auto;
+    height: 100%;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: pixelated;
+}
