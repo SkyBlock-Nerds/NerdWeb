@@ -1,0 +1,10 @@
+.main-button {
+    height: 100%;
+    align-content: flex-start;
+    display: inline-block;
+}
+
+.main-button:hover {
+    background-color: #15181b;
+    border-radius: 5px;
+}

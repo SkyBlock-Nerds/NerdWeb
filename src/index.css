@@ -1,6 +1,27 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+@import './variables.css';
 
 body {
     background-color: #24292E;
     color: white;
+}
+
+.primary-color {
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+}
+
+.secondary-color {
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
+}
+
+.tertiary-color {
+    background-color: var(--tertiary-bg-color);
+    color: var(--tertiary-text-color);
+}
+
+.quaternary-color {
+    background-color: var(--quaternary-bg-color);
+    color: var(--quaternary-text-color);
 }
