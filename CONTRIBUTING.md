@@ -21,6 +21,9 @@
    git clone https://github.com/your-username/NerdBot-Web.git
    ```
 
+3. Create your own .env file<br>
+   Copy the `.env.example` file to `.env` and fill in the required environment variables.<br><br>
+
 3. Install dependencies
    ```sh
    npm install
@@ -34,12 +37,10 @@
 ## Making Changes
 
 1. Code style<br>
-   Ensure your code adheres to the project's coding standards. We use ESLint for linting and Prettier for code
-   formatting.<br>
-   You can run the following commands to check and fix any (format) issues:
+   Ensure your code adheres to the project's coding standards. We use ESLint for linting.<br>
+   You can run the following command to check for issues:
    ```sh
    npm run lint
-   npm run format
    ```
 
 2. Commit your changes
