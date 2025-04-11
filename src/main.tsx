@@ -45,6 +45,16 @@ const router = createBrowserRouter([
                         path: import.meta.env.BASE_URL + "/Image-Generator/Head-Generator",
                         element: <div>Head Generator</div>,
                     },
+                    {
+                        path : import.meta.env.BASE_URL + "/Image-Generator/Inventory-Generator",
+                        element: <div>Inventory Generator</div>,
+
+                    },
+                    {
+                        path : import.meta.env.BASE_URL + "/Image-Generator/Recipe-Generator",
+                        element: <div>Recipe Generator</div>,
+
+                    },
                 ]
             }
         ],

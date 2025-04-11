@@ -6,6 +6,8 @@ import itemDisplayImage from "../../assets/image_generator/item_display.png";
 import dialogueMultiImage from "../../assets/image_generator/dialogue_multi.png";
 import dialogueSingleImage from "../../assets/image_generator/dialogue_single.png";
 import headImage from "../../assets/image_generator/head.png";
+import inventoryImage from "../../assets/image_generator/inventory.png";
+import recipeImage from "../../assets/image_generator/recipe.png";
 
 const baseGenCommand = "/gen2 "
 
@@ -30,6 +32,20 @@ const imageGeneratorList = [
         description: "Display an item.",
         exampleImg: itemDisplayImage,
         link: "Display-Item-Generator"
+    },
+    {
+        name: "Inventory Generator",
+        discordEquivalent: baseGenCommand + "inventory",
+        description: "Generate an inventory.",
+        exampleImg: inventoryImage,
+        link: "Inventory-Generator"
+    },
+    {
+        name: "Recipe Generator",
+        discordEquivalent: baseGenCommand + "recipe",
+        description: "Generate a recipe.",
+        exampleImg: recipeImage,
+        link: "Recipe-Generator"
     },
     {
         name: "Multi NPC Dialogue Generator",
