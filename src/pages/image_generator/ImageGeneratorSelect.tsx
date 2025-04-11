@@ -66,7 +66,7 @@ const imageGeneratorList: {
         discordEquivalent: baseGenCommand + "dialogue single",
         description: "Generate dialogue for a single NPC.",
         exampleImg: dialogueSingleImage,
-        link: "Multi-NPC-Dialogue-Generator"
+        link: "Single-NPC-Dialogue-Generator"
     },
     {
         name: "Head Generator",
