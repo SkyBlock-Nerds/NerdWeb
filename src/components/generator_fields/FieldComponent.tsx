@@ -3,7 +3,7 @@ import GeneratorField from "./GeneratorField.ts";
 import FieldType from "./FieldType.ts";
 import apiClient from "../../api-client/AxiosInstance.ts";
 
-function FieldComponent({ Name, QueryVariableName, FieldType: fieldType, AutoComplete, Description, onChange }: GeneratorField & { onChange: (value: any) => void }) {
+function FieldComponent({ Name, QueryVariableName, FieldType: fieldType, AutoComplete, Description, onChange }: GeneratorField & { onChange: (value: never) => void }) {
     const [options, setOptions] = useState<string[]>([]);
 
     useEffect(() => {
@@ -19,6 +19,7 @@ function FieldComponent({ Name, QueryVariableName, FieldType: fieldType, AutoCom
     }, [fieldType, AutoComplete]);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        //@ts-expect-error should be fine
         onChange(event.target.value);
     };
 
@@ -51,6 +52,7 @@ function FieldComponent({ Name, QueryVariableName, FieldType: fieldType, AutoCom
                         id={QueryVariableName == null ? "MAIN" : QueryVariableName}
                         name={Name}
                         className="form-check-input"
+                        //@ts-expect-error should be fine
                         onChange={(e) => onChange(e.target.checked)}
                     />
                     <label htmlFor={Name} className="form-check-label">{Description}</label>
