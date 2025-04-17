@@ -59,5 +59,6 @@
 ## Additional Resources
 
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Bootstrap Documentation](https://getbootstrap.com/docs/)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 - [Vite Documentation](https://vitejs.dev/guide/)
