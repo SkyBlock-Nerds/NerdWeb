@@ -5,10 +5,10 @@ import App from './App.tsx'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Welcome from "./pages/welcome/Welcome.tsx";
 import NotFound from "./pages/error/NotFound.tsx";
-import ImageGeneratorSelect from "./pages/image_generator/ImageGeneratorSelect.tsx";
-import FieldType from "./components/generator_fields/FieldType.ts";
-import GeneratorInterface from "./pages/image_generator/generator/GeneratorInterface.tsx";
-import GeneratorField from "./components/generator_fields/GeneratorField.ts";
+import ImageGeneratorSelect from "./pages/image-generator/ImageGeneratorSelect.tsx";
+import FieldType from "./components/generator-fields/FieldType.ts";
+import GeneratorInterface from "./pages/image-generator/generator/GeneratorInterface.tsx";
+import GeneratorField from "./components/generator-fields/GeneratorField.ts";
 
 const baseGenEndpoint = "/generator"
 

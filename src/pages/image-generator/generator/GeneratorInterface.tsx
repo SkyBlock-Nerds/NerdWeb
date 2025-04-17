@@ -1,6 +1,6 @@
 import { useState } from "react";
-import GeneratorField from "../../../components/generator_fields/GeneratorField.ts";
-import FieldComponent from "../../../components/generator_fields/FieldComponent.tsx";
+import GeneratorField from "../../../components/generator-fields/GeneratorField.ts";
+import FieldComponent from "../../../components/generator-fields/FieldComponent.tsx";
 import apiClient from "../../../api-client/AxiosInstance.ts";
 
 function GeneratorInterface({ Fields, GeneratorEndpoint }: { Fields: GeneratorField[], GeneratorEndpoint: string }) {
@@ -58,7 +58,7 @@ function GeneratorInterface({ Fields, GeneratorEndpoint }: { Fields: GeneratorFi
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-6 mt-2">
                     <h5>Input:</h5>
                     {Fields.map((field, index) => (
                         <FieldComponent
@@ -70,7 +70,6 @@ function GeneratorInterface({ Fields, GeneratorEndpoint }: { Fields: GeneratorFi
                             AutoComplete={field.AutoComplete}
                             Description={field.Description}
                             Required={field.Required}
-                            // @ts-expect-error value wrong assignment
                             onChange={(value) => handleFieldChange(field.Name, value)}
                         />
                     ))}
@@ -78,7 +77,7 @@ function GeneratorInterface({ Fields, GeneratorEndpoint }: { Fields: GeneratorFi
                         Generate
                     </button>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 mt-2">
                     <h5>Output:</h5>
                     {output && <img src={output} alt="Generated Output" className="img-fluid" />}
                     {error && <p className="text-danger">{error}</p>}

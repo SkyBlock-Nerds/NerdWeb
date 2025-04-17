@@ -1,14 +1,14 @@
 import {useEffect, useState} from "react";
 import {Outlet, useNavigate} from "react-router-dom";
 import usePageTitle from "../../hooks/usePageTitle";
-import textImage from "../../assets/image_generator/text.png";
-import itemFullImage from "../../assets/image_generator/item_full.png";
-import itemDisplayImage from "../../assets/image_generator/item_display.png";
-import dialogueMultiImage from "../../assets/image_generator/dialogue_multi.png";
-import dialogueSingleImage from "../../assets/image_generator/dialogue_single.png";
-import headImage from "../../assets/image_generator/head.png";
-import inventoryImage from "../../assets/image_generator/inventory.png";
-import recipeImage from "../../assets/image_generator/recipe.png";
+import textImage from "../../assets/image-generator/text.png";
+import itemFullImage from "../../assets/image-generator/item_full.png";
+import itemDisplayImage from "../../assets/image-generator/item_display.png";
+import dialogueMultiImage from "../../assets/image-generator/dialogue_multi.png";
+import dialogueSingleImage from "../../assets/image-generator/dialogue_single.png";
+import headImage from "../../assets/image-generator/head.png";
+import inventoryImage from "../../assets/image-generator/inventory.png";
+import recipeImage from "../../assets/image-generator/recipe.png";
 
 const baseGenCommand = "/gen2 "
 
