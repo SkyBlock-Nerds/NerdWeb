@@ -6,8 +6,8 @@ function Footer() {
                     NerdBot GitHub Repo
                 </a>
                 <span>|</span>
-                <a href="https://github.com/SocksM/NerdBot-Web" className="text-white mx-2" target="_blank">
-                    NerdBot Web GitHub Repo
+                <a href="https://github.com/Skyblock-Nerds/NerdWeb" className="text-white mx-2" target="_blank">
+                    NerdWeb GitHub Repo
                 </a>
             </div>
         </footer>
