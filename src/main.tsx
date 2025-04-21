@@ -9,6 +9,7 @@ import ImageGeneratorSelect from "./pages/image-generator/ImageGeneratorSelect.t
 import TextGenerator from "./pages/image-generator/generator/TextGenerator.tsx";
 import TooltipGenerator from "./pages/image-generator/generator/TooltipGenerator.tsx";
 import ItemGenerator from "./pages/image-generator/generator/ItemGenerator.tsx";
+import HeadGenerator from "./pages/image-generator/generator/HeadGenerator.tsx";
 
 const router = createBrowserRouter([
     {
@@ -26,15 +27,15 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: import.meta.env.BASE_URL + "/Image-Generator/Text-Generator",
-                        element: <TextGenerator />
+                        element: <TextGenerator/>
                     },
                     {
                         path: import.meta.env.BASE_URL + "/Image-Generator/Item-Full-Generator",
-                        element: <TooltipGenerator />
+                        element: <TooltipGenerator/>
                     },
                     {
                         path: import.meta.env.BASE_URL + "/Image-Generator/Display-Item-Generator",
-                        element: <ItemGenerator />
+                        element: <ItemGenerator/>
                     },
                     {
                         path: import.meta.env.BASE_URL + "/Image-Generator/Multi-NPC-Dialogue-Generator",
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
                     },
                     {
                         path: import.meta.env.BASE_URL + "/Image-Generator/Head-Generator",
-                        element: <div>head</div>
+                        element: <HeadGenerator/>
                     },
                     {
                         path: import.meta.env.BASE_URL + "/Image-Generator/Inventory-Generator",
