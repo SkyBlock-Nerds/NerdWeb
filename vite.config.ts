@@ -1,11 +1,16 @@
-import { defineConfig } from 'vite';
-import plugin from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [plugin()],
-    base: '/NerdBot-Web',
+    base: "/",
+    plugins: [react()],
+    preview: {
+        port: 8080,
+        strictPort: true,
+    },
     server: {
-        port: 61206,
-    }
-})
+        port: 8080,
+        strictPort: true,
+        host: true,
+    },
+});
