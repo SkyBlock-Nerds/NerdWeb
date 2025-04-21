@@ -20,44 +20,44 @@ const router = createBrowserRouter([
         errorElement: <NotFound/>,
         children: [
             {
-                path: import.meta.env.BASE_URL,
+                path: "",
                 element: <Welcome/>,
             },
             {
-                path: import.meta.env.BASE_URL + "/Image-Generator",
+                path: "Image-Generator",
                 element: <ImageGeneratorSelect/>,
                 children: [
                     {
-                        path: import.meta.env.BASE_URL + "/Image-Generator/Text-Generator",
+                        path: "Text-Generator",
                         element: <TextGenerator/>
                     },
                     {
-                        path: import.meta.env.BASE_URL + "/Image-Generator/Item-Full-Generator",
+                        path: "Item-Full-Generator",
                         element: <TooltipGenerator/>
                     },
                     {
-                        path: import.meta.env.BASE_URL + "/Image-Generator/Display-Item-Generator",
+                        path: "Display-Item-Generator",
                         element: <ItemGenerator/>
                     },
                     {
-                        path: import.meta.env.BASE_URL + "/Image-Generator/Multi-NPC-Dialogue-Generator",
+                        path: "Multi-NPC-Dialogue-Generator",
                         element: <div>multi npc</div>
                     },
                     {
-                        path: import.meta.env.BASE_URL + "/Image-Generator/Single-NPC-Dialogue-Generator",
+                        path: "Single-NPC-Dialogue-Generator",
                         element: <div>single npc</div>
                     },
                     {
-                        path: import.meta.env.BASE_URL + "/Image-Generator/Head-Generator",
+                        path: "Head-Generator",
                         element: <HeadGenerator/>
                     },
                     {
-                        path: import.meta.env.BASE_URL + "/Image-Generator/Inventory-Generator",
+                        path: "Inventory-Generator",
                         element: <InventoryGenerator/>
 
                     },
                     {
-                        path: import.meta.env.BASE_URL + "/Image-Generator/Recipe-Generator",
+                        path: "Recipe-Generator",
                         element: <RecipeGenerator/>
                     },
                 ]
