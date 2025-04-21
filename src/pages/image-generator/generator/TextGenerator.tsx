@@ -22,8 +22,14 @@ function TextGenerator() {
 
             setOutput(await postGetImg("/generator/text", currentRequest));
         } catch (error) {
-            // @ts-expect-error default error type
-            setError(error.response?.data?.message || error.message || "An error occurred while generating the image.");
+            console.log(error);
+            setError(
+                // @ts-expect-error default error type
+                new TextDecoder().decode(error.response?.data) ||
+                // @ts-expect-error default error type
+                error.message ||
+                "An error occurred while generating the image."
+            );
         }
     };
 

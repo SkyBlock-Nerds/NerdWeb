@@ -7,8 +7,7 @@ let itemIdCache: string[] = [];
 const getAutocomplete = async (url: string): Promise<string[]> => {
     try {
         return (await apiClient.get(url)).data;
-    }
-    catch (error) {
+    } catch (error) {
         console.error("Error fetching autocomplete data:", error);
     }
     return [];
