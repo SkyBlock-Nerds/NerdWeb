@@ -18,7 +18,7 @@ function ItemGenerator() {
             setError(null);
             setOutput(null);
 
-            setOutput(await postGetImg("/generator/tooltip", currentRequest));
+            setOutput(await postGetImg("/generator/item", currentRequest));
         } catch (error) {
             console.log(error);
             setError(

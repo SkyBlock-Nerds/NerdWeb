@@ -22,7 +22,7 @@ class ItemRequest {
 
 export const defaultItemRequest = new ItemRequest(
     "",
-    undefined,
+    "",
     false,
     false,
     undefined
