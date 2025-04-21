@@ -3,38 +3,46 @@ import InventoryItem from "../../../../api-client/api-models/submodels/Inventory
 import {useState} from "react";
 import ItemField from "./ItemField.tsx";
 
+type LocalItem = {
+    id: string;
+    data: InventoryItem;
+};
+
 function RecipeField({setValue}: { setValue: (value: InventoryItem[]) => void }) {
-    const [items, setItems] = useState<InventoryItem[]>([]);
+    const [items, setItems] = useState<LocalItem[]>([]);
 
     const handleSetInventoryItem = (index: number, updatedItem: InventoryItem) => {
         const updatedItems = [...items];
-        updatedItems[index] = updatedItem;
+        updatedItems[index] = { ...updatedItems[index], data: updatedItem };
         setItems(updatedItems);
-        setValue(updatedItems);
+        setValue(updatedItems.map((i) => i.data)); // pass only the InventoryItems up
     };
 
     const handleRemoveItem = (index: number) => {
         const updatedItems = items.filter((_, i) => i !== index);
         setItems(updatedItems);
-        setValue(updatedItems);
+        setValue(updatedItems.map((i) => i.data));
     };
 
     return (
         <>
             <label className="form-label">Recipe:</label>
             {items.length > 0 ? <br/> : ""}
-            {items.map((item, index) => (
+            {items.map((itemWrapper, index) => (
                 <ItemField
-                    key={index}
-                    inventoryItem={item}
+                    key={itemWrapper.id}
+                    inventoryItem={itemWrapper.data}
                     setInventoryItem={(updatedItem) => handleSetInventoryItem(index, updatedItem)}
                     onRemove={() => handleRemoveItem(index)}
                 />
             ))}
+
             {items.length === 0 ? <br/> : ""}
             <button
                 className="btn btn-secondary mt-2"
-                onClick={() => setItems([...items, new InventoryItem("", [], 1)])}
+                onClick={() =>
+                    setItems([...items, { id: crypto.randomUUID(), data: new InventoryItem("", [], 1) }])
+                }
             >
                 Add Item
             </button>
