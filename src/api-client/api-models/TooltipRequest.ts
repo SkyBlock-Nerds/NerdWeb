@@ -6,6 +6,7 @@ class TooltipRequest {
     itemType?: string;
     rarity?: string;
     itemId?: string;
+    skinValue?: string;
     recipe?: InventoryItem[];
     alpha?: number;
     padding?: number;
@@ -23,6 +24,7 @@ class TooltipRequest {
         itemType?: string,
         rarity?: string,
         itemId?: string,
+        skinValue?: string,
         recipe?: InventoryItem[],
         alpha?: number,
         padding?: number,
@@ -39,6 +41,7 @@ class TooltipRequest {
         this.itemType = itemType;
         this.rarity = rarity;
         this.itemId = itemId;
+        this.skinValue = skinValue;
         this.recipe = recipe;
         this.alpha = alpha;
         this.padding = padding;
@@ -63,8 +66,9 @@ export const defaultTooltipRequest = new TooltipRequest(
     "",
     "",
     "",
+    "",
     [],
-    255,
+    245,
     0,
     false,
     false,

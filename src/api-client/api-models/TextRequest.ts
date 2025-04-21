@@ -26,7 +26,7 @@ class TextRequest {
 export const defaultTextRequest = new TextRequest(
     "",
     false,
-    255,
+    245,
     0,
     91,
     false

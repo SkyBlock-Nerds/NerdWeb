@@ -95,7 +95,7 @@ function ImageGeneratorSelect() {
     function getNumColumns() {
         const width = window.innerWidth;
         if (width < 768) return 1; // Mobile
-        if (width < 992) return 2; // Tablet
+        if (width < 992) return 2;
         return 3; // Desktop
     }
 
@@ -110,7 +110,7 @@ function ImageGeneratorSelect() {
                 <Outlet/>
             </div>
 
-            <div className="container mt-5">
+            <div className="container mt-3">
                 <div className="row">
                     {columnItems.map((column, colIndex) => (
                         <div key={colIndex} className={`col-${12 / numColumns}`}>
