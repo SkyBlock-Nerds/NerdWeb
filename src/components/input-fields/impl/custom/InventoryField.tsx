@@ -7,7 +7,7 @@ function RecipeField({setValue}: { setValue: (value: InventoryItem[]) => void })
         <>
             <ItemListField
                 setValue={setValue}
-                formTitle={"Recipe:"}
+                formTitle={"Inventory:"}
             />
         </>
     );

@@ -11,6 +11,7 @@ import TooltipGenerator from "./pages/image-generator/generator/TooltipGenerator
 import ItemGenerator from "./pages/image-generator/generator/ItemGenerator.tsx";
 import HeadGenerator from "./pages/image-generator/generator/HeadGenerator.tsx";
 import RecipeGenerator from "./pages/image-generator/generator/RecipeGenerator.tsx";
+import InventoryGenerator from "./pages/image-generator/generator/InventoryGenerator.tsx";
 
 const router = createBrowserRouter([
     {
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
                     },
                     {
                         path: import.meta.env.BASE_URL + "/Image-Generator/Inventory-Generator",
-                        element: <div>inventory</div>
+                        element: <InventoryGenerator/>
 
                     },
                     {
