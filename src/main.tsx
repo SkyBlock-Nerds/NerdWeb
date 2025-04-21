@@ -10,6 +10,7 @@ import TextGenerator from "./pages/image-generator/generator/TextGenerator.tsx";
 import TooltipGenerator from "./pages/image-generator/generator/TooltipGenerator.tsx";
 import ItemGenerator from "./pages/image-generator/generator/ItemGenerator.tsx";
 import HeadGenerator from "./pages/image-generator/generator/HeadGenerator.tsx";
+import RecipeGenerator from "./pages/image-generator/generator/RecipeGenerator.tsx";
 
 const router = createBrowserRouter([
     {
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
                     },
                     {
                         path: import.meta.env.BASE_URL + "/Image-Generator/Recipe-Generator",
-                        element: <div>recipe</div>
+                        element: <RecipeGenerator/>
                     },
                 ]
             }
