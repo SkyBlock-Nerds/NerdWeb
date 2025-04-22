@@ -11,26 +11,26 @@ type LocalLine = {
 function SingleNpcDialogueLineListField({setValue}: {
     setValue: (value: string[]) => void;
 }) {
-    const [items, setItems] = useState<LocalLine[]>([]);
+    const [lines, setLines] = useState<LocalLine[]>([]);
 
     const handleSetInventoryItem = (index: number, updatedLine: string) => {
-        const updatedItems = [...items];
+        const updatedItems = [...lines];
         updatedItems[index] = {...updatedItems[index], data: updatedLine};
-        setItems(updatedItems);
+        setLines(updatedItems);
         setValue(updatedItems.map((i) => i.data));
     };
 
     const handleRemoveLine = (index: number) => {
-        const updatedItems = items.filter((_, i) => i !== index);
-        setItems(updatedItems);
+        const updatedItems = lines.filter((_, i) => i !== index);
+        setLines(updatedItems);
         setValue(updatedItems.map((i) => i.data));
     };
 
     return (
         <>
             <label className="form-label">Dialogue lines:</label>
-            {items.length > 0 ? <br/> : ""}
-            {items.map((itemWrapper, index) => (
+            {lines.length > 0 ? <br/> : ""}
+            {lines.map((itemWrapper, index) => (
                 <SingleNpcDialogueLineField
                     key={itemWrapper.id}
                     dialogueLine={itemWrapper.data}
@@ -39,14 +39,14 @@ function SingleNpcDialogueLineListField({setValue}: {
                 />
             ))}
 
-            {items.length === 0 ? <br/> : ""}
+            {lines.length === 0 ? <br/> : ""}
             <button
                 className="btn btn-secondary mt-2"
                 onClick={() =>
-                    setItems([...items, {id: uuid(), data: ""}])
+                    setLines([...lines, {id: uuid(), data: ""}])
                 }
             >
-                Add Item
+                Add Line
             </button>
         </>
     );
