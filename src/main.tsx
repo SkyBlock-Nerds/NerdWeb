@@ -12,6 +12,7 @@ import ItemGenerator from "./pages/image-generator/generator/ItemGenerator.tsx";
 import HeadGenerator from "./pages/image-generator/generator/HeadGenerator.tsx";
 import RecipeGenerator from "./pages/image-generator/generator/RecipeGenerator.tsx";
 import InventoryGenerator from "./pages/image-generator/generator/InventoryGenerator.tsx";
+import SingleDialogueGenerator from "./pages/image-generator/generator/SingleDialogueGenerator.tsx";
 
 const router = createBrowserRouter([
     {
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
                     },
                     {
                         path: "Single-NPC-Dialogue-Generator",
-                        element: <div>single npc</div>
+                        element: <SingleDialogueGenerator/>
                     },
                     {
                         path: "Head-Generator",

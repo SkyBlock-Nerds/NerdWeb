@@ -20,10 +20,10 @@ class SingleDialogueRequest {
     }
 }
 
-export const defaultSingleDialogue = new SingleDialogueRequest(
+export const defaultSingleDialogueRequest = new SingleDialogueRequest(
     "",
     [],
-    91,
+    55,
     false,
     undefined
 );
