@@ -2,6 +2,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import InventoryItem from "../../../../api-client/api-models/submodels/InventoryItem.ts";
 import {useState} from "react";
 import ItemField from "./ItemField.tsx";
+import {v4 as uuid} from 'uuid';
 
 type LocalItem = {
     id: string;
@@ -44,7 +45,7 @@ function RecipeField({setValue, formTitle}: {
             <button
                 className="btn btn-secondary mt-2"
                 onClick={() =>
-                    setItems([...items, {id: crypto.randomUUID(), data: new InventoryItem("", [], 1)}])
+                    setItems([...items, {id: uuid(), data: new InventoryItem("", [], 1)}])
                 }
             >
                 Add Item
