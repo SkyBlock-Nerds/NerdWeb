@@ -3,13 +3,17 @@ function NumberField({value, setValue, minValue, maxValue, formLabel, formName, 
     setValue: (value: number) => void;
     minValue?: number;
     maxValue?: number;
-    formLabel: string;
+    formLabel?: string;
     formName: string;
     formInfo: string;
 }) {
     return (
         <>
-            <label className="form-label">{formLabel}</label>
+            {formLabel == null || formLabel.length == 0 ?
+                ""
+                :
+                <label className="form-label">{formLabel}</label>
+            }
             <input
                 type="number"
                 name={formName}

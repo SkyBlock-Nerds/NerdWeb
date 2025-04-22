@@ -1,13 +1,17 @@
 function CheckBoxField({value, setValue, formLabel, formName, formInfo}: {
     value: boolean | undefined;
     setValue: (value: boolean) => void;
-    formLabel: string;
+    formLabel?: string;
     formName: string;
     formInfo: string;
 }) {
     return (
         <>
-            <label className="form-label">{formLabel}</label>
+            {formLabel == null || formLabel.length == 0 ?
+                ""
+                :
+                <label className="form-label">{formLabel}</label>
+            }
             <div className="form-check">
                 <input
                     type="checkbox"

@@ -1,13 +1,17 @@
 function DropdownField({setValue, options, formLabel, formName, formInfo}: {
     setValue: (value: string) => void;
     options: string[];
-    formLabel: string;
+    formLabel?: string;
     formName: string;
     formInfo: string;
 }) {
     return (
         <>
-            <label className="form-label">{formLabel}</label>
+            {formLabel == null || formLabel.length == 0 ?
+                ""
+                :
+                <label className="form-label">{formLabel}</label>
+            }
             <select
                 name={formName}
                 className="form-select"

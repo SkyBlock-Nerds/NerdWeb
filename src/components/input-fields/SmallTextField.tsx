@@ -1,28 +1,30 @@
 function SmallTextField({value, setValue, formLabel, formName, formInfo}: {
     value: string | undefined;
     setValue: (value: string) => void;
-    formLabel: string;
+    formLabel?: string;
     formName: string;
     formInfo: string;
 }) {
     return (
         <>
-            <div className="mb-3">
+            {formLabel == null || formLabel.length == 0 ?
+                ""
+                :
                 <label className="form-label">{formLabel}</label>
-                <input
-                    type="text"
-                    name={formName}
-                    placeholder={formInfo}
-                    className="form-control"
-                    value={value}
-                    required={true}
-                    onChange={
-                        (e) => {
-                            setValue(e.target.value)
-                        }
+            }
+            <input
+                type="text"
+                name={formName}
+                placeholder={formInfo}
+                className="form-control"
+                value={value}
+                required={true}
+                onChange={
+                    (e) => {
+                        setValue(e.target.value)
                     }
-                />
-            </div>
+                }
+            />
         </>
     );
 }
