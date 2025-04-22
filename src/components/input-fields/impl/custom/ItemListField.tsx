@@ -9,7 +9,7 @@ type LocalItem = {
     data: InventoryItem;
 };
 
-function RecipeField({setValue, formTitle}: {
+function ItemListField({setValue, formTitle}: {
     setValue: (value: InventoryItem[]) => void;
     formTitle: string;
 }) {
@@ -54,4 +54,4 @@ function RecipeField({setValue, formTitle}: {
     );
 }
 
-export default RecipeField;
+export default ItemListField;
