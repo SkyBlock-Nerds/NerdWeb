@@ -1,14 +1,14 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import {useState} from "react";
 import {v4 as uuid} from 'uuid';
-import SingleNpcDialogueLineField from "./SingleNpcDialogueLineField.tsx";
+import SingleNpcDialogueLineField from "../SingleNpcDialogueLineField.tsx";
 
 type LocalLine = {
     id: string;
     data: string;
 };
 
-function SingleNpcDialogueListField({setValue}: {
+function SingleNpcDialogueLineListField({setValue}: {
     setValue: (value: string[]) => void;
 }) {
     const [items, setItems] = useState<LocalLine[]>([]);
@@ -52,4 +52,4 @@ function SingleNpcDialogueListField({setValue}: {
     );
 }
 
-export default SingleNpcDialogueListField;
+export default SingleNpcDialogueLineListField;

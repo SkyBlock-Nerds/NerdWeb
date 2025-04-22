@@ -7,7 +7,7 @@ import SkinTextureField from "../../../components/input-fields/impl/small-text/S
 import MaxLineLengthField from "../../../components/input-fields/impl/number/MaxLineLengthField.tsx";
 import NpcNameField from "../../../components/input-fields/impl/small-text/NpcNameField.tsx";
 import AbiphoneField from "../../../components/input-fields/impl/checkbox/AbiphoneField.tsx";
-import SingleNpcDialogueListField from "../../../components/input-fields/impl/custom/SingleNpcDialogueListField.tsx";
+import SingleNpcDialogueLineListField from "../../../components/input-fields/impl/custom/list/SingleNpcDialogueLineListField.tsx";
 
 function SingleDialogueGenerator() {
     const [currentRequest, setCurrentRequest] = useState<SingleDialogueRequest>(defaultSingleDialogueRequest);
@@ -46,7 +46,7 @@ function SingleDialogueGenerator() {
                         />
                     </div>
                     <div className="mb-3">
-                        <SingleNpcDialogueListField
+                        <SingleNpcDialogueLineListField
                             setValue={(value) =>
                                 setCurrentRequest((prev) => ({...prev, dialogue: value}))
                         }
