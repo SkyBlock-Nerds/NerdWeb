@@ -99,7 +99,14 @@ function ImageGeneratorSelect() {
         return 3; // Desktop
     }
 
-    const columnItems: { name: string; discordEquivalent: string; description: string; exampleImg: string; link: string; }[][] = Array.from({ length: numColumns }, () => []);    imageGeneratorList.forEach((item, index) => {
+    const columnItems: {
+        name: string;
+        discordEquivalent: string;
+        description: string;
+        exampleImg: string;
+        link: string;
+    }[][] = Array.from({length: numColumns}, () => []);
+    imageGeneratorList.forEach((item, index) => {
         const colIndex = index % numColumns;
         columnItems[colIndex].push(item);
     });
@@ -126,7 +133,13 @@ function ImageGeneratorSelect() {
                                                 Discord Equivalent:
                                                 <a className="rounded-4 px-2 py-1 ms-1 tertiary-color text-decoration-none">{item.discordEquivalent}</a>
                                             </p>
-                                            <button onClick={() => navigate(item.link)} className="btn btn-primary">
+                                            <button
+                                                onClick={() => {
+                                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                                    navigate(item.link)
+                                                }}
+                                                className="btn btn-primary"
+                                            >
                                                 Go to {item.name}
                                             </button>
                                         </div>
