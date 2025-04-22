@@ -2,20 +2,20 @@ import MultiDialogueLine from "./submodels/MultiDialogueLine.ts";
 
 class MultiDialogueRequest {
     npcNames: string[];
-    lines: MultiDialogueLine[];
+    dialogue: MultiDialogueLine[];
     maxLineLength?: number;
     abiphone?: boolean;
     skinValue?: string;
 
     constructor(
         npcNames: string[],
-        lines: MultiDialogueLine[],
+        dialogue: MultiDialogueLine[],
         maxLineLength?: number,
         abiphone?: boolean,
         skinValue?: string
     ) {
         this.npcNames = npcNames;
-        this.lines = lines;
+        this.dialogue = dialogue;
         this.maxLineLength = maxLineLength;
         this.abiphone = abiphone;
         this.skinValue = skinValue;
