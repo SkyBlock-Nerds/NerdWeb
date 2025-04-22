@@ -1,86 +1,58 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import InventoryItem from "../../../../api-client/api-models/submodels/InventoryItem.ts";
-import {useEffect, useState} from "react";
-import {getItemIdAutoComplete} from "../../../../api-client/requests/GetAutocomplete.ts";
+import ItemIdField from "../dropdown/ItemIdField.tsx";
+import NumberField from "../../NumberField.tsx";
 
 
-function ItemField({inventoryItem, setInventoryItem, onRemove}: { inventoryItem: InventoryItem; setInventoryItem: (value: InventoryItem) => void; onRemove: () => void }) {
-    const [itemIdOptions, setItemIdOptions] = useState<string[]>([]);
-
-    useEffect(() => {
-        const fetchOptions = async () => {
-            const result = await getItemIdAutoComplete();
-            setItemIdOptions(result);
-        };
-        fetchOptions();
-    }, []);
-
+function ItemField({inventoryItem, setInventoryItem, onRemove}: {
+    inventoryItem: InventoryItem;
+    setInventoryItem: (value: InventoryItem) => void;
+    onRemove: () => void
+}) {
     return (
         <>
             <label className="form-label">Item:</label>
             <div className="mb-3">
                 <div className="input-group  align-items-start">
-                    <select
-                        name="itemId"
-                        className="form-select"
-                        required={false}
-                        onChange={(e) => {
-                            inventoryItem.itemId = e.target.value;
+                    <ItemIdField
+                        setValue={(value) => {
+                            inventoryItem.itemId = value;
                             setInventoryItem(inventoryItem);
                         }}
-                    >
-                        <option disabled selected>Select an Item ID</option>
-                        {itemIdOptions.map((option, index) => (
-                            <option key={index} value={option}>
-                                {option.replace(/_/g, " ")}
-                            </option>
-                        ))}
-                    </select>
-                    <input
-                        type="number"
-                        className="form-control"
-                        placeholder="From Location"
-                        required={true}
+                        noLabel={true}
+                    />
+                    <NumberField
+                        setValue={(value) => {
+                            inventoryItem.location[0] = value;
+                            setInventoryItem(inventoryItem);
+                        }}
+                        minValue={0}
+                        formInfo="From Location"
+                        formName="fromLocation"
                         value={inventoryItem.location[0]}
-                        onChange={(e) => {
-                            const parsedInt = parseInt(e.target.value);
-                            if (isNaN(parsedInt)) return;
-                            
-                            inventoryItem.location[0] = parsedInt;
+                    />
+                    <NumberField
+                        setValue={(value) => {
+                            inventoryItem.location[1] = value;
                             setInventoryItem(inventoryItem);
                         }}
-                    />
-                    <input
-                        type="number"
-                        className="form-control"
-                        placeholder="To Location"
-                        required={true}
+                        minValue={0}
+                        formInfo="To Location"
+                        formName="toLocation"
                         value={inventoryItem.location[1]}
-                        onChange={(e) => {
-                            const parsedInt = parseInt(e.target.value);
-                            if (isNaN(parsedInt)) return;
-
-                            inventoryItem.location[1] = parsedInt;
+                    />
+                    <NumberField
+                        setValue={(value) => {
+                            inventoryItem.amount = value;
                             setInventoryItem(inventoryItem);
                         }}
-                    />
-                    <input
-                        type="number"
-                        className="form-control"
-                        placeholder="Amount"
-                        required={true}
-                        min={0}
-                        max={64}
+                        minValue={1}
+                        maxValue={64}
+                        formInfo="Amount"
+                        formName="toLocation"
                         value={inventoryItem.amount}
-                        onChange={(e) => {
-                            const parsedInt = parseInt(e.target.value);
-                            if (isNaN(parsedInt)) return;
-
-                            inventoryItem.amount = Math.min(64, Math.max(0, parsedInt));
-                            setInventoryItem(inventoryItem);
-                        }}
                     />
-                    <input
+                    <input /*TODO: Probably should make this a <SmallTextField> (When it gets implemented (needs to be disabled={true} for now))*/
                         disabled={true}
                         type="text"
                         className="form-control"
