@@ -3,7 +3,6 @@ import InventoryItem from "../../../../api-client/api-models/submodels/Inventory
 import ItemIdField from "../dropdown/ItemIdField.tsx";
 import NumberField from "../../NumberField.tsx";
 
-
 function ItemField({inventoryItem, setInventoryItem, onRemove}: {
     inventoryItem: InventoryItem;
     setInventoryItem: (value: InventoryItem) => void;
