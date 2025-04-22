@@ -24,4 +24,23 @@ class InventoryItem {
     }
 }
 
+export function cleanupLocations(inventoryItems: InventoryItem[]): InventoryItem[] {
+    const output: InventoryItem[] = [];
+    for (const inventoryItem of inventoryItems) {
+        output.push(cleanupLocation(inventoryItem));
+    }
+    return output;
+}
+
+export function cleanupLocation(inventoryItem: InventoryItem): InventoryItem {
+    if (inventoryItem.location.length == 0) {
+        inventoryItem.location[0] = 0;
+    } else if (inventoryItem.location.length == 2) {
+        if (inventoryItem.location[0] > inventoryItem.location[1]) {
+            inventoryItem.location = [inventoryItem.location[0]];
+        }
+    }
+    return inventoryItem;
+}
+
 export default InventoryItem;

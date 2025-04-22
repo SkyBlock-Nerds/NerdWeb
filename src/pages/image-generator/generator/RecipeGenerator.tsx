@@ -5,6 +5,7 @@ import OutputDisplay from "../../../components/generator/OutputDisplay.tsx";
 import RecipeField from "../../../components/input-fields/impl/custom/RecipeField.tsx";
 import RecipeRequest, {defaultRecipeRequest} from "../../../api-client/api-models/RecipeRequest.ts";
 import RenderBackgroundField from "../../../components/input-fields/impl/checkbox/RenderBackgroundField.tsx";
+import {cleanupLocations} from "../../../api-client/api-models/submodels/InventoryItem.ts";
 
 function RecipeGenerator() {
     const [currentRequest, setCurrentRequest] = useState<RecipeRequest>(defaultRecipeRequest);
@@ -15,6 +16,8 @@ function RecipeGenerator() {
         try {
             setError(null);
             setOutput(null);
+
+            currentRequest.recipe = cleanupLocations(currentRequest.recipe);
 
             setOutput(await postGetImg("/generator/recipe", currentRequest));
         } catch (error) {

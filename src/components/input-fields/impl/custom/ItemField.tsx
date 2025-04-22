@@ -35,7 +35,7 @@ function ItemField({inventoryItem, setInventoryItem, onRemove}: {
                             inventoryItem.location[1] = value;
                             setInventoryItem(inventoryItem);
                         }}
-                        minValue={0}
+                        minValue={inventoryItem.location[0]}
                         formInfo="To Location"
                         formName="toLocation"
                         value={inventoryItem.location[1]}

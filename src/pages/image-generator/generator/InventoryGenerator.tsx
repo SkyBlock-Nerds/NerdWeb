@@ -9,6 +9,7 @@ import ColumnsField from "../../../components/input-fields/impl/number/ColumnsFi
 import HoveredItemString from "../../../components/input-fields/impl/big-text/HoveredItemString.tsx";
 import ContainerNameField from "../../../components/input-fields/impl/small-text/ContainerNameField.tsx";
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
+import {cleanupLocations} from "../../../api-client/api-models/submodels/InventoryItem.ts";
 
 function TooltipGenerator() {
     const [currentRequest, setCurrentRequest] = useState<InventoryRequest>(defaultInventoryRequest);
@@ -19,6 +20,8 @@ function TooltipGenerator() {
         try {
             setError(null);
             setOutput(null);
+
+            currentRequest.inventoryItems = cleanupLocations(currentRequest.inventoryItems);
 
             setOutput(await postGetImg("/generator/inventory", currentRequest));
         } catch (error) {

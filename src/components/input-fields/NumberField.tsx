@@ -24,7 +24,18 @@ function NumberField({value, setValue, minValue, maxValue, formLabel, formName, 
                 required={false}
                 value={value ?? ''}
                 onChange={(e) => {
-                    let parsedInt = parseInt(e.target.value);
+                    const inputValue = e.target.value;
+                    if (inputValue === '') {
+                        setValue(0)
+                    } else {
+                        setValue(parseInt(inputValue));
+                    }
+                }}
+                onBlur={(e) => {
+                    const inputValue = e.target.value;
+                    if (inputValue === '') return;
+
+                    let parsedInt = parseInt(inputValue);
                     if (isNaN(parsedInt)) return;
 
                     if (typeof minValue !== 'undefined' && minValue !== null) {
