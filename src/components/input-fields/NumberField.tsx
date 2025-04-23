@@ -16,6 +16,7 @@ function NumberField({value, setValue, minValue, maxValue, formLabel, formName, 
             }
             <input
                 type="number"
+                inputMode="numeric"
                 name={formName}
                 placeholder={formInfo}
                 max={maxValue}
