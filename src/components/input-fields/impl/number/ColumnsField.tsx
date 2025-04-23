@@ -2,7 +2,7 @@ import NumberField from "../../NumberField.tsx";
 
 function ColumnsField({value, setValue}: {
     value: number | undefined;
-    setValue: (value: number) => void;
+    setValue: (value: number | undefined) => void;
 }) {
     return (
         <>

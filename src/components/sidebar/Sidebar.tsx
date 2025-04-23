@@ -12,8 +12,6 @@ function Sidebar() {
         setIsOpen(!isOpen);
     };
 
-
-
     return (
         <>
             <div className={`Sidebar primary-color ${isOpen ? "open" : ""}`}>
