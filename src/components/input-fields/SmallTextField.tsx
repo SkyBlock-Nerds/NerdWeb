@@ -15,6 +15,7 @@ function SmallTextField({value, setValue, formLabel, formName, formInfo}: {
             <input
                 type="text"
                 name={formName}
+                spellCheck={false}
                 placeholder={formInfo}
                 className="form-control"
                 value={value}

@@ -14,6 +14,7 @@ function BigTextField({value, setValue, formLabel, formName, formInfo}: {
             }
             <textarea
                 name={formName}
+                spellCheck={false}
                 placeholder={formInfo}
                 className="form-control"
                 value={value}
