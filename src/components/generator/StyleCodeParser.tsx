@@ -1,8 +1,12 @@
-function ColorCodeParser({textToBeParsed}: { textToBeParsed: string | undefined }) {
+function StyleCodeParser({textToBeParsed}: { textToBeParsed: string | undefined }) {
     const parseTextWithStyles = (
         text: string, defaultCode?: string
     ) => {
-        let parts = text.split(/(&[0-9a-fk-or]|\n)/);
+        const parts =
+            text
+            .split(/(&[0-9a-fk-or]|\n)/)
+            .filter(value => value !== "");
+
         const colorMap: Record<string, string> = {
             "&0": "#000000",
             "&1": "#0000AA",
@@ -37,8 +41,6 @@ function ColorCodeParser({textToBeParsed}: { textToBeParsed: string | undefined 
             isObfuscated = false;
             isUnderline = false;
         };
-
-        parts = parts.filter(value => value !== "")
 
         return parts.map((part, index) => {
             const formatConditionalResetStyles = () => {
@@ -119,4 +121,4 @@ function ColorCodeParser({textToBeParsed}: { textToBeParsed: string | undefined 
     );
 }
 
-export default ColorCodeParser;
+export default StyleCodeParser;

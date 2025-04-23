@@ -10,7 +10,7 @@ import HoveredItemString from "../../../components/input-fields/impl/big-text/Ho
 import ContainerNameField from "../../../components/input-fields/impl/small-text/ContainerNameField.tsx";
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
 import {cleanupLocations} from "../../../api-client/api-models/submodels/InventoryItem.ts";
-import ColorCodeParser from "../../../components/generator/ColorCodeParser.tsx";
+import StyleCodeParser from "../../../components/generator/StyleCodeParser.tsx";
 
 function TooltipGenerator() {
     const [currentRequest, setCurrentRequest] = useState<InventoryRequest>(defaultInventoryRequest);
@@ -72,7 +72,7 @@ function TooltipGenerator() {
                                 setCurrentRequest((prev) => ({...prev, hoveredItemString: value}))
                             }
                         />
-                        <ColorCodeParser textToBeParsed={currentRequest.hoveredItemString}/>
+                        <StyleCodeParser textToBeParsed={currentRequest.hoveredItemString}/>
                     </div>
                     <div className="mb-3">
                         <ContainerNameField
