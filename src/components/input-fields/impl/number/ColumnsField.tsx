@@ -10,6 +10,7 @@ function ColumnsField({value, setValue}: {
                 value={value}
                 setValue={setValue}
                 minValue={0}
+                maxValue={100}
                 formLabel={"Columns:"}
                 formName={"inventoryColumn"}
                 formInfo={"Enter the amount of inventory columns here"}

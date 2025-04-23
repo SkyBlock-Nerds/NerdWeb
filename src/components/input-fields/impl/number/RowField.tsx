@@ -10,6 +10,7 @@ function RowField({value, setValue}: {
                 value={value}
                 setValue={setValue}
                 minValue={0}
+                maxValue={100}
                 formLabel={"Rows:"}
                 formName={"inventoryRow"}
                 formInfo={"Enter the amount of inventory rows here"}

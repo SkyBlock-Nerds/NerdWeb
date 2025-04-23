@@ -10,7 +10,7 @@ function PaddingField({value, setValue}: {
                 value={value}
                 setValue={setValue}
                 minValue={0}
-                maxValue={1000}
+                maxValue={200}
                 formLabel={"Padding:"}
                 formName={"padding"}
                 formInfo={"Enter padding value here"}
