@@ -1,6 +1,6 @@
 function NumberField({value, setValue, minValue, maxValue, formLabel, formName, formInfo}: {
     value: number | undefined;
-    setValue: (value: number) => void;
+    setValue: (value: number | undefined) => void;
     minValue?: number;
     maxValue?: number;
     formLabel?: string;
@@ -27,7 +27,7 @@ function NumberField({value, setValue, minValue, maxValue, formLabel, formName, 
                 onChange={(e) => {
                     const inputValue = e.target.value;
                     if (inputValue === '') {
-                        setValue(0)
+                        setValue(undefined);
                     } else {
                         setValue(parseInt(inputValue));
                     }
