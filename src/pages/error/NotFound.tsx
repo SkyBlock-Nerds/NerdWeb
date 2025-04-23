@@ -6,7 +6,7 @@ const NotFoundPage: React.FC = () => {
     const navigate = useNavigate();
 
     const handleGoHome = () => {
-        navigate('/NerdBot-Web');
+        navigate('');
     };
 
     usePageTitle('404 - Page Not Found');
