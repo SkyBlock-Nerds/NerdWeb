@@ -9,6 +9,7 @@ import RenderBorderField from "../../../components/input-fields/impl/checkbox/Re
 import BigTextField from "../../../components/input-fields/BigTextField.tsx";
 import GenerateButton from "../../../components/generator/GenerateButton.tsx";
 import OutputDisplay from "../../../components/generator/OutputDisplay.tsx";
+import ColorCodeParser from "../../../components/generator/ColorCodeParser.tsx";
 
 function TextGenerator() {
     const [currentRequest, setCurrentRequest] = useState<TextRequest>(defaultTextRequest);
@@ -48,6 +49,7 @@ function TextGenerator() {
                             formName={"text"}
                             formInfo={"Enter text here"}
                         />
+                        <ColorCodeParser textToBeParsed={currentRequest.text}/>
                     </div>
                     <div className="mb-3">
                         <CenteredField

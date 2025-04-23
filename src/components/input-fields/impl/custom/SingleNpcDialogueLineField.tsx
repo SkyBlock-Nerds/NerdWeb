@@ -1,5 +1,6 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import SmallTextField from "../../SmallTextField.tsx";
+import ColorCodeParser from "../../../generator/ColorCodeParser.tsx";
 
 
 function SingleNpcDialogueLineField({dialogueLine, setDialogueLine, onRemove}: {
@@ -29,6 +30,7 @@ function SingleNpcDialogueLineField({dialogueLine, setDialogueLine, onRemove}: {
                         Remove
                     </button>
                 </div>
+                <ColorCodeParser textToBeParsed={dialogueLine}/>
             </div>
         </>
     );

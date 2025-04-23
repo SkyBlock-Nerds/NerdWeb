@@ -18,6 +18,7 @@ import PaddingFirstLineField from "../../../components/input-fields/impl/checkbo
 import MaxLineLengthField from "../../../components/input-fields/impl/number/MaxLineLengthField.tsx";
 import TooltipSideField from "../../../components/input-fields/impl/dropdown/TooltipSideField.tsx";
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
+import ColorCodeParser from "../../../components/generator/ColorCodeParser.tsx";
 
 function TooltipGenerator() {
     const [currentRequest, setCurrentRequest] = useState<TooltipRequest>(defaultTooltipRequest);
@@ -68,6 +69,7 @@ function TooltipGenerator() {
                             formName={"itemLore"}
                             formInfo={"Enter the item lore here"}
                         />
+                        <ColorCodeParser textToBeParsed={currentRequest.itemLore}/>
                     </div>
                     <div className="mb-3">
                         <SmallTextField
