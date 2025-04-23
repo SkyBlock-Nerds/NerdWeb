@@ -10,7 +10,7 @@ import HoveredItemString from "../../../components/input-fields/impl/big-text/Ho
 import ContainerNameField from "../../../components/input-fields/impl/small-text/ContainerNameField.tsx";
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
 import {cleanupLocations} from "../../../api-client/api-models/submodels/InventoryItem.ts";
-import StyleCodeParser from "../../../components/generator/StyleCodeParser.tsx";
+import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
 
 function TooltipGenerator() {
     const [currentRequest, setCurrentRequest] = useState<InventoryRequest>(defaultInventoryRequest);

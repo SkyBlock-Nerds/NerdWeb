@@ -1,7 +1,7 @@
 import MultiDialogueLine from "../../../../api-client/api-models/submodels/MultiDialogueLine";
 import DropdownField from "../../DropdownField.tsx";
 import SmallTextField from "../../SmallTextField.tsx";
-import StyleCodeParser from "../../../generator/StyleCodeParser.tsx";
+import StyleCodeParser from "../../../style-code-parser/StyleCodeParser.tsx";
 
 function MultiNpcDialogueLineField({npcNames, dialogueLine, setDialogueLine, onRemove}: {
     npcNames: string[];

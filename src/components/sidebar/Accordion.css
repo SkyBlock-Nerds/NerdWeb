@@ -1,0 +1,24 @@
+.Accordion {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.AccordionTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+
+.AccordionContent {
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+}

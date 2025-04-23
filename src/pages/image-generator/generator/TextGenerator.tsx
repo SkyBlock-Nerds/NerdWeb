@@ -9,7 +9,7 @@ import RenderBorderField from "../../../components/input-fields/impl/checkbox/Re
 import BigTextField from "../../../components/input-fields/BigTextField.tsx";
 import GenerateButton from "../../../components/generator/GenerateButton.tsx";
 import OutputDisplay from "../../../components/generator/OutputDisplay.tsx";
-import StyleCodeParser from "../../../components/generator/StyleCodeParser.tsx";
+import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
 
 function TextGenerator() {
     const [currentRequest, setCurrentRequest] = useState<TextRequest>(defaultTextRequest);

@@ -1,6 +1,6 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import SmallTextField from "../../SmallTextField.tsx";
-import StyleCodeParser from "../../../generator/StyleCodeParser.tsx";
+import StyleCodeParser from "../../../style-code-parser/StyleCodeParser.tsx";
 
 
 function SingleNpcDialogueLineField({dialogueLine, setDialogueLine, onRemove}: {
