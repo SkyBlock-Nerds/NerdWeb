@@ -3,7 +3,7 @@ import postGetImg from "../../../api-client/requests/PostGetImg.ts";
 import GenerateButton from "../../../components/generator/GenerateButton.tsx";
 import OutputDisplay from "../../../components/generator/OutputDisplay.tsx";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
-import HeadRequest, {defaultHeadRequest} from "../../../api-client/api-models/HeadRequest.ts";
+import HeadRequest, {defaultHeadRequest} from "../../../api-client/api-models/generator/HeadRequest.ts";
 
 function HeadGenerator() {
     const [currentRequest, setCurrentRequest] = useState<HeadRequest>(defaultHeadRequest);

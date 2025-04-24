@@ -2,14 +2,14 @@ import {useState} from "react";
 import postGetImg from "../../../api-client/requests/PostGetImg.ts";
 import GenerateButton from "../../../components/generator/GenerateButton.tsx";
 import OutputDisplay from "../../../components/generator/OutputDisplay.tsx";
-import InventoryRequest, {defaultInventoryRequest} from "../../../api-client/api-models/InventoryRequest.ts";
+import InventoryRequest, {defaultInventoryRequest} from "../../../api-client/api-models/generator/InventoryRequest.ts";
 import InventoryField from "../../../components/input-fields/impl/custom/InventoryField.tsx";
 import RowField from "../../../components/input-fields/impl/number/RowField.tsx";
 import ColumnsField from "../../../components/input-fields/impl/number/ColumnsField.tsx";
 import HoveredItemString from "../../../components/input-fields/impl/big-text/HoveredItemString.tsx";
 import ContainerNameField from "../../../components/input-fields/impl/small-text/ContainerNameField.tsx";
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
-import {cleanupLocations} from "../../../api-client/api-models/submodels/InventoryItem.ts";
+import {cleanupLocations} from "../../../api-client/api-models/generator/submodels/InventoryItem.ts";
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
 
 function TooltipGenerator() {

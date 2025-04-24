@@ -1,4 +1,4 @@
-import MultiDialogueLine from "../../../../api-client/api-models/submodels/MultiDialogueLine";
+import MultiDialogueLine from "../../../../api-client/api-models/generator/submodels/MultiDialogueLine";
 import DropdownField from "../../DropdownField.tsx";
 import SmallTextField from "../../SmallTextField.tsx";
 import StyleCodeParser from "../../../style-code-parser/StyleCodeParser.tsx";

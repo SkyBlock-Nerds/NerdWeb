@@ -3,9 +3,9 @@ import postGetImg from "../../../api-client/requests/PostGetImg.ts";
 import GenerateButton from "../../../components/generator/GenerateButton.tsx";
 import OutputDisplay from "../../../components/generator/OutputDisplay.tsx";
 import RecipeField from "../../../components/input-fields/impl/custom/RecipeField.tsx";
-import RecipeRequest, {defaultRecipeRequest} from "../../../api-client/api-models/RecipeRequest.ts";
+import RecipeRequest, {defaultRecipeRequest} from "../../../api-client/api-models/generator/RecipeRequest.ts";
 import RenderBackgroundField from "../../../components/input-fields/impl/checkbox/RenderBackgroundField.tsx";
-import {cleanupLocations} from "../../../api-client/api-models/submodels/InventoryItem.ts";
+import {cleanupLocations} from "../../../api-client/api-models/generator/submodels/InventoryItem.ts";
 
 function RecipeGenerator() {
     const [currentRequest, setCurrentRequest] = useState<RecipeRequest>(defaultRecipeRequest);

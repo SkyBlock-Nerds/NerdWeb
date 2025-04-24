@@ -1,4 +1,4 @@
-import TextRequest, {defaultTextRequest} from "../../../api-client/api-models/TextRequest.ts";
+import TextRequest, {defaultTextRequest} from "../../../api-client/api-models/generator/TextRequest.ts";
 import AlphaField from "../../../components/input-fields/impl/number/AlphaField.tsx";
 import {useState} from "react";
 import PaddingField from "../../../components/input-fields/impl/number/PaddingField.tsx";

@@ -1,5 +1,5 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import InventoryItem from "../../../../api-client/api-models/submodels/InventoryItem.ts";
+import InventoryItem from "../../../../api-client/api-models/generator/submodels/InventoryItem.ts";
 import ItemIdField from "../dropdown/ItemIdField.tsx";
 import NumberField from "../../NumberField.tsx";
 

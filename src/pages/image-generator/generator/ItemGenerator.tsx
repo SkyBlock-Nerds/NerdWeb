@@ -4,7 +4,7 @@ import ItemIdField from "../../../components/input-fields/impl/dropdown/ItemIdFi
 import GenerateButton from "../../../components/generator/GenerateButton.tsx";
 import OutputDisplay from "../../../components/generator/OutputDisplay.tsx";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
-import ItemRequest, {defaultItemRequest} from "../../../api-client/api-models/ItemRequest.ts";
+import ItemRequest, {defaultItemRequest} from "../../../api-client/api-models/generator/ItemRequest.ts";
 import EnchantedField from "../../../components/input-fields/impl/checkbox/EnchantedField.tsx";
 import HoverEffectField from "../../../components/input-fields/impl/checkbox/HoverEffectField.tsx";
 

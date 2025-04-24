@@ -7,7 +7,7 @@ import MaxLineLengthField from "../../../components/input-fields/impl/number/Max
 import AbiphoneField from "../../../components/input-fields/impl/checkbox/AbiphoneField.tsx";
 import MultiDialogueRequest, {
     defaultMultiDialogueRequest
-} from "../../../api-client/api-models/MultiDialogueRequest.ts";
+} from "../../../api-client/api-models/generator/MultiDialogueRequest.ts";
 import NpcNameListField from "../../../components/input-fields/impl/custom/list/NpcNameListField.tsx";
 import MultiNpcDialogueLineListField
     from "../../../components/input-fields/impl/custom/list/MultiNpcDialogueLineListField.tsx";

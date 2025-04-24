@@ -2,7 +2,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import {useState} from "react";
 import {v4 as uuid} from 'uuid';
 import MultiNpcDialogueLineField from "../MultiNpcDialogueLineField.tsx";
-import MultiDialogueLine from "../../../../../api-client/api-models/submodels/MultiDialogueLine.ts";
+import MultiDialogueLine from "../../../../../api-client/api-models/generator/submodels/MultiDialogueLine.ts";
 
 type LocalLine = {
     id: string;

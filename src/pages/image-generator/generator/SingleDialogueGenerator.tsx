@@ -2,7 +2,7 @@ import {useState} from "react";
 import postGetImg from "../../../api-client/requests/PostGetImg.ts";
 import GenerateButton from "../../../components/generator/GenerateButton.tsx";
 import OutputDisplay from "../../../components/generator/OutputDisplay.tsx";
-import SingleDialogueRequest, { defaultSingleDialogueRequest } from "../../../api-client/api-models/SingleDialogueRequest.ts";
+import SingleDialogueRequest, { defaultSingleDialogueRequest } from "../../../api-client/api-models/generator/SingleDialogueRequest.ts";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
 import MaxLineLengthField from "../../../components/input-fields/impl/number/MaxLineLengthField.tsx";
 import NpcNameField from "../../../components/input-fields/impl/small-text/NpcNameField.tsx";

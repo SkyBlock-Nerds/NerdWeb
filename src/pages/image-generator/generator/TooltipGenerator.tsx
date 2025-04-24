@@ -1,6 +1,6 @@
 import {useState} from "react";
 import postGetImg from "../../../api-client/requests/PostGetImg.ts";
-import TooltipRequest, {defaultTooltipRequest} from "../../../api-client/api-models/TooltipRequest.ts";
+import TooltipRequest, {defaultTooltipRequest} from "../../../api-client/api-models/generator/TooltipRequest.ts";
 import RarityField from "../../../components/input-fields/impl/dropdown/RarityField.tsx";
 import ItemIdField from "../../../components/input-fields/impl/dropdown/ItemIdField.tsx";
 import RecipeField from "../../../components/input-fields/impl/custom/RecipeField.tsx";
