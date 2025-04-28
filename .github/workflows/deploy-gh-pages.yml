@@ -1,10 +1,13 @@
-name: Deploy to GitHub Pages
+name: Publish to GitHub Pages
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+
+env:
+  ENV_FILE_VAR_NAME: ENV_FILE_PRODUCTION_main
 
 jobs:
   build:
@@ -20,7 +23,7 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "${{ vars.ENV_FILE }}" >> .env
+          echo "${{ vars[env.ENV_FILE_VAR_NAME] }}" > .env
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
