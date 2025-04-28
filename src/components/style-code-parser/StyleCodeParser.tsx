@@ -6,8 +6,8 @@ function StyleCodeParser({textToBeParsed}: { textToBeParsed: string | undefined 
     ) => {
         const parts =
             text
-            .split(/(&[0-9a-fk-or]|\n)/)
-            .filter(value => value !== "");
+                .split(/(&[0-9a-fk-or]|\n)/)
+                .filter(value => value !== "");
 
         let currentColor: string | null = defaultCode && colorMap[defaultCode] ? colorMap[defaultCode] : null;
         let isBold = false;
@@ -75,7 +75,7 @@ function StyleCodeParser({textToBeParsed}: { textToBeParsed: string | undefined 
             }
 
             if (part === "\n") {
-                return <br key={index} />;
+                return <br key={index}/> //TODO: find something that actually works here
             }
 
             const style = {
@@ -90,7 +90,6 @@ function StyleCodeParser({textToBeParsed}: { textToBeParsed: string | undefined 
 
             return (
                 <span key={index} style={style}>
-
                     {isObfuscated ? part.replace(/./g, "[]") : part}
                 </span>
             );
