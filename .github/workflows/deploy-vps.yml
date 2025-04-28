@@ -23,12 +23,12 @@ on:
   workflow_dispatch:
     inputs:
       innerPort:
-        description: 'inner Port:'
+        description: 'Inner port:'
         required: true
         default: 3000
         type: number
       outerPort:
-        description: 'outer Port:'
+        description: 'Outer port:'
         required: true
         default: 80
         type: number
