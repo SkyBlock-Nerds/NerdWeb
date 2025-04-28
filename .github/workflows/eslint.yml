@@ -5,10 +5,16 @@ on:
     branches:
       - main
       - dev
+      - 'feature-*'
+      - 'feature/*'
   pull_request:
     branches:
       - '*'
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
