@@ -1,15 +1,11 @@
-import {useState} from "react";
-import postGetImg from "../../../api-client/requests/PostGetImg.ts";
+import BaseGenerator from "../BaseGenerator.tsx";
 import TooltipRequest, {defaultTooltipRequest} from "../../../api-client/api-models/generator/TooltipRequest.ts";
 import RarityField from "../../../components/input-fields/impl/dropdown/RarityField.tsx";
 import ItemIdField from "../../../components/input-fields/impl/dropdown/ItemIdField.tsx";
 import RecipeField from "../../../components/input-fields/impl/custom/RecipeField.tsx";
 import AlphaField from "../../../components/input-fields/impl/number/AlphaField.tsx";
 import PaddingField from "../../../components/input-fields/impl/number/PaddingField.tsx";
-import DisableRarityLineBreakField
-    from "../../../components/input-fields/impl/checkbox/DisableRarityLineBreakField.tsx";
-import GenerateButton from "../../../components/generator/GenerateButton.tsx";
-import OutputDisplay from "../../../components/generator/OutputDisplay.tsx";
+import DisableRarityLineBreakField from "../../../components/input-fields/impl/checkbox/DisableRarityLineBreakField.tsx";
 import SmallTextField from "../../../components/input-fields/SmallTextField.tsx";
 import BigTextField from "../../../components/input-fields/BigTextField.tsx";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
@@ -21,33 +17,13 @@ import RenderBorderField from "../../../components/input-fields/impl/checkbox/Re
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
 
 function TooltipGenerator() {
-    const [currentRequest, setCurrentRequest] = useState<TooltipRequest>(defaultTooltipRequest);
-    const [output, setOutput] = useState<string | null>(null);
-    const [error, setError] = useState<string | null>(null);
-
-    const handleSubmit = async () => {
-        try {
-            setError(null);
-            setOutput(null);
-
-            setOutput(await postGetImg("/generator/tooltip", currentRequest));
-        } catch (error) {
-            console.log(error);
-            setError(
-                // @ts-expect-error default error type
-                new TextDecoder().decode(error.response?.data) ||
-                // @ts-expect-error default error type
-                error.message ||
-                "An error occurred while generating the image."
-            );
-        }
-    };
-
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-6 mt-2">
-                    <h5>Input:</h5>
+        <BaseGenerator<TooltipRequest>
+            defaultRequest={defaultTooltipRequest}
+            endpoint="/generator/tooltip"
+        >
+            {(currentRequest, setCurrentRequest) => (
+                <>
                     <div className="mb-3">
                         <SmallTextField
                             value={currentRequest.itemName}
@@ -69,7 +45,7 @@ function TooltipGenerator() {
                             formName={"itemLore"}
                             formInfo={"Enter the item lore here"}
                         />
-                        <StyleCodeParser textToBeParsed={currentRequest.itemLore}/>
+                        <StyleCodeParser textToBeParsed={currentRequest.itemLore} />
                     </div>
                     <div className="mb-3">
                         <SmallTextField
@@ -174,19 +150,9 @@ function TooltipGenerator() {
                             }
                         />
                     </div>
-
-                    <GenerateButton
-                        onClick={handleSubmit}
-                    />
-                </div>
-                <div className="col-md-6 mt-2">
-                    <OutputDisplay
-                        outputImg={output}
-                        error={error}
-                    />
-                </div>
-            </div>
-        </div>
+                </>
+            )}
+        </BaseGenerator>
     );
 }
 

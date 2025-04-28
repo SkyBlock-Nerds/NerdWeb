@@ -1,8 +1,5 @@
-import {useState} from "react";
-import postGetImg from "../../../api-client/requests/PostGetImg.ts";
-import GenerateButton from "../../../components/generator/GenerateButton.tsx";
-import OutputDisplay from "../../../components/generator/OutputDisplay.tsx";
-import SingleDialogueRequest, { defaultSingleDialogueRequest } from "../../../api-client/api-models/generator/SingleDialogueRequest.ts";
+import BaseGenerator from "../BaseGenerator.tsx";
+import SingleDialogueRequest, {defaultSingleDialogueRequest} from "../../../api-client/api-models/generator/SingleDialogueRequest.ts";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
 import MaxLineLengthField from "../../../components/input-fields/impl/number/MaxLineLengthField.tsx";
 import NpcNameField from "../../../components/input-fields/impl/small-text/NpcNameField.tsx";
@@ -10,33 +7,13 @@ import AbiphoneField from "../../../components/input-fields/impl/checkbox/Abipho
 import SingleNpcDialogueLineListField from "../../../components/input-fields/impl/custom/list/SingleNpcDialogueLineListField.tsx";
 
 function SingleDialogueGenerator() {
-    const [currentRequest, setCurrentRequest] = useState<SingleDialogueRequest>(defaultSingleDialogueRequest);
-    const [output, setOutput] = useState<string | null>(null);
-    const [error, setError] = useState<string | null>(null);
-
-    const handleSubmit = async () => {
-        try {
-            setError(null);
-            setOutput(null);
-
-            setOutput(await postGetImg("/generator/dialogue/single", currentRequest));
-        } catch (error) {
-            console.log(error);
-            setError(
-                // @ts-expect-error default error type
-                new TextDecoder().decode(error.response?.data) ||
-                // @ts-expect-error default error type
-                error.message ||
-                "An error occurred while generating the image."
-            );
-        }
-    };
-
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-6 mt-2">
-                    <h5>Input:</h5>
+        <BaseGenerator<SingleDialogueRequest>
+            defaultRequest={defaultSingleDialogueRequest}
+            endpoint="/generator/dialogue/single"
+        >
+            {(currentRequest, setCurrentRequest) => (
+                <>
                     <div className="mb-3">
                         <NpcNameField
                             value={currentRequest.npcName}
@@ -49,7 +26,7 @@ function SingleDialogueGenerator() {
                         <SingleNpcDialogueLineListField
                             setValue={(value) =>
                                 setCurrentRequest((prev) => ({...prev, dialogue: value}))
-                        }
+                            }
                         />
                     </div>
                     <div className="mb-3">
@@ -76,19 +53,9 @@ function SingleDialogueGenerator() {
                             }
                         />
                     </div>
-
-                    <GenerateButton
-                        onClick={handleSubmit}
-                    />
-                </div>
-                <div className="col-md-6 mt-2">
-                    <OutputDisplay
-                        outputImg={output}
-                        error={error}
-                    />
-                </div>
-            </div>
-        </div>
+                </>
+            )}
+        </BaseGenerator>
     );
 }
 
