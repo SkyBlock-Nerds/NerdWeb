@@ -102,12 +102,10 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           ssh-keyscan -H ${{ vars.SSH_HOST }} > ~/.ssh/known_hosts
 
-      - name: Login to GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
-
       - name: Deploy
         run: |
           ssh ${{ vars.SSH_USER }}@${{ vars.SSH_HOST }} << 'EOF'
+          echo "${{ secrets.GITHUB_TOKEN }}" | sudo docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
           sudo docker pull ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
           sudo docker stop $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]') || true
           sudo docker rm $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]') || true
