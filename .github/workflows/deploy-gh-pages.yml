@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  ENV_FILE_VAR_NAME: ENV_FILE_PRODUCTION_main
+  ENV_FILE_VAR_NAME: ENV_FILE_PRODUCTION_MAIN
 
 jobs:
   build:
