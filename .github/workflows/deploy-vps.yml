@@ -46,7 +46,6 @@ on:
   push:
     branches:
       - 'main'
-      - 'deploy_workflow'
     paths-ignore:
       - '**.md'
       - '.github/**'
