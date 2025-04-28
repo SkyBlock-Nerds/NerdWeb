@@ -16,7 +16,7 @@ function Accordion({ title, children }: {
         <div className="Accordion">
             <div className="AccordionTitle tertiary-color" onClick={toggleAccordion}>
                 <h5>{title}</h5>
-                <h4>{isOpen ? "=" : "+"}</h4>
+                <h4 style={{fontFamily: "monospace"}}>{isOpen ? "=" : "+"}</h4>
             </div>
             {isOpen && <div className="AccordionContent quaternary-color">{children}</div>}
         </div>
