@@ -119,7 +119,7 @@ function Sidebar() {
                                 </div>
                             ))}
                         </div>}
-                    title={"Stat"}
+                    title={"Stats"}
                 />
             </div>
             <button
