@@ -1,5 +1,4 @@
 # Usage:
-# - Runs automated tests to ensure the Java project builds correctly.
 # - If the build is successful, it packages the application into a Docker container.
 # - The container is pushed to GHCR and deployed to the vps.
 
