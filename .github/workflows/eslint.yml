@@ -5,8 +5,8 @@ on:
     branches:
       - main
       - dev
-      - 'feature-*'
-      - 'feature/*'
+      - 'feature-**'
+      - 'feature/**'
     paths-ignore:
       - '**.md'
       - '.github/**'
