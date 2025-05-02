@@ -1,5 +1,4 @@
 # Usage:
-# - Runs automated tests to ensure the Java project builds correctly.
 # - If the build is successful, it packages the application into a Docker container.
 # - The container is pushed to GHCR and deployed to the vps.
 
@@ -46,7 +45,6 @@ on:
   push:
     branches:
       - 'main'
-      - 'dev'
     paths-ignore:
       - '**.md'
       - '.github/**'
@@ -76,6 +74,7 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
 
       - name: Set ENV_FILE_VAR_NAME uppercase
+        if: ${{ env.USE_OLD_IMAGE == 'false' }}
         run: echo "ENV_FILE_VAR_NAME_UPPER=$(echo '${{ env.ENV_FILE_VAR_NAME }}' | tr '[:lower:]' '[:upper:]')" >> $GITHUB_ENV
 
       - name: Create .env file
