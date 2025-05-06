@@ -1,5 +1,5 @@
 import usePageTitle from "../../hooks/usePageTitle.ts";
-import {generatorMapping, getHistory} from "../../services/GeneratorHistory.ts";
+import {generatorMapping, getHistory, clearHistory} from "../../services/GeneratorHistory.ts";
 import ROUTES from "../../Routes.ts";
 import {useNavigate} from "react-router-dom";
 
@@ -8,6 +8,10 @@ function History() {
 
     const navigate = useNavigate();
     const history = getHistory();
+
+    const handleClearHistory = () => {
+        clearHistory();
+    };
 
     return (
         <div className="container mt-3">
@@ -53,6 +57,13 @@ function History() {
                     ))
                 )}
             </div>
+            {history.historyEntries.length > 0 && (
+                <div className="text-center my-4">
+                    <button onClick={handleClearHistory} className="btn btn-danger">
+                        Delete History
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

@@ -47,10 +47,16 @@ export const addToHistory = (newEntry: object, image?: string) => {
     const generatorType = newEntry.constructor.name;
 
     if (!generatorMapping[generatorType]) {
-        throw new Error("Cannot add history for this entry");
+        throw new Error("Cannot add history for this entry. (Type missing)");
     }
 
     const history = getHistory();
+
+    if (JSON.stringify(history.historyEntries.reverse()[0].value) === JSON.stringify(newEntry)) {
+        console.info("Not adding to history. (Same as previous entry)");
+        return;
+    }
+
     history.historyEntries.push(new HistoryEntry(newEntry, generatorType, image));
     while (history.historyEntries.length > MAX_HISTORY) {
         history.historyEntries.shift();
@@ -79,4 +85,8 @@ export const getHistory = (): History => {
     }
 
     return new History(parsedData.historyEntries);
+};
+
+export const clearHistory = () => {
+    localStorage.removeItem(HISTORY_KEY);
 };
