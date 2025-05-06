@@ -8,11 +8,15 @@ import ContainerNameField from "../../../components/input-fields/impl/small-text
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
 import {cleanupLocations} from "../../../api-client/api-models/generator/submodels/InventoryItem.ts";
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
+import { useLocation } from "react-router-dom";
 
 function InventoryGenerator() {
+    const location = useLocation();
+    const recoveredRequest = location.state?.recoveredRequest;
+
     return (
         <BaseGenerator<InventoryRequest>
-            defaultRequest={new InventoryRequest()}
+            defaultRequest={recoveredRequest || new InventoryRequest()}
             endpoint="/generator/inventory"
         >
             {(currentRequest, setCurrentRequest) => {

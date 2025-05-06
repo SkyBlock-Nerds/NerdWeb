@@ -5,11 +5,15 @@ import AbiphoneField from "../../../components/input-fields/impl/checkbox/Abipho
 import MultiDialogueRequest from "../../../api-client/api-models/generator/MultiDialogueRequest.ts";
 import NpcNameListField from "../../../components/input-fields/impl/custom/list/NpcNameListField.tsx";
 import MultiNpcDialogueLineListField from "../../../components/input-fields/impl/custom/list/MultiNpcDialogueLineListField.tsx";
+import { useLocation } from "react-router-dom";
 
 function MultiDialogueGenerator() {
+    const location = useLocation();
+    const recoveredRequest = location.state?.recoveredRequest;
+
     return (
         <BaseGenerator<MultiDialogueRequest>
-            defaultRequest={new MultiDialogueRequest()}
+            defaultRequest={recoveredRequest || new MultiDialogueRequest()}
             endpoint="/generator/dialogue/multi"
         >
             {(currentRequest, setCurrentRequest) => (

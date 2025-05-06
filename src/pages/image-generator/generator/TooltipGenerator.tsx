@@ -15,11 +15,15 @@ import MaxLineLengthField from "../../../components/input-fields/impl/number/Max
 import TooltipSideField from "../../../components/input-fields/impl/dropdown/TooltipSideField.tsx";
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
+import { useLocation } from "react-router-dom";
 
 function TooltipGenerator() {
+    const location = useLocation();
+    const recoveredRequest = location.state?.recoveredRequest;
+
     return (
         <BaseGenerator<TooltipRequest>
-            defaultRequest={new TooltipRequest()}
+            defaultRequest={recoveredRequest || new TooltipRequest()}
             endpoint="/generator/tooltip"
         >
             {(currentRequest, setCurrentRequest) => (

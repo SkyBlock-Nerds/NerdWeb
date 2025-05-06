@@ -4,11 +4,15 @@ import SkinTextureField from "../../../components/input-fields/impl/small-text/S
 import ItemRequest from "../../../api-client/api-models/generator/ItemRequest.ts";
 import EnchantedField from "../../../components/input-fields/impl/checkbox/EnchantedField.tsx";
 import HoverEffectField from "../../../components/input-fields/impl/checkbox/HoverEffectField.tsx";
+import { useLocation } from "react-router-dom";
 
 function ItemGenerator() {
+    const location = useLocation();
+    const recoveredRequest = location.state?.recoveredRequest;
+
     return (
         <BaseGenerator<ItemRequest>
-            defaultRequest={new ItemRequest()}
+            defaultRequest={recoveredRequest || new ItemRequest()}
             endpoint="/generator/item"
         >
             {(currentRequest, setCurrentRequest) => (

@@ -8,6 +8,10 @@ const headerButtons = [
         text: "Image Generators",
         link: ROUTES.IMAGE_GENERATOR,
     },
+    {
+        text: "Generator History",
+        link: ROUTES.HISTORY,
+    }
 ];
 
 function Header() {

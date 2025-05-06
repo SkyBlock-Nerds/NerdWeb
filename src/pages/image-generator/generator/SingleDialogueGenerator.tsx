@@ -5,11 +5,15 @@ import MaxLineLengthField from "../../../components/input-fields/impl/number/Max
 import NpcNameField from "../../../components/input-fields/impl/small-text/NpcNameField.tsx";
 import AbiphoneField from "../../../components/input-fields/impl/checkbox/AbiphoneField.tsx";
 import SingleNpcDialogueLineListField from "../../../components/input-fields/impl/custom/list/SingleNpcDialogueLineListField.tsx";
+import { useLocation } from "react-router-dom";
 
 function SingleDialogueGenerator() {
+    const location = useLocation();
+    const recoveredRequest = location.state?.recoveredRequest;
+
     return (
         <BaseGenerator<SingleDialogueRequest>
-            defaultRequest={new SingleDialogueRequest()}
+            defaultRequest={recoveredRequest || new SingleDialogueRequest()}
             endpoint="/generator/dialogue/single"
         >
             {(currentRequest, setCurrentRequest) => (

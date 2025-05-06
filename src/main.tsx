@@ -64,6 +64,10 @@ const router = createBrowserRouter([
                         element: <RecipeGenerator />
                     },
                 ]
+            },
+            {
+                path: ROUTES.HISTORY,
+                element: <History />,
             }
         ],
     },

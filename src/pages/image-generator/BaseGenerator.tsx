@@ -16,13 +16,16 @@ function BaseGenerator<T extends object>({defaultRequest, endpoint, children}: B
     const [output, setOutput] = useState<string | undefined>(undefined);
     const [error, setError] = useState<string | undefined>(undefined);
 
+    usePageTitle("Image Generator");
+
     const handleSubmit = async () => {
         try {
             setError(undefined);
             setOutput(undefined);
 
-            setOutput(await postGetImg(endpoint, currentRequest));
-            addToHistory(currentRequest, output);
+            const generatedOutput = await postGetImg(endpoint, currentRequest);
+            setOutput(generatedOutput);
+            addToHistory(currentRequest, generatedOutput);
         } catch (error) {
             console.log(error);
             setError(

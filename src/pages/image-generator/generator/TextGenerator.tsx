@@ -7,11 +7,15 @@ import CenteredField from "../../../components/input-fields/impl/checkbox/Center
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
 import BigTextField from "../../../components/input-fields/BigTextField.tsx";
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
+import { useLocation } from "react-router-dom";
 
 function TextGenerator() {
+    const location = useLocation();
+    const recoveredRequest = location.state?.recoveredRequest;
+
     return (
         <BaseGenerator<TextRequest>
-            defaultRequest={new TextRequest()}
+            defaultRequest={recoveredRequest || new TextRequest()}
             endpoint="/generator/text"
         >
             {(currentRequest, setCurrentRequest) => (
