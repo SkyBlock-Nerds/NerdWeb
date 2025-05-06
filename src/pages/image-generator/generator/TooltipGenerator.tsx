@@ -1,5 +1,5 @@
 import BaseGenerator from "../BaseGenerator.tsx";
-import TooltipRequest, {defaultTooltipRequest} from "../../../api-client/api-models/generator/TooltipRequest.ts";
+import TooltipRequest from "../../../api-client/api-models/generator/TooltipRequest.ts";
 import RarityField from "../../../components/input-fields/impl/dropdown/RarityField.tsx";
 import ItemIdField from "../../../components/input-fields/impl/dropdown/ItemIdField.tsx";
 import RecipeField from "../../../components/input-fields/impl/custom/RecipeField.tsx";
@@ -19,7 +19,7 @@ import StyleCodeParser from "../../../components/style-code-parser/StyleCodePars
 function TooltipGenerator() {
     return (
         <BaseGenerator<TooltipRequest>
-            defaultRequest={defaultTooltipRequest}
+            defaultRequest={new TooltipRequest()}
             endpoint="/generator/tooltip"
         >
             {(currentRequest, setCurrentRequest) => (

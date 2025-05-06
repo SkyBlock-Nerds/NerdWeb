@@ -1,5 +1,5 @@
 import BaseGenerator from "../BaseGenerator.tsx";
-import SingleDialogueRequest, {defaultSingleDialogueRequest} from "../../../api-client/api-models/generator/SingleDialogueRequest.ts";
+import SingleDialogueRequest from "../../../api-client/api-models/generator/SingleDialogueRequest.ts";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
 import MaxLineLengthField from "../../../components/input-fields/impl/number/MaxLineLengthField.tsx";
 import NpcNameField from "../../../components/input-fields/impl/small-text/NpcNameField.tsx";
@@ -9,7 +9,7 @@ import SingleNpcDialogueLineListField from "../../../components/input-fields/imp
 function SingleDialogueGenerator() {
     return (
         <BaseGenerator<SingleDialogueRequest>
-            defaultRequest={defaultSingleDialogueRequest}
+            defaultRequest={new SingleDialogueRequest()}
             endpoint="/generator/dialogue/single"
         >
             {(currentRequest, setCurrentRequest) => (

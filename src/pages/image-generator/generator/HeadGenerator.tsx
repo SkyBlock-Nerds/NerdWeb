@@ -1,11 +1,11 @@
 import BaseGenerator from "../BaseGenerator.tsx";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
-import HeadRequest, {defaultHeadRequest} from "../../../api-client/api-models/generator/HeadRequest.ts";
+import HeadRequest from "../../../api-client/api-models/generator/HeadRequest.ts";
 
 function HeadGenerator() {
     return (
         <BaseGenerator<HeadRequest>
-            defaultRequest={defaultHeadRequest}
+            defaultRequest={new HeadRequest()}
             endpoint="/generator/head"
         >
             {(currentRequest, setCurrentRequest) => (

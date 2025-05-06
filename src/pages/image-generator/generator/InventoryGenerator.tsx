@@ -1,5 +1,5 @@
 import BaseGenerator from "../BaseGenerator.tsx";
-import InventoryRequest, {defaultInventoryRequest} from "../../../api-client/api-models/generator/InventoryRequest.ts";
+import InventoryRequest from "../../../api-client/api-models/generator/InventoryRequest.ts";
 import InventoryField from "../../../components/input-fields/impl/custom/InventoryField.tsx";
 import RowField from "../../../components/input-fields/impl/number/RowField.tsx";
 import ColumnsField from "../../../components/input-fields/impl/number/ColumnsField.tsx";
@@ -12,7 +12,7 @@ import StyleCodeParser from "../../../components/style-code-parser/StyleCodePars
 function InventoryGenerator() {
     return (
         <BaseGenerator<InventoryRequest>
-            defaultRequest={defaultInventoryRequest}
+            defaultRequest={new InventoryRequest()}
             endpoint="/generator/inventory"
         >
             {(currentRequest, setCurrentRequest) => {

@@ -1,5 +1,5 @@
 import BaseGenerator from "../BaseGenerator.tsx";
-import TextRequest, {defaultTextRequest} from "../../../api-client/api-models/generator/TextRequest.ts";
+import TextRequest from "../../../api-client/api-models/generator/TextRequest.ts";
 import AlphaField from "../../../components/input-fields/impl/number/AlphaField.tsx";
 import PaddingField from "../../../components/input-fields/impl/number/PaddingField.tsx";
 import MaxLineLengthField from "../../../components/input-fields/impl/number/MaxLineLengthField.tsx";
@@ -11,7 +11,7 @@ import StyleCodeParser from "../../../components/style-code-parser/StyleCodePars
 function TextGenerator() {
     return (
         <BaseGenerator<TextRequest>
-            defaultRequest={defaultTextRequest}
+            defaultRequest={new TextRequest()}
             endpoint="/generator/text"
         >
             {(currentRequest, setCurrentRequest) => (

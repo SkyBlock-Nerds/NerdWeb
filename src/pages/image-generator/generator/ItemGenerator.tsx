@@ -1,14 +1,14 @@
 import BaseGenerator from "../BaseGenerator.tsx";
 import ItemIdField from "../../../components/input-fields/impl/dropdown/ItemIdField.tsx";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
-import ItemRequest, {defaultItemRequest} from "../../../api-client/api-models/generator/ItemRequest.ts";
+import ItemRequest from "../../../api-client/api-models/generator/ItemRequest.ts";
 import EnchantedField from "../../../components/input-fields/impl/checkbox/EnchantedField.tsx";
 import HoverEffectField from "../../../components/input-fields/impl/checkbox/HoverEffectField.tsx";
 
 function ItemGenerator() {
     return (
         <BaseGenerator<ItemRequest>
-            defaultRequest={defaultItemRequest}
+            defaultRequest={new ItemRequest()}
             endpoint="/generator/item"
         >
             {(currentRequest, setCurrentRequest) => (
