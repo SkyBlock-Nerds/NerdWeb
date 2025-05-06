@@ -40,6 +40,7 @@ function History() {
                                                     recoveredRequest: item.value, recoveredImage: item.image,
                                                 },
                                             });
+                                            window.scrollTo({ top: 0, behavior: "instant" });
                                         }
                                         }
                                         className="btn btn-primary"
