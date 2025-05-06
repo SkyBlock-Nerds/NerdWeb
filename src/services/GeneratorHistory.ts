@@ -13,7 +13,7 @@ const MAX_HISTORY: number = 50;
 
 export const generatorMapping: Record<string, { key: string; link: string; cuteName: string }> = {};
 generatorMapping[(new HeadRequest()).constructor.name] = {key: "head", link: ROUTES.HEAD_GENERATOR, cuteName: "Head"};
-generatorMapping[(new InventoryRequest()).constructor.name] = {key: "inventory", link: ROUTES.INVENTORY_GENERATOR, cuteName: "Invetory"};
+generatorMapping[(new InventoryRequest()).constructor.name] = {key: "inventory", link: ROUTES.INVENTORY_GENERATOR, cuteName: "Inventory"};
 generatorMapping[(new ItemRequest()).constructor.name] = {key: "item", link: ROUTES.DISPLAY_ITEM_GENERATOR, cuteName: "Item Display"};
 generatorMapping[(new MultiDialogueRequest()).constructor.name] = {key: "multiDialogue", link: ROUTES.MULTI_NPC_DIALOGUE_GENERATOR, cuteName: "Multi-Dialogue"};
 generatorMapping[(new RecipeRequest()).constructor.name] = {key: "recipe", link: ROUTES.RECIPE_GENERATOR, cuteName: "Recipe"};

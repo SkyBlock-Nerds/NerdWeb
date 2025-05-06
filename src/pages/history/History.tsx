@@ -30,13 +30,13 @@ function History() {
                                     <h3 className="card-title">
                                         {generatorMapping[item.generatorType].cuteName}
                                     </h3>
-                                    <p className="card-text">
+                                    <div className="mb-3">
                                         {Object.entries(item.value).map(([key, value]) => (
                                             <div key={key}>
                                                 <strong>{key}:</strong>  {typeof value === "object" ? <i>Cant be displayed</i> : String(value)}
                                             </div>
                                         ))}
-                                    </p>
+                                    </div>
                                     <button
                                         onClick={() => {
                                             navigate(generatorMapping[item.generatorType].link, {
