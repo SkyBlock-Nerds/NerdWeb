@@ -76,6 +76,7 @@ function TooltipGenerator() {
                     </div>
                     <div className="mb-3">
                         <RarityField
+                            value={currentRequest.rarity}
                             setValue={(value) =>
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new TooltipRequest();
@@ -87,6 +88,7 @@ function TooltipGenerator() {
                     </div>
                     <div className="mb-3">
                         <ItemIdField
+                            value={currentRequest.itemId}
                             setValue={(value) =>
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new TooltipRequest();
@@ -110,6 +112,7 @@ function TooltipGenerator() {
                     </div>
                     <div className="mb-3">
                         <RecipeField
+                            value={currentRequest.recipe}
                             setValue={(value) =>
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new TooltipRequest();
@@ -193,6 +196,7 @@ function TooltipGenerator() {
                     </div>
                     <div className="mb-3">
                         <TooltipSideField
+                            value={currentRequest.toolTipSide}
                             setValue={(value) =>
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new TooltipRequest();

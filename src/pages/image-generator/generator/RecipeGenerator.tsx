@@ -20,6 +20,7 @@ function RecipeGenerator() {
                     <>
                         <div className="mb-3">
                             <RecipeField
+                                value={currentRequest.recipe}
                                 setValue={(value) =>
                                     setCurrentRequest((prev) => {
                                         const updatedRequest = new RecipeRequest();

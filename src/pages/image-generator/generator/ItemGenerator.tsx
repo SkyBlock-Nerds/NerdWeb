@@ -19,6 +19,7 @@ function ItemGenerator() {
                 <>
                     <div className="mb-3">
                         <ItemIdField
+                            value={currentRequest.itemId}
                             setValue={(value) =>
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new ItemRequest();

@@ -15,9 +15,10 @@ function MultiNpcDialogueLineField({npcNames, dialogueLine, setDialogueLine, onR
             <div className="mb-3">
                 <div className="input-group align-items-start">
                     <DropdownField
-                        setValue={() => {
-                            /*No warrant on this: I wrote this 2 seconds ago and already forgot how it works*/
-                            const npcIndex = npcNames.findIndex((_, index) => index === dialogueLine.npcIndex);
+                        value={npcNames[dialogueLine.npcIndex]}
+                        /*No warranty on this: I wrote this 2 seconds ago and already forgot how it works*/
+                        setValue={(selectedValue) => {
+                            const npcIndex = npcNames.indexOf(selectedValue);
                             if (npcIndex !== -1) {
                                 dialogueLine.npcIndex = npcIndex;
                                 setDialogueLine({...dialogueLine});

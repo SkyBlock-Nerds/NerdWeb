@@ -25,6 +25,7 @@ function InventoryGenerator() {
                     <>
                         <div className="mb-3">
                             <InventoryField
+                                value={currentRequest.inventoryItems}
                                 setValue={(value) =>
                                     setCurrentRequest((prev) => {
                                         const updatedRequest = new InventoryRequest();

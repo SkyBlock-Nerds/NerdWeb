@@ -8,10 +8,13 @@ type LocalLine = {
     data: string;
 };
 
-function SingleNpcDialogueLineListField({setValue}: {
+function SingleNpcDialogueLineListField({setValue, value = []}: {
     setValue: (value: string[]) => void;
+    value?: string[];
 }) {
-    const [npcNames, setNpcNames] = useState<LocalLine[]>([]);
+    const [npcNames, setNpcNames] = useState<LocalLine[]>(
+        value.map((name) => ({ id: uuid(), data: name }))
+    );
 
     const handleSetInventoryItem = (index: number, updatedLine: string) => {
         const updatedItems = [...npcNames];
