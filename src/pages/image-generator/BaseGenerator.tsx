@@ -4,6 +4,7 @@ import OutputDisplay from "../../components/generator/OutputDisplay.tsx";
 import postGetImg from "../../api-client/requests/PostGetImg.ts";
 import {addToHistory} from "../../services/GeneratorHistory.ts";
 import usePageTitle from "../../hooks/usePageTitle.ts";
+import { useLocation } from "react-router-dom";
 
 interface BaseGeneratorProps<T> {
     defaultRequest: T;
@@ -13,7 +14,7 @@ interface BaseGeneratorProps<T> {
 
 function BaseGenerator<T extends object>({defaultRequest, endpoint, children}: BaseGeneratorProps<T>) {
     const [currentRequest, setCurrentRequest] = useState<T>(defaultRequest);
-    const [output, setOutput] = useState<string | undefined>(undefined);
+    const [output, setOutput] = useState<string | undefined>( useLocation().state?.recoveredImage || undefined);
     const [error, setError] = useState<string | undefined>(undefined);
 
     usePageTitle("Image Generator");

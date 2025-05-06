@@ -34,10 +34,13 @@ function History() {
                                         ))}
                                     </p>
                                     <button
-                                        onClick={() =>
+                                        onClick={() => {
                                             navigate(generatorMapping[item.generatorType].link, {
-                                                state: { recoveredRequest: item.value },
-                                            })
+                                                state: {
+                                                    recoveredRequest: item.value, recoveredImage: item.image,
+                                                },
+                                            });
+                                        }
                                         }
                                         className="btn btn-primary"
                                     >
