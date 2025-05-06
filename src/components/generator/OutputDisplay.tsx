@@ -1,6 +1,6 @@
 function OutputDisplay({outputImg, error}: {
-    outputImg: string | null;
-    error: string | null;
+    outputImg?: string;
+    error?: string;
 }) {
     return (
         <>

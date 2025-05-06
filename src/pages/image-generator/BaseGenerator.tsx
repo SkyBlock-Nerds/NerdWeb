@@ -11,13 +11,14 @@ interface BaseGeneratorProps<T> {
 
 function BaseGenerator<T extends object>({defaultRequest, endpoint, children}: BaseGeneratorProps<T>) {
     const [currentRequest, setCurrentRequest] = useState<T>(defaultRequest);
-    const [output, setOutput] = useState<string | null>(null);
-    const [error, setError] = useState<string | null>(null);
+    const [output, setOutput] = useState<string | undefined>(undefined);
+    const [error, setError] = useState<string | undefined>(undefined);
 
     const handleSubmit = async () => {
         try {
-            setError(null);
-            setOutput(null);
+            setError(undefined);
+            setOutput(undefined);
+
             setOutput(await postGetImg(endpoint, currentRequest));
         } catch (error) {
             console.log(error);

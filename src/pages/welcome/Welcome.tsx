@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import ROUTES from "../../Routes.ts";
 
 function Welcome() {
-    usePageTitle("Welcome - Nerd Bot");
+    usePageTitle("Welcome");
     const navigate = useNavigate();
 
     return (
