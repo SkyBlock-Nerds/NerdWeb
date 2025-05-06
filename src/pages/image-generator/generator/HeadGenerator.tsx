@@ -13,7 +13,11 @@ function HeadGenerator() {
                     <SkinTextureField
                         value={currentRequest.skinValue}
                         setValue={(value) =>
-                            setCurrentRequest((prev) => ({...prev, skinValue: value}))
+                            setCurrentRequest((prev) => {
+                                const updatedRequest = new HeadRequest();
+                                Object.assign(updatedRequest, prev, { skinValue: value });
+                                return updatedRequest;
+                            })
                         }
                     />
                 </div>

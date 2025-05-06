@@ -22,7 +22,11 @@ function InventoryGenerator() {
                         <div className="mb-3">
                             <InventoryField
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, inventoryItems: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { inventoryItems: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>
@@ -30,7 +34,11 @@ function InventoryGenerator() {
                             <RowField
                                 value={currentRequest.rows}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, rows: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { rows: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>
@@ -38,7 +46,11 @@ function InventoryGenerator() {
                             <ColumnsField
                                 value={currentRequest.columns}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, columns: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { columns: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>
@@ -46,7 +58,11 @@ function InventoryGenerator() {
                             <HoveredItemString
                                 value={currentRequest.hoveredItemString}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, hoveredItemString: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { hoveredItemString: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                             <StyleCodeParser textToBeParsed={currentRequest.hoveredItemString} />
@@ -55,7 +71,11 @@ function InventoryGenerator() {
                             <ContainerNameField
                                 value={currentRequest.containerName}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, containerName: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { containerName: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>
@@ -63,7 +83,11 @@ function InventoryGenerator() {
                             <RenderBorderField
                                 value={currentRequest.renderBorder}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, renderBorder: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { renderBorder: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>

@@ -17,7 +17,11 @@ function MultiDialogueGenerator() {
                     <div className="mb-3">
                         <NpcNameListField
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, npcNames: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new MultiDialogueRequest();
+                                    Object.assign(updatedRequest, prev, { npcNames: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -25,7 +29,11 @@ function MultiDialogueGenerator() {
                         <MultiNpcDialogueLineListField
                             npcNames={currentRequest.npcNames}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, dialogue: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new MultiDialogueRequest();
+                                    Object.assign(updatedRequest, prev, { dialogue: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -33,7 +41,11 @@ function MultiDialogueGenerator() {
                         <MaxLineLengthField
                             value={currentRequest.maxLineLength}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, maxLineLength: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new MultiDialogueRequest();
+                                    Object.assign(updatedRequest, prev, { maxLineLength: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -41,7 +53,11 @@ function MultiDialogueGenerator() {
                         <AbiphoneField
                             value={currentRequest.abiphone}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, abiphone: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new MultiDialogueRequest();
+                                    Object.assign(updatedRequest, prev, { abiphone: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -49,7 +65,11 @@ function MultiDialogueGenerator() {
                         <SkinTextureField
                             value={currentRequest.skinValue}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, skinValue: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new MultiDialogueRequest();
+                                    Object.assign(updatedRequest, prev, { skinValue: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>

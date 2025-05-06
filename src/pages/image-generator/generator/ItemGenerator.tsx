@@ -16,7 +16,11 @@ function ItemGenerator() {
                     <div className="mb-3">
                         <ItemIdField
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, itemId: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new ItemRequest();
+                                    Object.assign(updatedRequest, prev, { itemId: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -24,7 +28,11 @@ function ItemGenerator() {
                         <SkinTextureField
                             value={currentRequest.skinValue}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, skinValue: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new ItemRequest();
+                                    Object.assign(updatedRequest, prev, { skinValue: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -32,7 +40,11 @@ function ItemGenerator() {
                         <EnchantedField
                             value={currentRequest.enchanted}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, enchanted: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new ItemRequest();
+                                    Object.assign(updatedRequest, prev, { enchanted: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -40,7 +52,11 @@ function ItemGenerator() {
                         <HoverEffectField
                             value={currentRequest.hoverEffect}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, hoverEffect: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new ItemRequest();
+                                    Object.assign(updatedRequest, prev, { hoverEffect: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>

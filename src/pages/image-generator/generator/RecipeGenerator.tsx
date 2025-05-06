@@ -17,7 +17,11 @@ function RecipeGenerator() {
                         <div className="mb-3">
                             <RecipeField
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, recipe: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new RecipeRequest();
+                                        Object.assign(updatedRequest, prev, { recipe: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>
@@ -25,7 +29,11 @@ function RecipeGenerator() {
                             <RenderBackgroundField
                                 value={currentRequest.renderBackground}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, renderBackground: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new RecipeRequest();
+                                        Object.assign(updatedRequest, prev, { renderBackground: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>

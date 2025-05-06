@@ -20,7 +20,11 @@ function TextGenerator() {
                         <BigTextField
                             value={currentRequest.text}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, text: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { text: value });
+                                    return updatedRequest;
+                                })
                             }
                             formLabel={"Text:"}
                             formName={"text"}
@@ -32,7 +36,11 @@ function TextGenerator() {
                         <CenteredField
                             value={currentRequest.centered}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, centered: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { centered: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -40,7 +48,11 @@ function TextGenerator() {
                         <AlphaField
                             value={currentRequest.alpha}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, alpha: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { alpha: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -48,7 +60,11 @@ function TextGenerator() {
                         <PaddingField
                             value={currentRequest.padding}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, padding: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { padding: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -56,7 +72,11 @@ function TextGenerator() {
                         <MaxLineLengthField
                             value={currentRequest.maxLineLength}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, maxLineLength: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { maxLineLength: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -64,7 +84,11 @@ function TextGenerator() {
                         <RenderBorderField
                             value={currentRequest.renderBorder}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, renderBorder: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { renderBorder: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>

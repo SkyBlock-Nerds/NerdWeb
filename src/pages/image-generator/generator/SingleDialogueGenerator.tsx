@@ -18,14 +18,22 @@ function SingleDialogueGenerator() {
                         <NpcNameField
                             value={currentRequest.npcName}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, npcName: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new SingleDialogueRequest();
+                                    Object.assign(updatedRequest, prev, { npcName: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
                     <div className="mb-3">
                         <SingleNpcDialogueLineListField
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, dialogue: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new SingleDialogueRequest();
+                                    Object.assign(updatedRequest, prev, { dialogue: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -33,7 +41,11 @@ function SingleDialogueGenerator() {
                         <MaxLineLengthField
                             value={currentRequest.maxLineLength}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, maxLineLength: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new SingleDialogueRequest();
+                                    Object.assign(updatedRequest, prev, { maxLineLength: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -41,7 +53,11 @@ function SingleDialogueGenerator() {
                         <AbiphoneField
                             value={currentRequest.abiphone}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, abiphone: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new SingleDialogueRequest();
+                                    Object.assign(updatedRequest, prev, { abiphone: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -49,7 +65,11 @@ function SingleDialogueGenerator() {
                         <SkinTextureField
                             value={currentRequest.skinValue}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, skinValue: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new SingleDialogueRequest();
+                                    Object.assign(updatedRequest, prev, { skinValue: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>

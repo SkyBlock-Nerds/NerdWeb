@@ -28,7 +28,11 @@ function TooltipGenerator() {
                         <SmallTextField
                             value={currentRequest.itemName}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, itemName: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { itemName: value });
+                                    return updatedRequest;
+                                })
                             }
                             formLabel={"Item Name:"}
                             formName={"itemName"}
@@ -39,7 +43,11 @@ function TooltipGenerator() {
                         <BigTextField
                             value={currentRequest.itemLore}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, itemLore: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { itemLore: value });
+                                    return updatedRequest;
+                                })
                             }
                             formLabel={"Item Lore:"}
                             formName={"itemLore"}
@@ -51,7 +59,11 @@ function TooltipGenerator() {
                         <SmallTextField
                             value={currentRequest.itemType}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, itemType: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { itemType: value });
+                                    return updatedRequest;
+                                })
                             }
                             formLabel={"Item Type:"}
                             formName={"itemType"}
@@ -61,14 +73,22 @@ function TooltipGenerator() {
                     <div className="mb-3">
                         <RarityField
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, rarity: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { rarity: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
                     <div className="mb-3">
                         <ItemIdField
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, itemId: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { itemId: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -76,14 +96,22 @@ function TooltipGenerator() {
                         <SkinTextureField
                             value={currentRequest.skinValue}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, skinValue: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { skinValue: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
                     <div className="mb-3">
                         <RecipeField
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, recipe: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { recipe: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -91,7 +119,11 @@ function TooltipGenerator() {
                         <AlphaField
                             value={currentRequest.alpha}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, alpha: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { alpha: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -99,7 +131,11 @@ function TooltipGenerator() {
                         <PaddingField
                             value={currentRequest.padding}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, padding: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { padding: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -107,7 +143,11 @@ function TooltipGenerator() {
                         <DisableRarityLineBreakField
                             value={currentRequest.disableRarityLineBreak}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, disableRarityLineBreak: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { disableRarityLineBreak: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -115,7 +155,11 @@ function TooltipGenerator() {
                         <EnchantedField
                             value={currentRequest.enchanted}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, enchanted: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { enchanted: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -123,7 +167,11 @@ function TooltipGenerator() {
                         <PaddingFirstLineField
                             value={currentRequest.paddingFirstLine}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, paddingFirstLine: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { paddingFirstLine: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -131,14 +179,22 @@ function TooltipGenerator() {
                         <MaxLineLengthField
                             value={currentRequest.maxLineLength}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, maxLineLength: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { maxLineLength: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
                     <div className="mb-3">
                         <TooltipSideField
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, tooltipSide: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { tooltipSide: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -146,7 +202,11 @@ function TooltipGenerator() {
                         <RenderBorderField
                             value={currentRequest.renderBorder}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, renderBorder: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { renderBorder: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
