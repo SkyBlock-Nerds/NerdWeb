@@ -1,11 +1,12 @@
 import NerdBotIcon from '../../assets/icon.svg'
 import HeaderButton from "./HeaderButton.tsx";
 import {useNavigate} from "react-router-dom";
+import ROUTES from "../../Routes.ts";
 
 const headerButtons = [
     {
         text: "Image Generators",
-        link: "Image-Generator",
+        link: ROUTES.IMAGE_GENERATOR,
     },
 ];
 

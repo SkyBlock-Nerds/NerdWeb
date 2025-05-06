@@ -1,5 +1,6 @@
 import usePageTitle from "../../hooks/usePageTitle.ts";
 import {useNavigate} from "react-router-dom";
+import ROUTES from "../../Routes.ts";
 
 function Welcome() {
     usePageTitle("Welcome - Nerd Bot");
@@ -32,7 +33,7 @@ function Welcome() {
                 </a>
             </p>
 
-            <button className="btn btn-primary mt-3" onClick={() => navigate("/Image-Generator")}>
+            <button className="btn btn-primary mt-3" onClick={() => navigate(ROUTES.IMAGE_GENERATOR)}>
                 Get Started
             </button>
         </div>
