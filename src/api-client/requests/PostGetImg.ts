@@ -1,7 +1,6 @@
 import apiClient from "../AxiosInstance.ts";
 
 const postGetImg = async (url: string, data: object) => {
-    console.log(JSON.stringify(data));
     const response = await apiClient.post(url, data, {
         responseType: 'arraybuffer',
     });
