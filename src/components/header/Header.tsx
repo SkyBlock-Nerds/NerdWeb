@@ -1,4 +1,4 @@
-import NerdBotIcon from '../../assets/icon.svg'
+import NerdBotIcon from '../../assets/icon.svg';
 import HeaderButton from "./HeaderButton.tsx";
 import {useNavigate} from "react-router-dom";
 import ROUTES from "../../Routes.ts";
@@ -25,7 +25,7 @@ function Header() {
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
 export default Header;

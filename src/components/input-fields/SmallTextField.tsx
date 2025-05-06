@@ -22,8 +22,8 @@ function SmallTextField({value, setValue, formLabel, formName, formInfo}: {
                 required={true}
                 onChange={
                     (e) => {
-                        setValue(e.target.value)
-                        console.warn("")
+                        setValue(e.target.value);
+                        console.warn("");
                     }
                 }
             />

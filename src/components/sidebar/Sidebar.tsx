@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import "./Sidebar.css";
 import Accordion from "./Accordion";
-import colorCodesMap from "../style-code-parser/ColorCodes.ts"
+import colorCodesMap from "../style-code-parser/ColorCodes.ts";
 import formatCodesMap from "../style-code-parser/FormatCodes";
 import StyleCodeParser from "../style-code-parser/StyleCodeParser";
 import getIcon from "../../api-client/requests/GetIcon.ts";

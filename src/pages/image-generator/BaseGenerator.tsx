@@ -2,6 +2,8 @@ import {useState} from "react";
 import GenerateButton from "../../components/generator/GenerateButton.tsx";
 import OutputDisplay from "../../components/generator/OutputDisplay.tsx";
 import postGetImg from "../../api-client/requests/PostGetImg.ts";
+import {addToHistory} from "../../services/GeneratorHistory.ts";
+import usePageTitle from "../../hooks/usePageTitle.ts";
 
 interface BaseGeneratorProps<T> {
     defaultRequest: T;
@@ -20,6 +22,7 @@ function BaseGenerator<T extends object>({defaultRequest, endpoint, children}: B
             setOutput(undefined);
 
             setOutput(await postGetImg(endpoint, currentRequest));
+            addToHistory(currentRequest, output);
         } catch (error) {
             console.log(error);
             setError(

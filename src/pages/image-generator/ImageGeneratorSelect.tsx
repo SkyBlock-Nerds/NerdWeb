@@ -11,7 +11,7 @@ import inventoryImage from "../../assets/image-generator/inventory.png";
 import recipeImage from "../../assets/image-generator/recipe.png";
 import ROUTES from "../../Routes.ts";
 
-const baseGenCommand = "/gen2 "
+const baseGenCommand = "/gen2 ";
 
 const imageGeneratorList: {
     name: string;
@@ -137,7 +137,7 @@ function ImageGeneratorSelect() {
                                             <button
                                                 onClick={() => {
                                                     window.scrollTo({ top: 0, behavior: "smooth" });
-                                                    navigate(item.link)
+                                                    navigate(item.link);
                                                 }}
                                                 className="btn btn-primary"
                                             >

@@ -12,6 +12,6 @@ const postGetImg = async (url: string, data: object) => {
     );
 
     return `data:image/png;base64,${base64Image}`;
-}
+};
 
 export default postGetImg;
