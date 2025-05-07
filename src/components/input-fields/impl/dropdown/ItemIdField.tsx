@@ -2,7 +2,8 @@ import {useEffect, useState} from "react";
 import {getItemIdAutoComplete} from "../../../../api-client/requests/GetAutocomplete.ts";
 import DropdownField from "../../DropdownField.tsx";
 
-function ItemIdField({setValue, noLabel}: {
+function ItemIdField({value, setValue, noLabel}: {
+    value?: string;
     setValue: (value: string) => void;
     noLabel?: boolean;
 }) {
@@ -21,6 +22,7 @@ function ItemIdField({setValue, noLabel}: {
             <DropdownField
                 setValue={setValue}
                 options={options}
+                value={value}
                 formLabel={noLabel ? "" : "Item ID:"}
                 formName={"itemId"}
                 formInfo={"Select an Item ID"}

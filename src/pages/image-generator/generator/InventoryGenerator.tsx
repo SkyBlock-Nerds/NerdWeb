@@ -1,5 +1,5 @@
 import BaseGenerator from "../BaseGenerator.tsx";
-import InventoryRequest, {defaultInventoryRequest} from "../../../api-client/api-models/generator/InventoryRequest.ts";
+import InventoryRequest from "../../../api-client/api-models/generator/InventoryRequest.ts";
 import InventoryField from "../../../components/input-fields/impl/custom/InventoryField.tsx";
 import RowField from "../../../components/input-fields/impl/number/RowField.tsx";
 import ColumnsField from "../../../components/input-fields/impl/number/ColumnsField.tsx";
@@ -8,11 +8,15 @@ import ContainerNameField from "../../../components/input-fields/impl/small-text
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
 import {cleanupLocations} from "../../../api-client/api-models/generator/submodels/InventoryItem.ts";
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
+import { useLocation } from "react-router-dom";
 
 function InventoryGenerator() {
+    const location = useLocation();
+    const recoveredRequest = location.state?.recoveredRequest;
+
     return (
         <BaseGenerator<InventoryRequest>
-            defaultRequest={defaultInventoryRequest}
+            defaultRequest={recoveredRequest || new InventoryRequest()}
             endpoint="/generator/inventory"
         >
             {(currentRequest, setCurrentRequest) => {
@@ -21,8 +25,13 @@ function InventoryGenerator() {
                     <>
                         <div className="mb-3">
                             <InventoryField
+                                value={currentRequest.inventoryItems}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, inventoryItems: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { inventoryItems: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>
@@ -30,7 +39,11 @@ function InventoryGenerator() {
                             <RowField
                                 value={currentRequest.rows}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, rows: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { rows: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>
@@ -38,7 +51,11 @@ function InventoryGenerator() {
                             <ColumnsField
                                 value={currentRequest.columns}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, columns: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { columns: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>
@@ -46,7 +63,11 @@ function InventoryGenerator() {
                             <HoveredItemString
                                 value={currentRequest.hoveredItemString}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, hoveredItemString: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { hoveredItemString: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                             <StyleCodeParser textToBeParsed={currentRequest.hoveredItemString} />
@@ -55,7 +76,11 @@ function InventoryGenerator() {
                             <ContainerNameField
                                 value={currentRequest.containerName}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, containerName: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { containerName: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>
@@ -63,7 +88,11 @@ function InventoryGenerator() {
                             <RenderBorderField
                                 value={currentRequest.renderBorder}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, renderBorder: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { renderBorder: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>

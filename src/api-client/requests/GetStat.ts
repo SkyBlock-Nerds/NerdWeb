@@ -15,6 +15,6 @@ export const getStat = async (): Promise<Stat[]> => {
     }
 
     return statCache;
-}
+};
 
 export default getStat;

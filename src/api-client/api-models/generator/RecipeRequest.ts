@@ -5,17 +5,12 @@ class RecipeRequest {
     renderBackground?: boolean;
 
     constructor(
-        recipe: inventoryItem[],
-        renderBackground?: boolean
+        recipe: inventoryItem[] = [],
+        renderBackground: boolean = true
     ) {
         this.recipe = recipe;
         this.renderBackground = renderBackground;
     }
 }
-
-export const defaultRecipeRequest = new RecipeRequest(
-    [],
-    true
-);
 
 export default RecipeRequest;

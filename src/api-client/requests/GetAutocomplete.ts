@@ -11,7 +11,7 @@ const getAutocomplete = async (url: string): Promise<string[]> => {
         console.error("Error fetching autocomplete data:", error);
     }
     return [];
-}
+};
 
 export const getRarityAutoComplete = async (): Promise<string[]> => {
     if (rarityCache.length > 0) {
@@ -19,7 +19,7 @@ export const getRarityAutoComplete = async (): Promise<string[]> => {
     }
     rarityCache = await getAutocomplete("/search/rarity");
     return rarityCache;
-}
+};
 
 export const getTooltipSideAutoComplete = async (): Promise<string[]> => {
     if (tooltipSideCache.length > 0) {
@@ -27,7 +27,7 @@ export const getTooltipSideAutoComplete = async (): Promise<string[]> => {
     }
     tooltipSideCache = await getAutocomplete("/search/tooltip-side");
     return tooltipSideCache;
-}
+};
 
 export const getItemIdAutoComplete = async (): Promise<string[]> => {
     if (itemIdCache.length > 0) {
@@ -35,4 +35,4 @@ export const getItemIdAutoComplete = async (): Promise<string[]> => {
     }
     itemIdCache = await getAutocomplete("/search/item-id");
     return itemIdCache;
-}
+};

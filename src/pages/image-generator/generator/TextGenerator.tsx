@@ -1,5 +1,5 @@
 import BaseGenerator from "../BaseGenerator.tsx";
-import TextRequest, {defaultTextRequest} from "../../../api-client/api-models/generator/TextRequest.ts";
+import TextRequest from "../../../api-client/api-models/generator/TextRequest.ts";
 import AlphaField from "../../../components/input-fields/impl/number/AlphaField.tsx";
 import PaddingField from "../../../components/input-fields/impl/number/PaddingField.tsx";
 import MaxLineLengthField from "../../../components/input-fields/impl/number/MaxLineLengthField.tsx";
@@ -7,11 +7,15 @@ import CenteredField from "../../../components/input-fields/impl/checkbox/Center
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
 import BigTextField from "../../../components/input-fields/BigTextField.tsx";
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
+import { useLocation } from "react-router-dom";
 
 function TextGenerator() {
+    const location = useLocation();
+    const recoveredRequest = location.state?.recoveredRequest;
+
     return (
         <BaseGenerator<TextRequest>
-            defaultRequest={defaultTextRequest}
+            defaultRequest={recoveredRequest || new TextRequest()}
             endpoint="/generator/text"
         >
             {(currentRequest, setCurrentRequest) => (
@@ -20,7 +24,11 @@ function TextGenerator() {
                         <BigTextField
                             value={currentRequest.text}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, text: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { text: value });
+                                    return updatedRequest;
+                                })
                             }
                             formLabel={"Text:"}
                             formName={"text"}
@@ -32,7 +40,11 @@ function TextGenerator() {
                         <CenteredField
                             value={currentRequest.centered}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, centered: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { centered: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -40,7 +52,11 @@ function TextGenerator() {
                         <AlphaField
                             value={currentRequest.alpha}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, alpha: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { alpha: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -48,7 +64,11 @@ function TextGenerator() {
                         <PaddingField
                             value={currentRequest.padding}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, padding: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { padding: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -56,7 +76,11 @@ function TextGenerator() {
                         <MaxLineLengthField
                             value={currentRequest.maxLineLength}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, maxLineLength: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { maxLineLength: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>
@@ -64,7 +88,11 @@ function TextGenerator() {
                         <RenderBorderField
                             value={currentRequest.renderBorder}
                             setValue={(value) =>
-                                setCurrentRequest((prev) => ({...prev, renderBorder: value}))
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TextRequest();
+                                    Object.assign(updatedRequest, prev, { renderBorder: value });
+                                    return updatedRequest;
+                                })
                             }
                         />
                     </div>

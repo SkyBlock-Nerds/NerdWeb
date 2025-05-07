@@ -1,4 +1,5 @@
-function DropdownField({setValue, options, formLabel, formName, formInfo}: {
+function DropdownField({value, setValue, options, formLabel, formName, formInfo}: {
+    value?: string;
     setValue: (value: string) => void;
     options: string[];
     formLabel?: string;
@@ -20,9 +21,9 @@ function DropdownField({setValue, options, formLabel, formName, formInfo}: {
                     const selectedValue = e.target.value;
                     setValue(selectedValue);
                 }}
+                value={value || formInfo}
             >
-                <option disabled selected>{formInfo}</option>
-                {/*I'm aware this gives a console error but this looks better...*/}
+                <option disabled>{formInfo}</option>
 
                 {options.sort().map((option, index) => (
                     <option key={index} value={option}>

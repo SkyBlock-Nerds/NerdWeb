@@ -6,10 +6,10 @@ class SingleDialogueRequest {
     skinValue?: string;
 
     constructor(
-        npcName: string,
-        dialogue: string[],
-        maxLineLength?: number,
-        abiphone?: boolean,
+        npcName: string = "",
+        dialogue: string[] = [],
+        maxLineLength: number = 91,
+        abiphone: boolean = false,
         skinValue?: string
     ) {
         this.npcName = npcName;
@@ -19,13 +19,5 @@ class SingleDialogueRequest {
         this.skinValue = skinValue;
     }
 }
-
-export const defaultSingleDialogueRequest = new SingleDialogueRequest(
-    "",
-    [],
-    91,
-    false,
-    undefined
-);
 
 export default SingleDialogueRequest;

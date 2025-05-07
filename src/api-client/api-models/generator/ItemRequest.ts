@@ -6,10 +6,10 @@ class ItemRequest {
     data?: string;
 
     constructor(
-        itemId: string,
+        itemId: string = "",
         skinValue?: string,
-        hoverEffect?: boolean,
-        enchanted?: boolean,
+        hoverEffect: boolean = false,
+        enchanted: boolean = false,
         data?: string
     ) {
         this.itemId = itemId;
@@ -19,13 +19,5 @@ class ItemRequest {
         this.data = data;
     }
 }
-
-export const defaultItemRequest = new ItemRequest(
-    "",
-    "",
-    false,
-    false,
-    undefined
-);
 
 export default ItemRequest;

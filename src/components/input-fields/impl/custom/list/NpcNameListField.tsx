@@ -1,17 +1,20 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import {useState} from "react";
 import {v4 as uuid} from 'uuid';
-import NpcNameField from '../NpcNameField.tsx'
+import NpcNameField from '../NpcNameField.tsx';
 
 type LocalLine = {
     id: string;
     data: string;
 };
 
-function SingleNpcDialogueLineListField({setValue}: {
+function SingleNpcDialogueLineListField({setValue, value = []}: {
     setValue: (value: string[]) => void;
+    value?: string[];
 }) {
-    const [npcNames, setNpcNames] = useState<LocalLine[]>([]);
+    const [npcNames, setNpcNames] = useState<LocalLine[]>(
+        value.map((name) => ({ id: uuid(), data: name }))
+    );
 
     const handleSetInventoryItem = (index: number, updatedLine: string) => {
         const updatedItems = [...npcNames];

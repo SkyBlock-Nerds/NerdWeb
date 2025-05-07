@@ -31,7 +31,7 @@ function StyleCodeParser({textToBeParsed}: { textToBeParsed: string | undefined 
                 if (!/&[0-9a-fk-o]/.test(previousPart)) {
                     resetStyles();
                 }
-            }
+            };
 
             if (colorMap[part]) {
                 formatConditionalResetStyles();
@@ -75,7 +75,7 @@ function StyleCodeParser({textToBeParsed}: { textToBeParsed: string | undefined 
             }
 
             if (part === "\n") {
-                return <br key={index}/> //TODO: find something that actually works here
+                return <br key={index}/>; //TODO: find something that actually works here
             }
 
             const style = {

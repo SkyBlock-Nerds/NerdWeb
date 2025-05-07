@@ -9,11 +9,14 @@ type LocalItem = {
     data: InventoryItem;
 };
 
-function ItemListField({setValue, formTitle}: {
+function ItemListField({setValue, formTitle, value = []}: {
     setValue: (value: InventoryItem[]) => void;
     formTitle: string;
+    value?: InventoryItem[];
 }) {
-    const [items, setItems] = useState<LocalItem[]>([]);
+    const [items, setItems] = useState<LocalItem[]>(
+        value.map((item) => ({ id: uuid(), data: item }))
+    );
 
     const handleSetInventoryItem = (index: number, updatedItem: InventoryItem) => {
         const updatedItems = [...items];

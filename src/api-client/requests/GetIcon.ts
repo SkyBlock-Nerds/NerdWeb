@@ -15,6 +15,6 @@ export const getIcon = async (): Promise<Icon[]> => {
     }
 
     return iconCache;
-}
+};
 
 export default getIcon;

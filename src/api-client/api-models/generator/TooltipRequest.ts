@@ -19,22 +19,22 @@ class TooltipRequest {
     renderBorder?: boolean;
 
     constructor(
-        itemName?: string,
-        itemLore?: string,
-        itemType?: string,
-        rarity?: string,
-        itemId?: string,
-        skinValue?: string,
-        recipe?: InventoryItem[],
-        alpha?: number,
-        padding?: number,
-        disableRarityLineBreak?: boolean,
-        enchanted?: boolean,
-        centered?: boolean,
-        paddingFirstLine?: boolean,
-        maxLineLength?: number,
-        toolTipSide?: TooltipSide,
-        renderBorder?: boolean
+        itemName: string = "",
+        itemLore: string = "",
+        itemType: string = "",
+        rarity: string = "",
+        itemId: string = "",
+        skinValue: string = "",
+        recipe: InventoryItem[] = [],
+        alpha: number = 245,
+        padding: number = 0,
+        disableRarityLineBreak: boolean = false,
+        enchanted: boolean = false,
+        centered: boolean = false,
+        paddingFirstLine: boolean = true,
+        maxLineLength: number = 36,
+        toolTipSide: TooltipSide = TooltipSide.LEFT,
+        renderBorder: boolean = true
     ) {
         this.itemName = itemName;
         this.itemLore = itemLore;
@@ -59,24 +59,5 @@ export enum TooltipSide {
     LEFT = "left",
     RIGHT = "right",
 }
-
-export const defaultTooltipRequest = new TooltipRequest(
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    [],
-    245,
-    0,
-    false,
-    false,
-    false,
-    true,
-    36,
-    TooltipSide.LEFT,
-    true
-);
 
 export default TooltipRequest;
