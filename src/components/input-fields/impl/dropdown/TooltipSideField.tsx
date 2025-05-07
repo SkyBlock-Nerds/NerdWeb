@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {getTooltipSideAutoComplete} from "../../../../api-client/requests/GetAutocomplete.ts";
 import DropdownField from "../../DropdownField.tsx";
 
-function TooltipSideField({setValue}: { setValue: (value: string) => void }) {
+function TooltipSideField({value, setValue}: { value?: string; setValue: (value: string) => void }) {
     const [options, setOptions] = useState<string[]>([]);
 
     useEffect(() => {
@@ -16,6 +16,7 @@ function TooltipSideField({setValue}: { setValue: (value: string) => void }) {
     return (
         <>
             <DropdownField
+                value={value}
                 setValue={setValue}
                 options={options}
                 formLabel={"Tooltip side:"}

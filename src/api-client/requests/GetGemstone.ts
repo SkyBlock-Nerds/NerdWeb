@@ -15,6 +15,6 @@ export const getGemstone = async (): Promise<Gemstone[]> => {
     }
 
     return gemstoneCache;
-}
+};
 
 export default getGemstone;

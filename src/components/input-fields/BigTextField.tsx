@@ -21,7 +21,7 @@ function BigTextField({value, setValue, formLabel, formName, formInfo}: {
                 required={true}
                 onChange={
                     (e) => {
-                        setValue(e.target.value)
+                        setValue(e.target.value);
                     }
                 }
             />

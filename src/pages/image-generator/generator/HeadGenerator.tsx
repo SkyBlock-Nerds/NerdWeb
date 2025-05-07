@@ -1,11 +1,15 @@
 import BaseGenerator from "../BaseGenerator.tsx";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
-import HeadRequest, {defaultHeadRequest} from "../../../api-client/api-models/generator/HeadRequest.ts";
+import HeadRequest from "../../../api-client/api-models/generator/HeadRequest.ts";
+import { useLocation } from "react-router-dom";
 
 function HeadGenerator() {
+    const location = useLocation();
+    const recoveredRequest = location.state?.recoveredRequest;
+
     return (
         <BaseGenerator<HeadRequest>
-            defaultRequest={defaultHeadRequest}
+            defaultRequest={recoveredRequest || new HeadRequest()}
             endpoint="/generator/head"
         >
             {(currentRequest, setCurrentRequest) => (
@@ -13,7 +17,11 @@ function HeadGenerator() {
                     <SkinTextureField
                         value={currentRequest.skinValue}
                         setValue={(value) =>
-                            setCurrentRequest((prev) => ({...prev, skinValue: value}))
+                            setCurrentRequest((prev) => {
+                                const updatedRequest = new HeadRequest();
+                                Object.assign(updatedRequest, prev, { skinValue: value });
+                                return updatedRequest;
+                            })
                         }
                     />
                 </div>

@@ -7,12 +7,12 @@ class TextRequest {
     renderBorder?: boolean;
 
     constructor(
-        text: string,
-        centered?: boolean,
-        alpha?: number,
-        padding?: number,
-        maxLineLength?: number,
-        renderBorder?: boolean
+        text: string = "",
+        centered: boolean = false,
+        alpha: number = 245,
+        padding: number = 0,
+        maxLineLength: number = 91,
+        renderBorder: boolean = false
     ) {
         this.text = text;
         this.centered = centered;
@@ -22,14 +22,5 @@ class TextRequest {
         this.renderBorder = renderBorder;
     }
 }
-
-export const defaultTextRequest = new TextRequest(
-    "",
-    false,
-    245,
-    0,
-    91,
-    false
-);
 
 export default TextRequest;

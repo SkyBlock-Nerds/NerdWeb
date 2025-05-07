@@ -9,11 +9,14 @@ type LocalLine = {
     data: MultiDialogueLine;
 };
 
-function MultiNpcDialogueLineListField({setValue, npcNames}: {
+function MultiNpcDialogueLineListField({setValue, npcNames, value = []}: {
     npcNames: string[];
     setValue: (value: MultiDialogueLine[]) => void;
+    value?: MultiDialogueLine[];
 }) {
-    const [lines, setLines] = useState<LocalLine[]>([]);
+    const [lines, setLines] = useState<LocalLine[]>(
+        value.map((line) => ({ id: uuid(), data: line }))
+    );
 
     const handleSetInventoryItem = (index: number, updatedLine: MultiDialogueLine) => {
         const updatedItems = [...lines];
