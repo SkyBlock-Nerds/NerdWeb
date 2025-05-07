@@ -11,6 +11,7 @@ export const ROUTES = {
     INVENTORY_GENERATOR: "/Image-Generator/Inventory-Generator",
     RECIPE_GENERATOR: "/Image-Generator/Recipe-Generator",
     HISTORY: "/History",
+    ERROR: "/Error",
 };
 
 export default ROUTES;
