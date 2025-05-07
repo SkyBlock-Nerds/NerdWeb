@@ -30,6 +30,11 @@ on:
         required: true
         default: false
         type: boolean
+      environmentType:
+        description: 'Environment type (for image/container name):'
+        required: true
+        default: 'PRODUCTION'
+        type: string
       githubEnvironment:
         description: "The environment the secrets will be pulled from:"
         type: environment
@@ -45,7 +50,6 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/nerd-web-${{ github.event.inputs.environmentType || 'PRODUCTION' }}-${{ github.ref_name }}:latest
   CONTAINER_NAME: nerd-web-${{ github.event.inputs.environmentType || 'PRODUCTION' }}-${{ github.ref_name }}
-  ENVIRONMENT_NAME: ${{ github.event.inputs.environmentType || 'PRODUCTION' }}
   INNER_PORT: ${{ github.event.inputs.innerPort || '3000' }}
   OUTER_PORT: ${{ github.event.inputs.outerPort || '80' }}
   USE_OLD_IMAGE: ${{ github.event.inputs.useOldImage || 'false' }}
@@ -73,9 +77,9 @@ jobs:
       - name: Build and push Docker image
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
         run: |
-          docker build . --tag ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]') \
+          docker build . --tag ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-') \
             --build-arg ENV_FILE=.env
-          docker push ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
+          docker push ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-')
 
   deploy:
     needs: publish
@@ -94,14 +98,14 @@ jobs:
         run: |
           ssh ${{ vars.SSH_USER }}@${{ vars.SSH_HOST }} << 'EOF'
           echo "${{ secrets.GITHUB_TOKEN }}" | sudo docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
-          sudo docker pull ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
-          sudo docker stop $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]') || true
-          sudo docker rm $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]') || true
-          sudo docker rmi $(sudo docker images $(echo "${{ env.REGISTRY }}/${{ github.actor }}/${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]') -q) -f || true
+          sudo docker pull ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-')
+          sudo docker stop $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-') || true
+          sudo docker rm $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-') || true
+          sudo docker rmi $(sudo docker images $(echo "${{ env.REGISTRY }}/${{ github.actor }}/${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-') -q) -f || true
           sudo docker run -d \
-            --name $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]') \
+            --name $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-') \
             -p ${{ env.OUTER_PORT }}:${{ env.INNER_PORT }} \
-            ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
+            ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-')
           EOF
 
       - name: Cleanup SSH keys
