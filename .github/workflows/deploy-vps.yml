@@ -30,12 +30,10 @@ on:
         required: true
         default: false
         type: boolean
-      environmentType:
-        description: 'Environment type (All uppercase):'
+      githubEnvironment:
+        description: "The environment the secrets will be pulled from:"
+        type: environment
         required: true
-        default: 'PRODUCTION'
-        type: string
-
   push:
     branches:
       - 'main'
@@ -46,7 +44,6 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/nerd-web-${{ github.event.inputs.environmentType || 'PRODUCTION' }}-${{ github.ref_name }}:latest
-  ENV_FILE_VAR_NAME: ENV_FILE_${{ github.event.inputs.environmentType || 'PRODUCTION' }}
   CONTAINER_NAME: nerd-web-${{ github.event.inputs.environmentType || 'PRODUCTION' }}-${{ github.ref_name }}
   ENVIRONMENT_NAME: ${{ github.event.inputs.environmentType || 'PRODUCTION' }}
   INNER_PORT: ${{ github.event.inputs.innerPort || '3000' }}
@@ -57,6 +54,7 @@ jobs:
   publish:
     name: Publish image
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.githubEnvironment || 'MainBranch'}}
 
     steps:
       - name: Checkout code
@@ -67,14 +65,10 @@ jobs:
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
 
-      - name: Set ENV_FILE_VAR_NAME uppercase
-        if: ${{ env.USE_OLD_IMAGE == 'false' }}
-        run: echo "ENV_FILE_VAR_NAME_UPPER=$(echo '${{ env.ENV_FILE_VAR_NAME }}' | tr '[:lower:]' '[:upper:]')" >> $GITHUB_ENV
-
       - name: Create .env file
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
         run: |
-          echo "${{ vars[env.ENV_FILE_VAR_NAME_UPPER] }}" > .env
+          echo "${{ vars.ENV_FILE }}" > .env
 
       - name: Build and push Docker image
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
@@ -87,6 +81,7 @@ jobs:
     needs: publish
     name: Deploy image
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.githubEnvironment || 'MainBranch'}}
 
     steps:
       - name: Install SSH keys
