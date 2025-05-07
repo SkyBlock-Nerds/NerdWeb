@@ -3,18 +3,12 @@
 # - The container is pushed to GHCR and deployed to the vps.
 
 # Requirements:
-# - Config file on the vps. (should be named `{Environment}.config.json`)
-#   - Example: `production.config.json`
-#   - Environment default: production
 # - These secrets must be set up in the repository settings:
 #   - SSH_PRIVATE_KEY: Private SSH key for accessing the vps
 # - These variables must be set up in the repository settings:
 #   - SSH_USER: The SSH username for the vps
 #   - SSH_HOST: The SSH host (IP or domain) of the vps
-#   - ENV_FILE_{environmentType}_{branchName.toUpper()}: The .env file used by the app
-
-# WARNING: your branch name can only contain alphanumerical symbols or '_'.
-#   Reason: Github Secrets do not support '-' in the name.
+#   - ENV_FILE_{environmentType} The .env file used by the app (recommended to be in the environment vars)
 
 name: Publish to VPS
 
@@ -52,7 +46,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/nerd-web-${{ github.event.inputs.environmentType || 'PRODUCTION' }}-${{ github.ref_name }}:latest
-  ENV_FILE_VAR_NAME: ENV_FILE_${{ github.event.inputs.environmentType || 'PRODUCTION' }}_${{ github.ref_name }}
+  ENV_FILE_VAR_NAME: ENV_FILE_${{ github.event.inputs.environmentType || 'PRODUCTION' }}
   CONTAINER_NAME: nerd-web-${{ github.event.inputs.environmentType || 'PRODUCTION' }}-${{ github.ref_name }}
   ENVIRONMENT_NAME: ${{ github.event.inputs.environmentType || 'PRODUCTION' }}
   INNER_PORT: ${{ github.event.inputs.innerPort || '3000' }}
