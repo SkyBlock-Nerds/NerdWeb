@@ -68,6 +68,10 @@ const router = createBrowserRouter([
             {
                 path: ROUTES.HISTORY,
                 element: <History />,
+            },
+            {
+                path: ROUTES.ERROR,
+                element: <NotFound />,
             }
         ],
     },

@@ -40,7 +40,7 @@ function History() {
                                     </div>
                                     <button
                                         onClick={() => {
-                                            navigate(Object.entries(generatorMapping).find(([, value]) => value.key === item.generatorType)?.[1].link, {
+                                            navigate(Object.entries(generatorMapping).find(([, value]) => value.key === item.generatorType)?.[1].link ?? ROUTES.ERROR, {
                                                 state: {
                                                     recoveredRequest: item.value,
                                                     recoveredImage: item.image
