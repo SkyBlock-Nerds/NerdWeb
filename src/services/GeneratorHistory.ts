@@ -52,12 +52,12 @@ export const addToHistory = (newEntry: object, image?: string) => {
 
     const history = getHistory();
 
-    if (JSON.stringify(history.historyEntries.reverse()[0].value) === JSON.stringify(newEntry)) {
+    if (history.historyEntries.length > 0 && JSON.stringify(history.historyEntries.reverse()[0].value) === JSON.stringify(newEntry)) {
         console.info("Not adding to history. (Same as previous entry)");
         return;
     }
 
-    history.historyEntries.push(new HistoryEntry(newEntry, generatorType, image));
+    history.historyEntries.push(new HistoryEntry(newEntry, generatorMapping[generatorType].key, image));
     while (history.historyEntries.length > MAX_HISTORY) {
         history.historyEntries.shift();
     }

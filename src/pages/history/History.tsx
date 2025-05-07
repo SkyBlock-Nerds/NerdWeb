@@ -11,6 +11,7 @@ function History() {
 
     const handleClearHistory = () => {
         clearHistory();
+        window.location.reload();
     };
 
     return (
@@ -28,7 +29,7 @@ function History() {
                                 <img src={item.image} className="card-img-top pt-1" alt="Failed to load image" />
                                 <div className="card-body">
                                     <h3 className="card-title">
-                                        {generatorMapping[item.generatorType].cuteName}
+                                        {Object.entries(generatorMapping).find(([, value]) => value.key === item.generatorType)?.[1].cuteName}
                                     </h3>
                                     <div className="mb-3">
                                         {Object.entries(item.value).map(([key, value]) => (
@@ -39,9 +40,10 @@ function History() {
                                     </div>
                                     <button
                                         onClick={() => {
-                                            navigate(generatorMapping[item.generatorType].link, {
+                                            navigate(Object.entries(generatorMapping).find(([, value]) => value.key === item.generatorType)?.[1].link, {
                                                 state: {
-                                                    recoveredRequest: item.value, recoveredImage: item.image,
+                                                    recoveredRequest: item.value,
+                                                    recoveredImage: item.image
                                                 },
                                             });
                                             window.scrollTo({ top: 0, behavior: "instant" });
