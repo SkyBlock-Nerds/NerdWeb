@@ -23,7 +23,6 @@ function SmallTextField({value, setValue, formLabel, formName, formInfo}: {
                 onChange={
                     (e) => {
                         setValue(e.target.value);
-                        console.warn("");
                     }
                 }
             />
