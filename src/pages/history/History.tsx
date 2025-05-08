@@ -3,7 +3,7 @@ import {getHistory, clearHistory} from "../../services/GeneratorHistory.ts";
 import {FullGeneratorData, generatorMapping} from "../../services/FullGeneratorData.ts";
 import ROUTES from "../../Routes.ts";
 import {useNavigate} from "react-router-dom";
-import ShareButton from "../../components/generator/ShareButton.tsx";
+import ShareButton from "../../components/ShareButton.tsx";
 
 function History() {
     usePageTitle("History");
