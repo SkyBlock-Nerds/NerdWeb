@@ -23,6 +23,8 @@ Current Features:
     - Stats
 - A realtime preview of what your text will look like on big text inputs before you start generating:<br>
 <img src=".github/assets/images/PreviewFeature.png" alt="PreviewFeature.png"><br>
+- Share generator inputs feature
+  - You can easily click a button and send the link to someone, and it will share the inputs you gave for a certain gen
 
 Planned features:
 - A generator history saved in the cookies.
