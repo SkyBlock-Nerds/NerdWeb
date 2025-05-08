@@ -22,7 +22,8 @@ export const addToHistory = (newEntry: object, image?: string) => {
 
     const history = getHistory();
 
-    if (history.historyEntries.length > 0 && JSON.stringify(history.historyEntries.reverse()[0].value) === JSON.stringify(newEntry)) {
+    const lastEntry = history.historyEntries.length > 0 ? JSON.stringify([...history.historyEntries].reverse()[0].value) : null;
+    if (lastEntry === JSON.stringify(newEntry)) {
         console.info("Not adding to history. (Same as previous entry)");
         return;
     }
