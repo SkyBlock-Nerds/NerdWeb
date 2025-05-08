@@ -3,6 +3,8 @@
 /src
     main.tsx
       - Contains the routing for the app.
+    Routes.ts
+      - Contains the route data for the app. (constants)
     App.tsx
       - Contains the general layout for the app.
     /components

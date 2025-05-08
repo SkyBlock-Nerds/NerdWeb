@@ -17,4 +17,5 @@
 6. When everything is ready for another release:
    1. All changes will be merged into main.
    2. An automatic deployment will commence.
-   3. If the above succeeds the new version of the app will now be live!
+   3. The automatic deployment waits for a final signoff form a repo admin.
+   4. If all the above succeeds the new version of the app will now be live!
