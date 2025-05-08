@@ -5,7 +5,7 @@ import postGetImg from "../../api-client/requests/PostGetImg.ts";
 import {addToHistory} from "../../services/GeneratorHistory.ts";
 import usePageTitle from "../../hooks/usePageTitle.ts";
 import { useLocation } from "react-router-dom";
-import ShareButton from "../../components/generator/ShareButton.tsx";
+import ShareButton from "../../components/ShareButton.tsx";
 import {FullGeneratorData} from "../../services/FullGeneratorData.ts";
 import ROUTES from "../../Routes.ts";
 

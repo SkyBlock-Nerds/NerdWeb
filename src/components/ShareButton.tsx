@@ -1,16 +1,14 @@
-import ROUTES from "../../Routes.ts";
+import ROUTES from "../Routes.ts";
+import { compressToEncodedURIComponent } from "lz-string";
 
-function ShareButton({dataToShare, shareEndpoint}: {
-    dataToShare: object;
-    shareEndpoint: string;
-}) {
+function ShareButton({ dataToShare, shareEndpoint }: { dataToShare: object; shareEndpoint: string }) {
     const handleShare = () => {
         try {
             console.log(dataToShare);
 
             const jsonData = JSON.stringify(dataToShare);
-            const base64Data = btoa(jsonData);
-            const shareableLink = `${window.location.origin}${ROUTES.SHARE.BASE}${shareEndpoint}?data=${encodeURIComponent(base64Data)}`;
+            const compressedData = compressToEncodedURIComponent(jsonData);
+            const shareableLink = `${window.location.origin}${ROUTES.SHARE.BASE}${shareEndpoint}?data=${compressedData}`;
 
             navigator.clipboard.writeText(shareableLink)
                 .then(() => {
