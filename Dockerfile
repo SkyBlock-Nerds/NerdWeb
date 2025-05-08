@@ -16,12 +16,12 @@ COPY . .
 RUN npm run build
 
 # Final image
-FROM node:18-alpine
-WORKDIR /app
-COPY --from=builder /app/dist ./dist
+FROM nginx:alpine
 
-RUN npm i -g serve
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-EXPOSE 3000
+# COPY nginx.conf /etc/nginx/nginx.conf
 
-CMD [ "serve", "-s", "dist" ]
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
