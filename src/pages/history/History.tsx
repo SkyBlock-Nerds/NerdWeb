@@ -1,7 +1,9 @@
 import usePageTitle from "../../hooks/usePageTitle.ts";
-import {generatorMapping, getHistory, clearHistory} from "../../services/GeneratorHistory.ts";
+import {getHistory, clearHistory} from "../../services/GeneratorHistory.ts";
+import {FullGeneratorData, generatorMapping} from "../../services/FullGeneratorData.ts";
 import ROUTES from "../../Routes.ts";
 import {useNavigate} from "react-router-dom";
+import ShareButton from "../../components/generator/ShareButton.tsx";
 
 function History() {
     usePageTitle("History");
@@ -53,6 +55,12 @@ function History() {
                                     >
                                         Go to generator and recover inputs
                                     </button>
+                                    <div className="mt-1">
+                                        <ShareButton
+                                            dataToShare={new FullGeneratorData(item.value, item.generatorType)}
+                                            shareEndpoint={ROUTES.SHARE.GENERATOR}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>

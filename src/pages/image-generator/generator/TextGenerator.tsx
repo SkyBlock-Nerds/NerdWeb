@@ -11,7 +11,9 @@ import { useLocation } from "react-router-dom";
 
 function TextGenerator() {
     const location = useLocation();
-    const recoveredRequest = location.state?.recoveredRequest;
+    const recoveredRequest = location.state?.recoveredRequest
+        ? Object.assign(new TextRequest(), location.state.recoveredRequest)
+        : null;
 
     return (
         <BaseGenerator<TextRequest>

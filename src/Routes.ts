@@ -12,6 +12,10 @@ export const ROUTES = {
     RECIPE_GENERATOR: "/Image-Generator/Recipe-Generator",
     HISTORY: "/History",
     ERROR: "/Error",
+    SHARE : {
+        BASE: "/Share",
+        GENERATOR: "/Generator",
+    }
 };
 
 export default ROUTES;

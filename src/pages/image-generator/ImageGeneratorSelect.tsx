@@ -10,6 +10,7 @@ import headImage from "../../assets/image-generator/head.png";
 import inventoryImage from "../../assets/image-generator/inventory.png";
 import recipeImage from "../../assets/image-generator/recipe.png";
 import ROUTES from "../../Routes.ts";
+import CodeBox from "../../components/CodeBox.tsx";
 
 const baseGenCommand = "/gen2 ";
 
@@ -132,7 +133,7 @@ function ImageGeneratorSelect() {
                                             <p className="card-text">{item.description}</p>
                                             <p className="card-text">
                                                 Discord Equivalent:
-                                                <a className="rounded-4 px-2 py-1 ms-1 tertiary-color text-decoration-none">{item.discordEquivalent}</a>
+                                                <CodeBox text={item.discordEquivalent} />
                                             </p>
                                             <button
                                                 onClick={() => {
