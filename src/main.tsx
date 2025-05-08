@@ -16,6 +16,7 @@ import InventoryGenerator from "./pages/image-generator/generator/InventoryGener
 import SingleDialogueGenerator from "./pages/image-generator/generator/SingleDialogueGenerator.tsx";
 import MultiDialogueGenerator from "./pages/image-generator/generator/MultiDialogueGenerator.tsx";
 import History from "./pages/history/History.tsx";
+import Share from "./pages/share/Share.tsx";
 
 const router = createBrowserRouter([
     {
@@ -72,7 +73,11 @@ const router = createBrowserRouter([
             {
                 path: ROUTES.ERROR,
                 element: <NotFound />,
-            }
+            },
+            {
+                path: `${ROUTES.SHARE.BASE}/*`,
+                element: <Share />,
+            },
         ],
     },
 ]);
