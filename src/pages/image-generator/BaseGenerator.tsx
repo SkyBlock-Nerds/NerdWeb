@@ -5,6 +5,9 @@ import postGetImg from "../../api-client/requests/PostGetImg.ts";
 import {addToHistory} from "../../services/GeneratorHistory.ts";
 import usePageTitle from "../../hooks/usePageTitle.ts";
 import { useLocation } from "react-router-dom";
+import ShareButton from "../../components/generator/ShareButton.tsx";
+import {FullGeneratorData} from "../../services/FullGeneratorData.ts";
+import ROUTES from "../../Routes.ts";
 
 interface BaseGeneratorProps<T> {
     defaultRequest: T;
@@ -46,6 +49,12 @@ function BaseGenerator<T extends object>({defaultRequest, endpoint, children}: B
                     <h5>Input:</h5>
                     {children(currentRequest, setCurrentRequest)}
                     <GenerateButton onClick={handleSubmit} />
+                    <span className="ms-1">
+                        <ShareButton
+                            dataToShare={new FullGeneratorData(currentRequest)}
+                            shareEndpoint={ROUTES.SHARE.GENERATOR}
+                        />
+                    </span>
                 </div>
                 <div className="col-md-6 mt-2">
                     <OutputDisplay outputImg={output} error={error} />
