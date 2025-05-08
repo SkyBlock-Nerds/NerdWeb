@@ -26,7 +26,7 @@ on:
         default: 80
         type: number
       useOldImage:
-        description: 'Use old Docker image:'
+        description: 'Use old Docker image'
         required: true
         default: false
         type: boolean
@@ -36,7 +36,7 @@ on:
         default: 'PRODUCTION'
         type: string
       githubEnvironment:
-        description: "The environment the secrets will be pulled from:"
+        description: "The environment the .env file will be pulled from:"
         type: environment
         required: true
   push:
@@ -85,7 +85,7 @@ jobs:
     needs: publish
     name: Deploy image
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.githubEnvironment || 'MainBranch'}}
+    environment: SSHKey
 
     steps:
       - name: Install SSH keys
