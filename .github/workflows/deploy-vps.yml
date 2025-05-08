@@ -18,7 +18,7 @@ on:
       innerPort:
         description: 'Inner port:'
         required: true
-        default: 3000
+        default: 80
         type: number
       outerPort:
         description: 'Outer port:'
