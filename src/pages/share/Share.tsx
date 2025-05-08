@@ -1,3 +1,4 @@
+import {decompressFromEncodedURIComponent} from "lz-string";
 import {JSX, useEffect, useState} from "react";
 import {useNavigate, useParams, useSearchParams} from "react-router-dom";
 import ROUTES from "../../Routes.ts";
@@ -17,7 +18,8 @@ function Share() {
         if (!shareEndpoint) return;
 
         try {
-            const data = JSON.parse(atob(urlSearchParams.get("data") || ""));
+            const compressedData = urlSearchParams.get("data") || "";
+            const data = JSON.parse(decompressFromEncodedURIComponent(compressedData) || "");
 
             switch ('/' + shareEndpoint) {
                 case ROUTES.SHARE.GENERATOR:
@@ -45,10 +47,12 @@ function Share() {
         return <>Invalid share link.</>;
     }
 
-    return (<div className="container mt-3">
+    return (
+        <div className="container mt-3">
             <h1>Attempting to load shared link.</h1>
             {errorContent}
-        </div>);
+        </div>
+    );
 }
 
 export default Share;
