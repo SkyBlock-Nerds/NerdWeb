@@ -1,18 +1,14 @@
-# Contributing to NerdBot-Web
+# Contributing to NerdWeb
 
 ## Prerequisites:
-
-- [Node](https://nodejs.org/en/download)
 - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ## Recommended tools:
-
 - [Visual Studio Code](https://code.visualstudio.com/) (or any other code editor)
 - [GitHub Desktop](https://desktop.github.com/) (or any other git client)
 
 ## Getting Started
-
 1. Fork the repository
 
 2. Clone your fork<br>
@@ -21,40 +17,24 @@
    git clone https://github.com/your-username/NerdBot-Web.git
    ```
 
-3. Create your own .env file<br>
-   Copy the `.env.example` file to `.env` and fill in the required environment variables.<br><br>
+3. Create your own config files<br>
+   Copy the `.env.example` file to `.env` and fill in the required environment variables.<br>
+   If you are using docker you should also copy the `nginx.conf.example` file and rename the copy to `nginx.conf` and alter as needed<br><br>
 
-3. Install dependencies
+4. Install dependencies
    ```sh
    npm install
    ```
 
-4. Create a branch
+5. Create a branch
    ```sh
-   git checkout -b my-feature-branch
+   git checkout -b feature-branch
    ```
+   Do note the preferred branch name is `feature/shortDescriptionOfFeature`<br>
+   (if it's not a feature but a bugfix call it `bug-fix/shortDescriptionOfBugFix` same with other things)
 
 ## Making Changes
-
-1. Code style<br>
-   Ensure your code adheres to the project's coding standards. We use ESLint for linting.<br>
-   You can run the following command to check for issues:
-   ```sh
-   npm run lint
-   ```
-
-2. Commit your changes
-   ```sh
-   git add .
-   git commit -m "Add feature X"
-   ```
-
-3. Push to your fork
-   ```sh
-   git push origin my-feature-branch
-   ```
-
-4. Create a pull request
+see WORKFLOW.md
 
 ## Additional Resources
 

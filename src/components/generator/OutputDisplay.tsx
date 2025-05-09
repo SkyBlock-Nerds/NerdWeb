@@ -1,6 +1,6 @@
 function OutputDisplay({outputImg, error}: {
-    outputImg: string | null;
-    error: string | null;
+    outputImg?: string;
+    error?: string;
 }) {
     return (
         <>
@@ -10,7 +10,7 @@ function OutputDisplay({outputImg, error}: {
             </div>
             {error && <p className="text-danger">{error}</p>}
         </>
-    )
+    );
 }
 
 export default OutputDisplay;

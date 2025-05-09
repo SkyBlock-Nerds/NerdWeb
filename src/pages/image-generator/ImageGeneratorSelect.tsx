@@ -9,8 +9,10 @@ import dialogueSingleImage from "../../assets/image-generator/dialogue_single.pn
 import headImage from "../../assets/image-generator/head.png";
 import inventoryImage from "../../assets/image-generator/inventory.png";
 import recipeImage from "../../assets/image-generator/recipe.png";
+import ROUTES from "../../Routes.ts";
+import CodeBox from "../../components/CodeBox.tsx";
 
-const baseGenCommand = "/gen2 "
+const baseGenCommand = "/gen2 ";
 
 const imageGeneratorList: {
     name: string;
@@ -24,56 +26,56 @@ const imageGeneratorList: {
         discordEquivalent: baseGenCommand + "text",
         description: "Generate some text.",
         exampleImg: textImage,
-        link: "Text-Generator"
+        link: ROUTES.TEXT_GENERATOR
     },
     {
         name: "Full Item Generator",
         discordEquivalent: baseGenCommand + "item full",
         description: "Generate a full item image. Supports displaying items, recipes, and tooltips.",
         exampleImg: itemFullImage,
-        link: "Item-Full-Generator"
+        link: ROUTES.ITEM_FULL_GENERATOR
     },
     {
         name: "Item Display Generator",
         discordEquivalent: baseGenCommand + "item display",
         description: "Display an item.",
         exampleImg: itemDisplayImage,
-        link: "Display-Item-Generator"
+        link: ROUTES.DISPLAY_ITEM_GENERATOR
     },
     {
         name: "Inventory Generator",
         discordEquivalent: baseGenCommand + "inventory",
         description: "Generate an inventory.",
         exampleImg: inventoryImage,
-        link: "Inventory-Generator"
+        link: ROUTES.INVENTORY_GENERATOR
     },
     {
         name: "Recipe Generator",
         discordEquivalent: baseGenCommand + "recipe",
         description: "Generate a recipe.",
         exampleImg: recipeImage,
-        link: "Recipe-Generator"
+        link: ROUTES.RECIPE_GENERATOR
     },
     {
         name: "Multi NPC Dialogue Generator",
         discordEquivalent: baseGenCommand + "dialogue multi",
         description: "Generate dialogue for multiple NPCs.",
         exampleImg: dialogueMultiImage,
-        link: "Multi-NPC-Dialogue-Generator"
+        link: ROUTES.MULTI_NPC_DIALOGUE_GENERATOR
     },
     {
         name: "Single NPC Dialogue Generator",
         discordEquivalent: baseGenCommand + "dialogue single",
         description: "Generate dialogue for a single NPC.",
         exampleImg: dialogueSingleImage,
-        link: "Single-NPC-Dialogue-Generator"
+        link: ROUTES.SINGLE_NPC_DIALOGUE_GENERATOR
     },
     {
         name: "Head Generator",
         discordEquivalent: baseGenCommand + "head",
         description: "Generate a player head.",
         exampleImg: headImage,
-        link: "Head-Generator"
+        link: ROUTES.HEAD_GENERATOR
     },
 ];
 
@@ -131,12 +133,12 @@ function ImageGeneratorSelect() {
                                             <p className="card-text">{item.description}</p>
                                             <p className="card-text">
                                                 Discord Equivalent:
-                                                <a className="rounded-4 px-2 py-1 ms-1 tertiary-color text-decoration-none">{item.discordEquivalent}</a>
+                                                <CodeBox text={item.discordEquivalent} />
                                             </p>
                                             <button
                                                 onClick={() => {
                                                     window.scrollTo({ top: 0, behavior: "smooth" });
-                                                    navigate(item.link)
+                                                    navigate(item.link);
                                                 }}
                                                 className="btn btn-primary"
                                             >

@@ -16,10 +16,10 @@ class InventoryItem {
         this.extraData = extraData;
 
         if (this.location.length === 1) {
-            this.location = [location[0], location[0]]
+            this.location = [location[0], location[0]];
         } else if (this.location.length > 2) {
             console.warn("Invalid location given to Inventory Item Ctor", location);
-            this.location = [location[0], location[1]]
+            this.location = [location[0], location[1]];
         }
     }
 }

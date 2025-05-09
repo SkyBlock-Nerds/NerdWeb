@@ -6,12 +6,16 @@ function Footer() {
                     NerdBot GitHub Repo
                 </a>
                 <span>|</span>
+                <a href="https://github.com/Skyblock-Nerds/OrangeJuice/tree/dev" className="text-white mx-2" target="_blank">{/*TODO: remove dev branch ref*/}
+                    OrangeJuice GitHub Repo
+                </a>
+                <span>|</span>
                 <a href="https://github.com/Skyblock-Nerds/NerdWeb" className="text-white mx-2" target="_blank">
                     NerdWeb GitHub Repo
                 </a>
             </div>
         </footer>
-    )
+    );
 }
 
-export default Footer
+export default Footer;

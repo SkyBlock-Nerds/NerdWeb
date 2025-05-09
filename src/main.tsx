@@ -1,8 +1,9 @@
 import {StrictMode} from "react";
 import {createRoot} from "react-dom/client";
-import './index.css'
-import App from './App.tsx'
+import './index.css';
+import App from './App.tsx';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import ROUTES from "./Routes.ts";
 import Welcome from "./pages/welcome/Welcome.tsx";
 import NotFound from "./pages/error/NotFound.tsx";
 import ImageGeneratorSelect from "./pages/image-generator/ImageGeneratorSelect.tsx";
@@ -14,56 +15,69 @@ import RecipeGenerator from "./pages/image-generator/generator/RecipeGenerator.t
 import InventoryGenerator from "./pages/image-generator/generator/InventoryGenerator.tsx";
 import SingleDialogueGenerator from "./pages/image-generator/generator/SingleDialogueGenerator.tsx";
 import MultiDialogueGenerator from "./pages/image-generator/generator/MultiDialogueGenerator.tsx";
+import History from "./pages/history/History.tsx";
+import Share from "./pages/share/Share.tsx";
 
 const router = createBrowserRouter([
     {
-        path: import.meta.env.BASE_URL,
-        element: <App/>,
-        errorElement: <NotFound/>,
+        path: ROUTES.BASE,
+        element: <App />,
+        errorElement: <NotFound />,
         children: [
             {
-                path: "",
-                element: <Welcome/>,
+                path: ROUTES.WELCOME,
+                element: <Welcome />,
             },
             {
-                path: "Image-Generator",
-                element: <ImageGeneratorSelect/>,
+                path: ROUTES.IMAGE_GENERATOR,
+                element: <ImageGeneratorSelect />,
                 children: [
                     {
-                        path: "Text-Generator",
-                        element: <TextGenerator/>
+                        path: ROUTES.TEXT_GENERATOR,
+                        element: <TextGenerator />
                     },
                     {
-                        path: "Item-Full-Generator",
-                        element: <TooltipGenerator/>
+                        path: ROUTES.ITEM_FULL_GENERATOR,
+                        element: <TooltipGenerator />
                     },
                     {
-                        path: "Display-Item-Generator",
-                        element: <ItemGenerator/>
+                        path: ROUTES.DISPLAY_ITEM_GENERATOR,
+                        element: <ItemGenerator />
                     },
                     {
-                        path: "Multi-NPC-Dialogue-Generator",
-                        element: <MultiDialogueGenerator/>
+                        path: ROUTES.MULTI_NPC_DIALOGUE_GENERATOR,
+                        element: <MultiDialogueGenerator />
                     },
                     {
-                        path: "Single-NPC-Dialogue-Generator",
-                        element: <SingleDialogueGenerator/>
+                        path: ROUTES.SINGLE_NPC_DIALOGUE_GENERATOR,
+                        element: <SingleDialogueGenerator />
                     },
                     {
-                        path: "Head-Generator",
-                        element: <HeadGenerator/>
+                        path: ROUTES.HEAD_GENERATOR,
+                        element: <HeadGenerator />
                     },
                     {
-                        path: "Inventory-Generator",
-                        element: <InventoryGenerator/>
-
+                        path: ROUTES.INVENTORY_GENERATOR,
+                        element: <InventoryGenerator />
                     },
                     {
-                        path: "Recipe-Generator",
-                        element: <RecipeGenerator/>
+                        path: ROUTES.RECIPE_GENERATOR,
+                        element: <RecipeGenerator />
                     },
                 ]
-            }
+            },
+            {
+                path: ROUTES.HISTORY,
+                element: <History />,
+            },
+            {
+                path: ROUTES.ERROR,
+                element: <NotFound />,
+            },
+            {
+                path: `${ROUTES.SHARE.BASE}/*`,
+                element: <Share />,
+            },
         ],
     },
 ]);
@@ -72,4 +86,4 @@ createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <RouterProvider router={router}/>
     </StrictMode>
-)
+);

@@ -19,6 +19,7 @@ function ItemField({inventoryItem, setInventoryItem, onRemove}: {
                             setInventoryItem(inventoryItem);
                         }}
                         noLabel={true}
+                        value={inventoryItem.itemId}
                     />
                     <NumberField
                         setValue={(value) => {

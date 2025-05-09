@@ -1,13 +1,17 @@
 import BaseGenerator from "../BaseGenerator.tsx";
 import RecipeField from "../../../components/input-fields/impl/custom/RecipeField.tsx";
-import RecipeRequest, {defaultRecipeRequest} from "../../../api-client/api-models/generator/RecipeRequest.ts";
+import RecipeRequest from "../../../api-client/api-models/generator/RecipeRequest.ts";
 import RenderBackgroundField from "../../../components/input-fields/impl/checkbox/RenderBackgroundField.tsx";
 import {cleanupLocations} from "../../../api-client/api-models/generator/submodels/InventoryItem.ts";
+import { useLocation } from "react-router-dom";
 
 function RecipeGenerator() {
+    const location = useLocation();
+    const recoveredRequest = location.state?.recoveredRequest;
+
     return (
         <BaseGenerator<RecipeRequest>
-            defaultRequest={defaultRecipeRequest}
+            defaultRequest={recoveredRequest || new RecipeRequest()}
             endpoint="/generator/recipe"
         >
             {(currentRequest, setCurrentRequest) => {
@@ -16,8 +20,13 @@ function RecipeGenerator() {
                     <>
                         <div className="mb-3">
                             <RecipeField
+                                value={currentRequest.recipe}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, recipe: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new RecipeRequest();
+                                        Object.assign(updatedRequest, prev, { recipe: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>
@@ -25,7 +34,11 @@ function RecipeGenerator() {
                             <RenderBackgroundField
                                 value={currentRequest.renderBackground}
                                 setValue={(value) =>
-                                    setCurrentRequest((prev) => ({...prev, renderBackground: value}))
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new RecipeRequest();
+                                        Object.assign(updatedRequest, prev, { renderBackground: value });
+                                        return updatedRequest;
+                                    })
                                 }
                             />
                         </div>

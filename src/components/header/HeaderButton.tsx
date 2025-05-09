@@ -1,4 +1,4 @@
-import './HeaderButton.css'
+import './HeaderButton.css';
 
 interface HeaderButtonProps {
     text: string;
@@ -10,7 +10,7 @@ function HeaderButton({text, onClick}: HeaderButtonProps) {
         <div className="main-button p-2" onClick={onClick}>
             {text}
         </div>
-    )
+    );
 }
 
-export default HeaderButton
+export default HeaderButton;

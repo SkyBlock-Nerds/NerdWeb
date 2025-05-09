@@ -1,12 +1,13 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import usePageTitle from "../../hooks/usePageTitle.ts";
+import ROUTES from "../../Routes.ts";
 
 const NotFoundPage: React.FC = () => {
     const navigate = useNavigate();
 
     const handleGoHome = () => {
-        navigate('');
+        navigate(ROUTES.WELCOME);
     };
 
     usePageTitle('404 - Page Not Found');

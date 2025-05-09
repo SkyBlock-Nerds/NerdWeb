@@ -8,10 +8,10 @@ class MultiDialogueRequest {
     skinValue?: string;
 
     constructor(
-        npcNames: string[],
-        dialogue: MultiDialogueLine[],
-        maxLineLength?: number,
-        abiphone?: boolean,
+        npcNames: string[] = [],
+        dialogue: MultiDialogueLine[] = [],
+        maxLineLength: number = 91,
+        abiphone: boolean = false,
         skinValue?: string
     ) {
         this.npcNames = npcNames;
@@ -21,13 +21,5 @@ class MultiDialogueRequest {
         this.skinValue = skinValue;
     }
 }
-
-export const defaultMultiDialogueRequest = new MultiDialogueRequest(
-    [],
-    [],
-    91,
-    false,
-    undefined
-);
 
 export default MultiDialogueRequest;
