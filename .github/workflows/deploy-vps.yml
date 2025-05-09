@@ -74,6 +74,11 @@ jobs:
         run: |
           echo "${{ vars.ENV_FILE }}" > .env
 
+      - name: Create nginx.conf file
+        if: ${{ env.USE_OLD_IMAGE == 'false' }}
+        run: |
+          echo "${{ vars.NGINX_CONF }}" > nginx.conf
+
       - name: Build and push Docker image
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
         run: |
