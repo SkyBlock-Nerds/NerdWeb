@@ -109,6 +109,7 @@ jobs:
           sudo docker rmi $(sudo docker images $(echo "${{ env.REGISTRY }}/${{ github.actor }}/${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-') -q) -f || true
           sudo docker run -d \
             --name $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-') \
+            --restart unless-stopped \
             -p ${{ env.OUTER_PORT }}:${{ env.INNER_PORT }} \
             ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
           EOF
