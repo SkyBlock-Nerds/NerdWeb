@@ -48,7 +48,7 @@ env:
   CONTAINER_NAME: nerd-web-${{ github.event.inputs.environmentType || 'PRODUCTION' }}-${{ github.ref_name }}
   OUTER_PORT: ${{ github.event.inputs.outerPort || '443' }}
   USE_OLD_IMAGE: ${{ github.event.inputs.useOldImage || 'false' }}
-  PATH_TO_SSL_CERTIFICATE: ${{ github.event.inputs.pathToSSLCertificate && github.event.inputs.pathToSSLCertificate != '' && github.event.inputs.pathToSSLCertificate || vars.PATH_TO_SSL_CERTIFICATE }}
+  PATH_TO_SSL_CERTIFICATE: ${{ github.event.inputs.pathToSSLCertificate || vars.PATH_TO_SSL_CERTIFICATE }}
 
 jobs:
   publish:
