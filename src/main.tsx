@@ -1,22 +1,23 @@
-import {StrictMode} from "react";
+import {StrictMode, lazy, Suspense} from "react";
 import {createRoot} from "react-dom/client";
 import './index.css';
 import App from './App.tsx';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import ROUTES from "./Routes.ts";
-import Welcome from "./pages/welcome/Welcome.tsx";
 import NotFound from "./pages/error/NotFound.tsx";
-import ImageGeneratorSelect from "./pages/image-generator/ImageGeneratorSelect.tsx";
-import TextGenerator from "./pages/image-generator/generator/TextGenerator.tsx";
-import TooltipGenerator from "./pages/image-generator/generator/TooltipGenerator.tsx";
-import ItemGenerator from "./pages/image-generator/generator/ItemGenerator.tsx";
-import HeadGenerator from "./pages/image-generator/generator/HeadGenerator.tsx";
-import RecipeGenerator from "./pages/image-generator/generator/RecipeGenerator.tsx";
-import InventoryGenerator from "./pages/image-generator/generator/InventoryGenerator.tsx";
-import SingleDialogueGenerator from "./pages/image-generator/generator/SingleDialogueGenerator.tsx";
-import MultiDialogueGenerator from "./pages/image-generator/generator/MultiDialogueGenerator.tsx";
-import History from "./pages/history/History.tsx";
-import Share from "./pages/share/Share.tsx";
+import Welcome from "./pages/welcome/Welcome.tsx";
+
+const ImageGeneratorSelect = lazy(() => import('./pages/image-generator/ImageGeneratorSelect.tsx'));
+const TextGenerator = lazy(() => import('./pages/image-generator/generator/TextGenerator.tsx'));
+const TooltipGenerator = lazy(() => import('./pages/image-generator/generator/TooltipGenerator.tsx'));
+const ItemGenerator = lazy(() => import('./pages/image-generator/generator/ItemGenerator.tsx'));
+const HeadGenerator = lazy(() => import('./pages/image-generator/generator/HeadGenerator.tsx'));
+const RecipeGenerator = lazy(() => import('./pages/image-generator/generator/RecipeGenerator.tsx'));
+const InventoryGenerator = lazy(() => import('./pages/image-generator/generator/InventoryGenerator.tsx'));
+const SingleDialogueGenerator = lazy(() => import('./pages/image-generator/generator/SingleDialogueGenerator.tsx'));
+const MultiDialogueGenerator = lazy(() => import('./pages/image-generator/generator/MultiDialogueGenerator.tsx'));
+const History = lazy(() => import('./pages/history/History.tsx'));
+const Share = lazy(() => import('./pages/share/Share.tsx'));
 
 const router = createBrowserRouter([
     {
@@ -30,45 +31,45 @@ const router = createBrowserRouter([
             },
             {
                 path: ROUTES.IMAGE_GENERATOR,
-                element: <ImageGeneratorSelect />,
+                element: <Suspense fallback={null}><ImageGeneratorSelect /></Suspense>,
                 children: [
                     {
                         path: ROUTES.TEXT_GENERATOR,
-                        element: <TextGenerator />
+                        element: <Suspense fallback={null}><TextGenerator /></Suspense>
                     },
                     {
                         path: ROUTES.ITEM_FULL_GENERATOR,
-                        element: <TooltipGenerator />
+                        element: <Suspense fallback={null}><TooltipGenerator /></Suspense>
                     },
                     {
                         path: ROUTES.DISPLAY_ITEM_GENERATOR,
-                        element: <ItemGenerator />
+                        element: <Suspense fallback={null}><ItemGenerator /></Suspense>
                     },
                     {
                         path: ROUTES.MULTI_NPC_DIALOGUE_GENERATOR,
-                        element: <MultiDialogueGenerator />
+                        element: <Suspense fallback={null}><MultiDialogueGenerator /></Suspense>
                     },
                     {
                         path: ROUTES.SINGLE_NPC_DIALOGUE_GENERATOR,
-                        element: <SingleDialogueGenerator />
+                        element: <Suspense fallback={null}><SingleDialogueGenerator /></Suspense>
                     },
                     {
                         path: ROUTES.HEAD_GENERATOR,
-                        element: <HeadGenerator />
+                        element: <Suspense fallback={null}><HeadGenerator /></Suspense>
                     },
                     {
                         path: ROUTES.INVENTORY_GENERATOR,
-                        element: <InventoryGenerator />
+                        element: <Suspense fallback={null}><InventoryGenerator /></Suspense>
                     },
                     {
                         path: ROUTES.RECIPE_GENERATOR,
-                        element: <RecipeGenerator />
+                        element: <Suspense fallback={null}><RecipeGenerator /></Suspense>
                     },
                 ]
             },
             {
                 path: ROUTES.HISTORY,
-                element: <History />,
+                element: <Suspense fallback={null}><History /></Suspense>,
             },
             {
                 path: ROUTES.ERROR,
@@ -76,7 +77,7 @@ const router = createBrowserRouter([
             },
             {
                 path: `${ROUTES.SHARE.BASE}/*`,
-                element: <Share />,
+                element: <Suspense fallback={null}><Share /></Suspense>,
             },
         ],
     },
