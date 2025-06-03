@@ -3,6 +3,7 @@ import InventoryItem from "../../../../../api-client/api-models/generator/submod
 import {useState} from "react";
 import ItemField from "../ItemField.tsx";
 import {v4 as uuid} from 'uuid';
+import ItemLocation from "../../../../../api-client/api-models/generator/submodels/ItemLocation.ts";
 
 type LocalItem = {
     id: string;
@@ -48,7 +49,7 @@ function ItemListField({setValue, formTitle, value = []}: {
             <button
                 className="btn btn-secondary mt-2"
                 onClick={() =>
-                    setItems([...items, {id: uuid(), data: new InventoryItem("", [], 1)}])
+                    setItems([...items, {id: uuid(), data: new InventoryItem("", new ItemLocation(1), 1)}])
                 }
             >
                 Add Item
