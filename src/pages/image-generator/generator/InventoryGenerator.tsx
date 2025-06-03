@@ -6,7 +6,6 @@ import ColumnsField from "../../../components/input-fields/impl/number/ColumnsFi
 import HoveredItemString from "../../../components/input-fields/impl/big-text/HoveredItemString.tsx";
 import ContainerNameField from "../../../components/input-fields/impl/small-text/ContainerNameField.tsx";
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
-import {cleanupLocations} from "../../../api-client/api-models/generator/submodels/InventoryItem.ts";
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
 import { useLocation } from "react-router-dom";
 
@@ -20,7 +19,6 @@ function InventoryGenerator() {
             endpoint="/generator/inventory"
         >
             {(currentRequest, setCurrentRequest) => {
-                currentRequest.inventoryItems = cleanupLocations(currentRequest.inventoryItems);
                 return (
                     <>
                         <div className="mb-3">
