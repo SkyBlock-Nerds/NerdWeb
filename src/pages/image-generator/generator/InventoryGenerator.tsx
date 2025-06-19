@@ -8,10 +8,11 @@ import ContainerNameField from "../../../components/input-fields/impl/small-text
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
 import { useLocation } from "react-router-dom";
+import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
 
 function InventoryGenerator() {
     const location = useLocation();
-    const recoveredRequest = location.state?.recoveredRequest;
+    const recoveredRequest = ensureInstanceOf(location.state?.recoveredRequest, InventoryRequest);
 
     return (
         <BaseGenerator<InventoryRequest>

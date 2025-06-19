@@ -3,10 +3,11 @@ import RecipeField from "../../../components/input-fields/impl/custom/RecipeFiel
 import RecipeRequest from "../../../api-client/api-models/generator/RecipeRequest.ts";
 import RenderBackgroundField from "../../../components/input-fields/impl/checkbox/RenderBackgroundField.tsx";
 import { useLocation } from "react-router-dom";
+import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
 
 function RecipeGenerator() {
     const location = useLocation();
-    const recoveredRequest = location.state?.recoveredRequest;
+    const recoveredRequest = ensureInstanceOf(location.state?.recoveredRequest, RecipeRequest);
 
     return (
         <BaseGenerator<RecipeRequest>

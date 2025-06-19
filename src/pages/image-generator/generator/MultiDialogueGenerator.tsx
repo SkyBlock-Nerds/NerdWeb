@@ -6,10 +6,11 @@ import MultiDialogueRequest from "../../../api-client/api-models/generator/Multi
 import NpcNameListField from "../../../components/input-fields/impl/custom/list/NpcNameListField.tsx";
 import MultiNpcDialogueLineListField from "../../../components/input-fields/impl/custom/list/MultiNpcDialogueLineListField.tsx";
 import { useLocation } from "react-router-dom";
+import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
 
 function MultiDialogueGenerator() {
     const location = useLocation();
-    const recoveredRequest = location.state?.recoveredRequest;
+    const recoveredRequest = ensureInstanceOf(location.state?.recoveredRequest, MultiDialogueRequest);
 
     return (
         <BaseGenerator<MultiDialogueRequest>

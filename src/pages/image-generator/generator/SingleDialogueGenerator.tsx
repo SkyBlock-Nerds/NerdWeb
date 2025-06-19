@@ -6,10 +6,11 @@ import NpcNameField from "../../../components/input-fields/impl/small-text/NpcNa
 import AbiphoneField from "../../../components/input-fields/impl/checkbox/AbiphoneField.tsx";
 import SingleNpcDialogueLineListField from "../../../components/input-fields/impl/custom/list/SingleNpcDialogueLineListField.tsx";
 import { useLocation } from "react-router-dom";
+import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
 
 function SingleDialogueGenerator() {
     const location = useLocation();
-    const recoveredRequest = location.state?.recoveredRequest;
+    const recoveredRequest = ensureInstanceOf(location.state?.recoveredRequest, SingleDialogueRequest);
 
     return (
         <BaseGenerator<SingleDialogueRequest>
