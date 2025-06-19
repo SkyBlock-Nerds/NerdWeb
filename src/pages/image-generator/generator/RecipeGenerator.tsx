@@ -2,7 +2,6 @@ import BaseGenerator from "../BaseGenerator.tsx";
 import RecipeField from "../../../components/input-fields/impl/custom/RecipeField.tsx";
 import RecipeRequest from "../../../api-client/api-models/generator/RecipeRequest.ts";
 import RenderBackgroundField from "../../../components/input-fields/impl/checkbox/RenderBackgroundField.tsx";
-import {cleanupLocations} from "../../../api-client/api-models/generator/submodels/InventoryItem.ts";
 import { useLocation } from "react-router-dom";
 
 function RecipeGenerator() {
@@ -15,7 +14,6 @@ function RecipeGenerator() {
             endpoint="/generator/recipe"
         >
             {(currentRequest, setCurrentRequest) => {
-                currentRequest.recipe = cleanupLocations(currentRequest.recipe);
                 return (
                     <>
                         <div className="mb-3">
