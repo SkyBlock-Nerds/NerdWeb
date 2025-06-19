@@ -5,10 +5,11 @@ import ItemRequest from "../../../api-client/api-models/generator/ItemRequest.ts
 import EnchantedField from "../../../components/input-fields/impl/checkbox/EnchantedField.tsx";
 import HoverEffectField from "../../../components/input-fields/impl/checkbox/HoverEffectField.tsx";
 import { useLocation } from "react-router-dom";
+import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
 
 function ItemGenerator() {
     const location = useLocation();
-    const recoveredRequest = location.state?.recoveredRequest;
+    const recoveredRequest = ensureInstanceOf(location.state?.recoveredRequest, ItemRequest);
 
     return (
         <BaseGenerator<ItemRequest>

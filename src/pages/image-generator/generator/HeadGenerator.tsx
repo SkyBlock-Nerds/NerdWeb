@@ -2,10 +2,11 @@ import BaseGenerator from "../BaseGenerator.tsx";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
 import HeadRequest from "../../../api-client/api-models/generator/HeadRequest.ts";
 import { useLocation } from "react-router-dom";
+import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
 
 function HeadGenerator() {
     const location = useLocation();
-    const recoveredRequest = location.state?.recoveredRequest;
+    const recoveredRequest = ensureInstanceOf(location.state?.recoveredRequest, HeadRequest);
 
     return (
         <BaseGenerator<HeadRequest>
