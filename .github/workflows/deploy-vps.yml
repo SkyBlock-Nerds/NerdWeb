@@ -1,6 +1,6 @@
 # Usage:
 # - If the build is successful, it packages the application into a Docker container.
-# - The container is pushed to GHCR and deployed to the vps.
+# - The container is pushed to GHCR, pulled and deployed on the vps.
 
 # Requirements:
 # - These secrets must be set up in the repository settings:
@@ -9,7 +9,6 @@
 #   - SSH_USER: The SSH username for the vps
 #   - SSH_HOST: The SSH host (IP or domain) of the vps
 #   - ENV_FILE: The .env file used by the app (recommended to be in the environment vars)
-#   - NGINX_CONF: The nginx.conf file used by the app (recommended to be in the environment vars)
 
 name: Publish to VPS
 
@@ -28,9 +27,6 @@ on:
       environmentType:
         description: 'Environment type (for image/container name):'
         type: string
-      pathToSSLCertificate:
-        description: 'Path To SSL certificate folder:'
-        type: string
       githubEnvironment:
         description: "The environment the .env file will be pulled from:"
         type: environment
@@ -48,7 +44,6 @@ env:
   CONTAINER_NAME: nerd-web-${{ github.event.inputs.environmentType || 'PRODUCTION' }}-${{ github.ref_name }}
   OUTER_PORT: ${{ github.event.inputs.outerPort || '443' }}
   USE_OLD_IMAGE: ${{ github.event.inputs.useOldImage || 'false' }}
-  PATH_TO_SSL_CERTIFICATE: ${{ github.event.inputs.pathToSSLCertificate || vars.PATH_TO_SSL_CERTIFICATE }}
 
 jobs:
   publish:
@@ -71,13 +66,6 @@ jobs:
           echo "${{ vars.ENV_FILE }}" > .env
           echo "Contents of .env:"
           cat .env
-
-      - name: Create nginx.conf file
-        if: ${{ env.USE_OLD_IMAGE == 'false' }}
-        run: |
-          echo "${{ vars.NGINX_CONF }}" > nginx.conf
-          echo "Contents of nginx.conf:"
-          cat nginx.conf
 
       - name: Build and push Docker image
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
@@ -110,8 +98,6 @@ jobs:
           sudo docker run -d \
             --name $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-') \
             --restart unless-stopped \
-            -v ${{ vars.PATH_TO_SSL_CERTIFICATE }}/fullchain.pem:/fullchain.pem:ro \
-            -v ${{ vars.PATH_TO_SSL_CERTIFICATE }}/privkey.pem:/privkey.pem:ro \
             -p ${{ env.OUTER_PORT }}:3000 \
             ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')
           EOF
