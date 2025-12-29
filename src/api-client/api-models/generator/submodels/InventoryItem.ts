@@ -2,7 +2,7 @@ import ItemLocation from "./ItemLocation.ts";
 
 class InventoryItem {
     itemId: string;
-    locations: ItemLocation[];
+    location: ItemLocation[]; // rename back to locations when backend gets fixed
     amount?: number;
     extraData?: string;
 
@@ -13,7 +13,7 @@ class InventoryItem {
         extraData?: string
     ) {
         this.itemId = itemId;
-        this.locations = [location];
+        this.location = [location];
         this.amount = amount;
         this.extraData = extraData;
     }
