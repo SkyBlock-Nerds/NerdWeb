@@ -23,23 +23,23 @@ function ItemField({inventoryItem, setInventoryItem, onRemove}: {
                     />
                     <NumberField
                         setValue={(value) => {
-                            inventoryItem.location[0].location1 = value ?? 0;
+                            inventoryItem.locations[0].location1 = value ?? 0;
                             setInventoryItem(inventoryItem);
                         }}
                         minValue={0}
                         formInfo="From Location"
                         formName="fromLocation"
-                        value={inventoryItem.location[0].location1}
+                        value={inventoryItem.locations[0].location1}
                     />
                     <NumberField
                         setValue={(value) => {
-                            inventoryItem.location[0].location2 = value ?? 0;
+                            inventoryItem.locations[0].location2 = value ?? 0;
                             setInventoryItem(inventoryItem);
                         }}
-                        minValue={inventoryItem.location[0].location1}
+                        minValue={inventoryItem.locations[0].location1}
                         formInfo="To Location"
                         formName="toLocation"
-                        value={inventoryItem.location[0].location2}
+                        value={inventoryItem.locations[0].location2}
                     />
                     <NumberField
                         setValue={(value) => {
