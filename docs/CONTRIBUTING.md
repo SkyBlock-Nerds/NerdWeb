@@ -34,7 +34,7 @@
    (if it's not a feature but a bugfix call it `bug-fix/shortDescriptionOfBugFix` same with other things)
 
 ## Making Changes
-see WORKFLOW.md
+see [WORKFLOW.md](./WORKFLOW.md)
 
 ## Additional Resources
 
