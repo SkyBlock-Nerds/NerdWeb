@@ -1,19 +1,19 @@
 ## File Structure
 ```
 /src
-    main.tsx
+    /main.tsx
       - Contains the routing for the app.
-    Routes.ts
+    /Routes.ts
       - Contains the route data for the app. (constants)
-    App.tsx
+    /App.tsx
       - Contains the general layout for the app.
-    /components
+    /components/
         - Contains reusable components (and components that are part of the layout).
-    /pages
+    /pages/
         - Contains the pages of the application.
-    /assets
-    /hooks
-    /api-client
+    /assets/
+    /hooks/
+    /api-client/
         - Contains all api logic/support.
 ```
 
