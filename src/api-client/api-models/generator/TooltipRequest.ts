@@ -10,7 +10,6 @@ class TooltipRequest {
     recipe?: InventoryItem[];
     alpha?: number;
     padding?: number;
-    disableRarityLineBreak?: boolean;
     enchanted?: boolean;
     centered?: boolean;
     paddingFirstLine?: boolean;
@@ -28,7 +27,6 @@ class TooltipRequest {
         recipe: InventoryItem[] = [],
         alpha: number = 245,
         padding: number = 0,
-        disableRarityLineBreak: boolean = false,
         enchanted: boolean = false,
         centered: boolean = false,
         paddingFirstLine: boolean = true,
@@ -45,7 +43,6 @@ class TooltipRequest {
         this.recipe = recipe;
         this.alpha = alpha;
         this.padding = padding;
-        this.disableRarityLineBreak = disableRarityLineBreak;
         this.enchanted = enchanted;
         this.centered = centered;
         this.paddingFirstLine = paddingFirstLine;

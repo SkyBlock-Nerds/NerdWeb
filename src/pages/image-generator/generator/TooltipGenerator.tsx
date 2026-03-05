@@ -5,7 +5,6 @@ import ItemIdField from "../../../components/input-fields/impl/dropdown/ItemIdFi
 import RecipeField from "../../../components/input-fields/impl/custom/RecipeField.tsx";
 import AlphaField from "../../../components/input-fields/impl/number/AlphaField.tsx";
 import PaddingField from "../../../components/input-fields/impl/number/PaddingField.tsx";
-import DisableRarityLineBreakField from "../../../components/input-fields/impl/checkbox/DisableRarityLineBreakField.tsx";
 import SmallTextField from "../../../components/input-fields/SmallTextField.tsx";
 import BigTextField from "../../../components/input-fields/BigTextField.tsx";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
@@ -142,18 +141,6 @@ function TooltipGenerator() {
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new TooltipRequest();
                                     Object.assign(updatedRequest, prev, { padding: value });
-                                    return updatedRequest;
-                                })
-                            }
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <DisableRarityLineBreakField
-                            value={currentRequest.disableRarityLineBreak}
-                            setValue={(value) =>
-                                setCurrentRequest((prev) => {
-                                    const updatedRequest = new TooltipRequest();
-                                    Object.assign(updatedRequest, prev, { disableRarityLineBreak: value });
                                     return updatedRequest;
                                 })
                             }
