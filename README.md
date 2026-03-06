@@ -1,4 +1,4 @@
-**TL;DR:** [Nerd Web](http://57.129.69.232/) is a new web interface for all gen2 commands with preview features, a cheat sheet, and more coming soon.
+**TL;DR:** [Nerd Web](https://nerdweb.socksm.dev/) is a new web interface for all gen2 commands with preview features, a cheat sheet, and more coming soon.
 
 # Nerd Web (Beta)
 Hello Nerds, today I'm happy to announce Nerd Web beta. A tool for using the bot with a web based interface.
@@ -25,17 +25,15 @@ Current Features:
 <img src=".github/assets/images/PreviewFeature.png" alt="PreviewFeature.png"><br>
 - Share generator inputs feature
   - You can easily click a button and send the link to someone, and it will share the inputs you gave for a certain gen
-
-Planned features:
-- A generator history saved in the cookies.
-- Keep input upon refresh (ties into the above.)
+- A generator history
+  - You can easily view your past generations and their inputs, and even click a button to copy the inputs to the generator again.
 
 ## Bugs
 For bug reporting [create a new issue](https://github.com/SkyBlock-Nerds/NerdWeb/issues/new) in the repo.
 
 ## Website:
 Ready to try it? Here you go:<br>
-[NerdWeb Beta](http://57.129.69.232/)<br>
+[NerdWeb](https://nerdweb.socksm.dev/)<br>
 Currently it's not being run on a Domain name. I plan on later buying a domain and linking it to this website.<br>
 This does however mean that it's "not secure". What does this mean? In the current state of the application, not much. The secure tag is mainly there to encrypt traffic between the website and the host. However, no sensitive information is being transmitted so it doesn't matter for now.
 
