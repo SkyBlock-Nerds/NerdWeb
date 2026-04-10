@@ -40,6 +40,7 @@ function MultiDialogueGenerator() {
                                     return updatedRequest;
                                 })
                             }
+                            abiphone={currentRequest.abiphone || false}
                         />
                     </div>
                     <div className="mb-3">

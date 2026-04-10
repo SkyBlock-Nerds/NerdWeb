@@ -3,10 +3,11 @@ import SmallTextField from "../../SmallTextField.tsx";
 import StyleCodeParser from "../../../style-code-parser/StyleCodeParser.tsx";
 
 
-function SingleNpcDialogueLineField({dialogueLine, setDialogueLine, onRemove}: {
+function SingleNpcDialogueLineField({dialogueLine, setDialogueLine, onRemove, npcNameFormatted}: {
     dialogueLine: string;
     setDialogueLine: (value: string) => void;
     onRemove: () => void
+    npcNameFormatted: string;
 }) {
     return (
         <>
@@ -30,7 +31,7 @@ function SingleNpcDialogueLineField({dialogueLine, setDialogueLine, onRemove}: {
                         Remove
                     </button>
                 </div>
-                <StyleCodeParser textToBeParsed={dialogueLine}/>
+                <StyleCodeParser textToBeParsed={`${npcNameFormatted} ${dialogueLine}`}/>
             </div>
         </>
     );
