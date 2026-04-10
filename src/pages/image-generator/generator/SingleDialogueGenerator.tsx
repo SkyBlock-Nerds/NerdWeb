@@ -7,6 +7,7 @@ import AbiphoneField from "../../../components/input-fields/impl/checkbox/Abipho
 import SingleNpcDialogueLineListField from "../../../components/input-fields/impl/custom/list/SingleNpcDialogueLineListField.tsx";
 import { useLocation } from "react-router-dom";
 import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
+import { CreateNpcTag } from "../../../utils/CreateNpcTag.ts";
 
 function SingleDialogueGenerator() {
     const location = useLocation();
@@ -40,6 +41,7 @@ function SingleDialogueGenerator() {
                                     return updatedRequest;
                                 })
                             }
+                            npcNameFormatted={CreateNpcTag(currentRequest.npcName || "NPC Name", currentRequest.abiphone || false) + "&f"}
                         />
                     </div>
                     <div className="mb-3">

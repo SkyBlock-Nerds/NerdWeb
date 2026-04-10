@@ -8,9 +8,10 @@ type LocalLine = {
     data: string;
 };
 
-function SingleNpcDialogueLineListField({setValue, value = []}: {
+function SingleNpcDialogueLineListField({setValue, value = [], npcNameFormatted}: {
     setValue: (value: string[]) => void;
     value?: string[];
+    npcNameFormatted: string;
 }) {
     const [lines, setLines] = useState<LocalLine[]>(
         value.map((line) => ({ id: uuid(), data: line }))
@@ -39,6 +40,7 @@ function SingleNpcDialogueLineListField({setValue, value = []}: {
                     dialogueLine={itemWrapper.data}
                     setDialogueLine={(updatedItem) => handleSetInventoryItem(index, updatedItem)}
                     onRemove={() => handleRemoveLine(index)}
+                    npcNameFormatted={npcNameFormatted}
                 />
             ))}
 
