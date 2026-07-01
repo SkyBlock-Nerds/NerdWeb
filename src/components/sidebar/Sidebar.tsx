@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./Sidebar.css";
 import Accordion from "./Accordion";
 import colorCodesMap from "../style-code-parser/ColorCodes.ts";
@@ -14,16 +14,41 @@ import Flavor from "../../api-client/api-models/Flavor.ts";
 import getFlavor from "../../api-client/requests/GetFlavor.ts";
 
 function Sidebar() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [width, setWidth] = useState(250);
+    const [isResizing, setIsResizing] = useState(false);
     const [stats, setStats] = useState<Stat[]>([]);
     const [icons, setIcons] = useState<Icon[]>([]);
     const [gemstones, setGemstones] = useState<Gemstone[]>([]);
     const [flavors, setFlavors] = useState<Flavor[]>([]);
+    const sidebarRef = useRef<HTMLDivElement>(null);
 
-
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen);
+    const handleMouseDown = () => {
+        setIsResizing(true);
     };
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!isResizing) return;
+            const newWidth = window.innerWidth - e.clientX;
+            if (newWidth > 50 && newWidth < 600) {
+                setWidth(newWidth);
+            }
+        };
+
+        const handleMouseUp = () => {
+            setIsResizing(false);
+        };
+
+        if (isResizing) {
+            document.addEventListener("mousemove", handleMouseMove);
+            document.addEventListener("mouseup", handleMouseUp);
+        }
+
+        return () => {
+            document.removeEventListener("mousemove", handleMouseMove);
+            document.removeEventListener("mouseup", handleMouseUp);
+        };
+    }, [isResizing]);
 
     useEffect(() => {
         const fetchOptions = async () => {
@@ -36,7 +61,11 @@ function Sidebar() {
     }, []);
 
     return (<>
-        <div className={`Sidebar primary-color ${isOpen ? "open" : ""}`}>
+        <div
+            className="Sidebar primary-color"
+            ref={sidebarRef}
+            style={{ width: `${width}px` }}
+        >
             <h2>Cheat sheet</h2>
             <Accordion
                 children={<div className="quaternary-color">
@@ -137,13 +166,14 @@ function Sidebar() {
                 </div>}
                 title={"Flavors"}
             />
+            <div
+                className="ResizeHandle"
+                onMouseDown={handleMouseDown}
+                style={{ 
+                    right: `${width}px`,
+                }}
+            />
         </div>
-        <button
-            className={`SidebarToggle primary-color ${isOpen ? "move-right" : ""}`}
-            onClick={toggleSidebar}
-        >
-            {isOpen ? "Close" : "Open"}
-        </button>
     </>);
 }
 
