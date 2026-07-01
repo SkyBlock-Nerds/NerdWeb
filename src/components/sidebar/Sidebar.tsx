@@ -10,12 +10,15 @@ import getStat from "../../api-client/requests/GetStat.ts";
 import Icon from "../../api-client/api-models/Icon.ts";
 import Gemstone from "../../api-client/api-models/Gemstone.ts";
 import getGemstone from "../../api-client/requests/GetGemstone.ts";
+import Flavor from "../../api-client/api-models/Flavor.ts";
+import getFlavor from "../../api-client/requests/GetFlavor.ts";
 
 function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
     const [stats, setStats] = useState<Stat[]>([]);
     const [icons, setIcons] = useState<Icon[]>([]);
     const [gemstones, setGemstones] = useState<Gemstone[]>([]);
+    const [flavors, setFlavors] = useState<Flavor[]>([]);
 
 
     const toggleSidebar = () => {
@@ -27,6 +30,7 @@ function Sidebar() {
             setStats(await getStat());
             setIcons(await getIcon());
             setGemstones(await getGemstone());
+            setFlavors(await getFlavor());
         };
         fetchOptions();
     }, []);
@@ -115,6 +119,23 @@ function Sidebar() {
                     </div>))}
                 </div>}
                 title={"Stats"}
+            />
+            <Accordion
+                children={<div className="quaternary-color">
+                    {Array.isArray(flavors) && flavors.map((flavor, index) => (<div
+                        key={index}
+                        style={{ display: "flex", alignItems: "center", margin: "5px", width: "100%" }}
+                    >
+                        <div style={{ fontFamily: "monospace", width: "75%" }}>{flavor.name}</div>
+                        <div
+                            className="color-code-item"
+                            style={{ fontFamily: "monospace" }}
+                        >
+                            {flavor.display}
+                        </div>
+                    </div>))}
+                </div>}
+                title={"Flavors"}
             />
         </div>
         <button
