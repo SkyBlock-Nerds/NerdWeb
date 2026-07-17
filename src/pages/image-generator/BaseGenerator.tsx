@@ -29,7 +29,7 @@ function BaseGenerator<T extends object>({defaultRequest, endpoint, children}: B
 
             const generatedOutput = await postGetImg(endpoint, currentRequest);
             setOutput(generatedOutput);
-            addToHistory(currentRequest, generatedOutput);
+            await addToHistory(currentRequest, generatedOutput);
         } catch (error) {
             console.log(error);
             setError(

@@ -13,8 +13,31 @@ export class History {
     }
 }
 
-export const addToHistory = (newEntry: object, image?: string) => {
+const extractFirstFrameFromGif = (gifDataUrl: string): Promise<string> => {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+            const canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext("2d");
+            if (ctx) {
+                ctx.drawImage(img, 0, 0);
+                resolve(canvas.toDataURL("image/png"));
+            } else {
+                resolve(gifDataUrl);
+            }
+        };
+        img.onerror = () => {
+            resolve(gifDataUrl);
+        };
+        img.src = gifDataUrl;
+    });
+};
+
+export const addToHistory = async (newEntry: object, image?: string) => {
     const generatorType = newEntry.constructor.name;
+    const isGif = image?.startsWith("data:image/gif;base64,") ?? false;
 
     if (!generatorMapping[generatorType]) {
         throw new Error("Cannot add history for this entry. (Type missing)");
@@ -28,7 +51,12 @@ export const addToHistory = (newEntry: object, image?: string) => {
         return;
     }
 
-    history.historyEntries.push(new FullGeneratorData(newEntry, generatorMapping[generatorType].key, image));
+    let imageToSave = image;
+    if (isGif && image) {
+        imageToSave = await extractFirstFrameFromGif(image);
+    }
+
+    history.historyEntries.push(new FullGeneratorData(newEntry, generatorMapping[generatorType].key, imageToSave));
     while (history.historyEntries.length > MAX_HISTORY) {
         history.historyEntries.shift();
     }
