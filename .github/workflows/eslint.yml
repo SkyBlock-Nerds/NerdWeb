@@ -16,6 +16,8 @@ on:
     paths-ignore:
       - '**.md'
       - '.github/**'
+      - '.dockerignore'
+      - 'Dockerfile'
   workflow_dispatch:
 
 concurrency:
