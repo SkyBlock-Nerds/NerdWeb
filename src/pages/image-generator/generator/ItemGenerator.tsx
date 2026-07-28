@@ -1,5 +1,5 @@
 import BaseGenerator from "../BaseGenerator.tsx";
-import ItemIdField from "../../../components/input-fields/impl/dropdown/ItemIdField.tsx";
+import ItemIdField from "../../../components/input-fields/impl/search-field/ItemIdField.tsx";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
 import ItemRequest from "../../../api-client/api-models/generator/ItemRequest.ts";
 import EnchantedField from "../../../components/input-fields/impl/checkbox/EnchantedField.tsx";

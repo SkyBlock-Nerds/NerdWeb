@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {getItemIdAutoComplete} from "../../../../api-client/requests/GetAutocomplete.ts";
-import DropdownField from "../../DropdownField.tsx";
+import SearchField from "../../SearchField.tsx";
 
 function ItemIdField({value, setValue, noLabel}: {
     value?: string;
@@ -19,7 +19,7 @@ function ItemIdField({value, setValue, noLabel}: {
 
     return (
         <>
-            <DropdownField
+            <SearchField
                 setValue={setValue}
                 options={options}
                 value={value}
