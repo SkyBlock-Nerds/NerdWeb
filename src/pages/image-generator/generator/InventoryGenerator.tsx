@@ -9,6 +9,8 @@ import RenderBorderField from "../../../components/input-fields/impl/checkbox/Re
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
 import { useLocation } from "react-router-dom";
 import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
+import TexturePackField from "../../../components/input-fields/impl/dropdown/TexturePackField.tsx";
+import TooltipStyleField from "../../../components/input-fields/impl/dropdown/TooltipStyleField.tsx";
 
 function InventoryGenerator() {
     const location = useLocation();
@@ -93,6 +95,31 @@ function InventoryGenerator() {
                                         return updatedRequest;
                                     })
                                 }
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <TexturePackField
+                                value={currentRequest.texturePack}
+                                setValue={(value) =>
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { texturePack: value });
+                                        return updatedRequest;
+                                    })
+                                }
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <TooltipStyleField
+                                value={currentRequest.tooltipStyle}
+                                setValue={(value) =>
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { tooltipStyle: value });
+                                        return updatedRequest;
+                                    })
+                                }
+                                texturePack={currentRequest.texturePack}
                             />
                         </div>
                     </>
