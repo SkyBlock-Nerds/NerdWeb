@@ -6,6 +6,7 @@ let rarityCache: string[] = [];
 let tooltipSideCache: string[] = [];
 const itemIdCache: { [texturePack: string]:  string[]} = {};
 const tooltipStyleCache: { [texturePack: string]:  string[]} = {};
+let texturePackCache: string[] = [];
 
 tooltipStyleCache[minecraftPackString] = [];
 
@@ -54,4 +55,15 @@ export const getTooltipStyleAutoComplete = async (texturePack?: string | null): 
     }
     tooltipStyleCache[texturePack] = await getAutocomplete(`/search/tooltip-styles?packId=${texturePack}`);
     return tooltipStyleCache[texturePack];
-}
+};
+
+export const getTexturePackAutoComplete = async (): Promise<string[]> => {
+    if (texturePackCache.length > 0) {
+        return texturePackCache;
+    }
+    texturePackCache = await getAutocomplete("/search/texture-pack");
+    if (texturePackCache.length === 0){
+        texturePackCache = [minecraftPackString];
+    }
+    return texturePackCache;
+};
