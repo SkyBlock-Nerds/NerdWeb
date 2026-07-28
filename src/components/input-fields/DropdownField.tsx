@@ -1,10 +1,11 @@
-function DropdownField({value, setValue, options, formLabel, formName, formInfo}: {
+function DropdownField({value, setValue, options, formLabel, formName, formInfo, tryNiceFormatting = true}: {
     value?: string;
     setValue: (value: string) => void;
     options: string[];
     formLabel?: string;
     formName: string;
     formInfo: string;
+    tryNiceFormatting?: boolean;
 }) {
     return (
         <>
@@ -27,7 +28,7 @@ function DropdownField({value, setValue, options, formLabel, formName, formInfo}
 
                 {options.sort().map((option, index) => (
                     <option key={index} value={option}>
-                        {option.replace(/_/g, " ")}
+                        {tryNiceFormatting ? option.replace(/_/g, " ") : option}
                     </option>
                 ))}
             </select>
