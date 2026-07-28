@@ -1,8 +1,13 @@
 import apiClient from "../AxiosInstance.ts";
 
+export const minecraftPackString = "minecraft:minecraft";
+
 let rarityCache: string[] = [];
 let tooltipSideCache: string[] = [];
-let itemIdCache: string[] = [];
+const itemIdCache: { [texturePack: string]:  string[]} = {};
+const tooltipStyleCache: { [texturePack: string]:  string[]} = {};
+
+tooltipStyleCache[minecraftPackString] = [];
 
 const getAutocomplete = async (url: string): Promise<string[]> => {
     try {
@@ -29,10 +34,24 @@ export const getTooltipSideAutoComplete = async (): Promise<string[]> => {
     return tooltipSideCache;
 };
 
-export const getItemIdAutoComplete = async (): Promise<string[]> => {
-    if (itemIdCache.length > 0) {
-        return itemIdCache;
+export const getItemIdAutoComplete = async (texturePack?: string | null): Promise<string[]> => {
+    if (texturePack !== null && texturePack !== undefined) texturePack.toLowerCase();
+    if (texturePack === null || texturePack === undefined || texturePack === "vanilla") texturePack = minecraftPackString;
+
+    if (itemIdCache[texturePack] !== null && itemIdCache[texturePack] !== undefined) {
+        return itemIdCache[texturePack];
     }
-    itemIdCache = await getAutocomplete("/search/item-id");
-    return itemIdCache;
+    itemIdCache[texturePack] = await getAutocomplete(`/search/item-id?packId=${texturePack}`);
+    return itemIdCache[texturePack];
 };
+
+export const getTooltipStyleAutoComplete = async (texturePack?: string | null): Promise<string[]> => {
+    if (texturePack !== null && texturePack !== undefined) texturePack.toLowerCase();
+    if (texturePack === null || texturePack === undefined || texturePack === "vanilla") texturePack = minecraftPackString;
+
+    if (tooltipStyleCache[texturePack] !== null && tooltipStyleCache[texturePack] !== undefined) {
+        return tooltipStyleCache[texturePack];
+    }
+    tooltipStyleCache[texturePack] = await getAutocomplete(`/search/tooltip-styles?packId=${texturePack}`);
+    return tooltipStyleCache[texturePack];
+}
