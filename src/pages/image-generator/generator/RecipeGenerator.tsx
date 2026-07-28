@@ -4,6 +4,7 @@ import RecipeRequest from "../../../api-client/api-models/generator/RecipeReques
 import RenderBackgroundField from "../../../components/input-fields/impl/checkbox/RenderBackgroundField.tsx";
 import { useLocation } from "react-router-dom";
 import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
+import TexturePackField from "../../../components/input-fields/impl/dropdown/TexturePackField.tsx";
 
 function RecipeGenerator() {
     const location = useLocation();
@@ -36,6 +37,18 @@ function RecipeGenerator() {
                                     setCurrentRequest((prev) => {
                                         const updatedRequest = new RecipeRequest();
                                         Object.assign(updatedRequest, prev, { renderBackground: value });
+                                        return updatedRequest;
+                                    })
+                                }
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <TexturePackField
+                                value={currentRequest.texturePack}
+                                setValue={(value) =>
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new RecipeRequest();
+                                        Object.assign(updatedRequest, prev, { texturePack: value });
                                         return updatedRequest;
                                     })
                                 }
