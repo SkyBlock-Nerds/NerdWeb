@@ -53,7 +53,7 @@ export const getTooltipStyleAutoComplete = async (texturePack?: string | null): 
     if (tooltipStyleCache[texturePack] !== null && tooltipStyleCache[texturePack] !== undefined) {
         return tooltipStyleCache[texturePack];
     }
-    tooltipStyleCache[texturePack] = await getAutocomplete(`/search/tooltip-styles?packId=${texturePack}`);
+    tooltipStyleCache[texturePack] = await getAutocomplete(`/search/tooltip-style?packId=${texturePack}`);
     return tooltipStyleCache[texturePack];
 };
 
