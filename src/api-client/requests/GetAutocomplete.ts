@@ -1,16 +1,18 @@
 import apiClient from "../AxiosInstance.ts";
+import PackId from "../api-models/PackId.ts";
 
-export const minecraftPackString = "minecraft:minecraft";
+const minecraftPackId = { namespace: "minecraft", name: "minecraft" };
+export const minecraftPackString = `${minecraftPackId.namespace}:${minecraftPackId.name}`;
 
 let rarityCache: string[] = [];
 let tooltipSideCache: string[] = [];
-const itemIdCache: { [texturePack: string]:  string[]} = {};
-const tooltipStyleCache: { [texturePack: string]:  string[]} = {};
+const itemIdCache: { [texturePack: string]: string[] } = {};
+const tooltipStyleCache: { [texturePack: string]: string[] } = {};
 let texturePackCache: string[] = [];
 
 tooltipStyleCache[minecraftPackString] = [];
 
-const getAutocomplete = async (url: string): Promise<string[]> => {
+const getAutocomplete = async <T>(url: string): Promise<T[]> => {
     try {
         return (await apiClient.get(url)).data;
     } catch (error) {
@@ -61,8 +63,8 @@ export const getTexturePackAutoComplete = async (): Promise<string[]> => {
     if (texturePackCache.length > 0) {
         return texturePackCache;
     }
-    texturePackCache = await getAutocomplete("/search/texture-pack");
-    if (texturePackCache.length === 0){
+    texturePackCache = (await getAutocomplete<PackId>("/search/texture-pack")).map(packId => `${packId.namespace}:${packId.name}`);
+    if (texturePackCache.length === 0) {
         texturePackCache = [minecraftPackString];
     }
     return texturePackCache;
