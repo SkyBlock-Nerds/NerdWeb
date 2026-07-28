@@ -1,5 +1,13 @@
 name: ESLint CI
 
+x-paths-ignore: &paths-ignore
+  - '**.md'
+  - '.github/**'
+  - '.env.example'
+  - '.gitignore'
+  - '.dockerignore'
+  - 'Dockerfile'
+
 on:
   push:
     branches:
@@ -7,15 +15,11 @@ on:
       - 'dev'
       - 'feature-**'
       - 'feature/**'
-    paths-ignore:
-      - '**.md'
-      - '.github/**'
+    paths-ignore: *paths-ignore
   pull_request:
     branches:
       - '*'
-    paths-ignore:
-      - '**.md'
-      - '.github/**'
+    paths-ignore: *paths-ignore
   workflow_dispatch:
 
 concurrency:

@@ -1,7 +1,7 @@
 import BaseGenerator from "../BaseGenerator.tsx";
 import TooltipRequest from "../../../api-client/api-models/generator/TooltipRequest.ts";
 import RarityField from "../../../components/input-fields/impl/dropdown/RarityField.tsx";
-import ItemIdField from "../../../components/input-fields/impl/dropdown/ItemIdField.tsx";
+import ItemIdField from "../../../components/input-fields/impl/search-field/ItemIdField.tsx";
 import RecipeField from "../../../components/input-fields/impl/custom/RecipeField.tsx";
 import AlphaField from "../../../components/input-fields/impl/number/AlphaField.tsx";
 import PaddingField from "../../../components/input-fields/impl/number/PaddingField.tsx";
@@ -16,6 +16,8 @@ import RenderBorderField from "../../../components/input-fields/impl/checkbox/Re
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
 import { useLocation } from "react-router-dom";
 import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
+import TexturePackField from "../../../components/input-fields/impl/dropdown/TexturePackField.tsx";
+import TooltipStyleField from "../../../components/input-fields/impl/dropdown/TooltipStyleField.tsx";
 
 function TooltipGenerator() {
     const location = useLocation();
@@ -204,6 +206,31 @@ function TooltipGenerator() {
                                     return updatedRequest;
                                 })
                             }
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <TexturePackField
+                            value={currentRequest.texturePack}
+                            setValue={(value) =>
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { texturePack: value });
+                                    return updatedRequest;
+                                })
+                            }
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <TooltipStyleField
+                            value={currentRequest.tooltipStyle}
+                            setValue={(value) =>
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { tooltipStyle: value });
+                                    return updatedRequest;
+                                })
+                            }
+                            texturePack={currentRequest.texturePack}
                         />
                     </div>
                 </>

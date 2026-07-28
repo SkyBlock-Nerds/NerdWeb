@@ -1,11 +1,12 @@
 import BaseGenerator from "../BaseGenerator.tsx";
-import ItemIdField from "../../../components/input-fields/impl/dropdown/ItemIdField.tsx";
+import ItemIdField from "../../../components/input-fields/impl/search-field/ItemIdField.tsx";
 import SkinTextureField from "../../../components/input-fields/impl/small-text/SkinTextureField.tsx";
 import ItemRequest from "../../../api-client/api-models/generator/ItemRequest.ts";
 import EnchantedField from "../../../components/input-fields/impl/checkbox/EnchantedField.tsx";
 import HoverEffectField from "../../../components/input-fields/impl/checkbox/HoverEffectField.tsx";
 import { useLocation } from "react-router-dom";
 import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
+import TexturePackField from "../../../components/input-fields/impl/dropdown/TexturePackField.tsx";
 
 function ItemGenerator() {
     const location = useLocation();
@@ -61,6 +62,18 @@ function ItemGenerator() {
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new ItemRequest();
                                     Object.assign(updatedRequest, prev, { hoverEffect: value });
+                                    return updatedRequest;
+                                })
+                            }
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <TexturePackField
+                            value={currentRequest.texturePack}
+                            setValue={(value) =>
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new ItemRequest();
+                                    Object.assign(updatedRequest, prev, { texturePack: value });
                                     return updatedRequest;
                                 })
                             }
