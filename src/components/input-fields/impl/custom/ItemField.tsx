@@ -1,6 +1,6 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import InventoryItem from "../../../../api-client/api-models/generator/submodels/InventoryItem.ts";
-import ItemIdField from "../dropdown/ItemIdField.tsx";
+import ItemIdField from "../search-field/ItemIdField.tsx";
 import NumberField from "../../NumberField.tsx";
 
 function ItemField({inventoryItem, setInventoryItem, onRemove}: {
