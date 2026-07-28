@@ -1,4 +1,5 @@
 import InventoryItem from "./submodels/InventoryItem.ts";
+import { minecraftPackString } from "../../requests/GetAutocomplete.ts";
 
 class TooltipRequest {
     itemName?: string;
@@ -16,6 +17,8 @@ class TooltipRequest {
     maxLineLength?: number;
     toolTipSide?: string;
     renderBorder?: boolean;
+    texturePack?: string;
+    tooltipStyle?: string;
 
     constructor(
         itemName: string = "",
@@ -23,7 +26,7 @@ class TooltipRequest {
         itemType: string = "",
         rarity: string = "",
         itemId: string = "",
-        skinValue: string = "",
+        skinValue?: string,
         recipe: InventoryItem[] = [],
         alpha: number = 245,
         padding: number = 0,
@@ -32,7 +35,9 @@ class TooltipRequest {
         paddingFirstLine: boolean = true,
         maxLineLength: number = 36,
         toolTipSide: TooltipSide = TooltipSide.LEFT,
-        renderBorder: boolean = true
+        renderBorder: boolean = true,
+        texturePack: string = minecraftPackString,
+        tooltipStyle?: string,
     ) {
         this.itemName = itemName;
         this.itemLore = itemLore;
@@ -49,6 +54,8 @@ class TooltipRequest {
         this.maxLineLength = maxLineLength;
         this.toolTipSide = toolTipSide;
         this.renderBorder = renderBorder;
+        this.texturePack = texturePack;
+        this.tooltipStyle = tooltipStyle;
     }
 }
 
