@@ -1,3 +1,5 @@
+import { minecraftPackString } from "../../requests/GetAutocomplete.ts";
+
 class TextRequest {
     text: string;
     centered?: boolean;
@@ -5,6 +7,8 @@ class TextRequest {
     padding?: number;
     maxLineLength?: number;
     renderBorder?: boolean;
+    texturePack?: string;
+    tooltipStyle?: string;
 
     constructor(
         text: string = "",
@@ -12,7 +16,9 @@ class TextRequest {
         alpha: number = 245,
         padding: number = 0,
         maxLineLength: number = 91,
-        renderBorder: boolean = false
+        renderBorder: boolean = false,
+        texturePack: string = minecraftPackString,
+        tooltipStyle?: string,
     ) {
         this.text = text;
         this.centered = centered;
@@ -20,6 +26,8 @@ class TextRequest {
         this.padding = padding;
         this.maxLineLength = maxLineLength;
         this.renderBorder = renderBorder;
+        this.texturePack = texturePack;
+        this.tooltipStyle = tooltipStyle;
     }
 }
 

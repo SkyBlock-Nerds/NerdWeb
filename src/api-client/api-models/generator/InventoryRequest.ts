@@ -1,4 +1,5 @@
 import InventoryItem from "./submodels/InventoryItem.ts";
+import { minecraftPackString } from "../../requests/GetAutocomplete.ts";
 
 class InventoryRequest {
     inventoryItems: InventoryItem[];
@@ -7,6 +8,8 @@ class InventoryRequest {
     hoveredItemString?: string;
     containerName?: string;
     renderBorder?: boolean;
+    texturePack?: string;
+    tooltipStyle?: string;
 
     constructor(
         inventoryItems: InventoryItem[] = [],
@@ -14,7 +17,9 @@ class InventoryRequest {
         slotsPerRow: number = 9,
         hoveredItemString?: string,
         containerName: string = "Inventory",
-        renderBorder: boolean = true
+        renderBorder: boolean = true,
+        texturePack: string = minecraftPackString,
+        tooltipStyle?: string,
     ) {
         this.inventoryItems = inventoryItems;
         this.rows = rows;
@@ -22,6 +27,8 @@ class InventoryRequest {
         this.hoveredItemString = hoveredItemString;
         this.containerName = containerName;
         this.renderBorder = renderBorder;
+        this.texturePack = texturePack;
+        this.tooltipStyle = tooltipStyle;
     }
 }
 
