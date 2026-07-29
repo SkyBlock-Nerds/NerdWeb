@@ -49,7 +49,7 @@ jobs:
   publish:
     name: Publish image
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.githubEnvironment || 'MainBranch'}}
+    environment: ${{ github.event.inputs.githubEnvironment || 'MainBranch' }}
 
     steps:
       - name: Checkout code
@@ -60,17 +60,19 @@ jobs:
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
 
-      - name: Build and push Docker image
+      - name: Build Docker image
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
-        run: |
-          docker build . --tag ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')
-          docker push ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')
+        run: docker build . --tag ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')
+
+      - name: Push Docker image
+        if: ${{ env.USE_OLD_IMAGE == 'false' }}
+        run: docker push ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')
 
   deploy:
     needs: publish
     name: Deploy image
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.githubEnvironment || 'MainBranch'}}
+    environment: ${{ github.event.inputs.githubEnvironment || 'MainBranch' }}
 
     steps:
       - name: Install SSH keys
