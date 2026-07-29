@@ -64,8 +64,6 @@ jobs:
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
         run: |
           echo "${{ vars.ENV_FILE }}" > .env
-          echo "Contents of .env:"
-          cat .env
 
       - name: Build and push Docker image
         if: ${{ env.USE_OLD_IMAGE == 'false' }}

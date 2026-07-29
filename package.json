@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@sentry/react": "^10.69.0",
+    "@sentry/tracing": "^7.120.4",
     "axios": "^1.8.4",
     "bootstrap": "^5.3.5",
     "lz-string": "^1.5.0",
