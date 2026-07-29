@@ -60,6 +60,13 @@ jobs:
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
 
+      - name: Create .env file
+        if: ${{ env.USE_OLD_IMAGE == 'false' }}
+        run: |
+          echo "${{ vars.ENV_FILE }}" > .env
+          echo "Contents of .env:"
+          cat .env
+
       - name: Build Docker image
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
         run: docker build . --tag ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')
@@ -92,8 +99,6 @@ jobs:
           sudo docker run -d \
             --name $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-') \
             --restart unless-stopped \
-            --env-file "${{ vars.ENV_FILE_PATH }}" \
-            -v "${{ vars.ENV_FILE_PATH }}:/app/.env:ro" \
             -p ${{ env.OUTER_PORT }}:3000 \
             ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')
           EOF
