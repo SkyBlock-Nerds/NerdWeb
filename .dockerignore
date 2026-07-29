@@ -2,3 +2,6 @@ node_modules
 docs
 .github
 dist
+.env.example
+.gitignore
+README.md

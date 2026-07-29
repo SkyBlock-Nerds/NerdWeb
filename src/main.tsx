@@ -1,11 +1,13 @@
 import {StrictMode, lazy, Suspense} from "react";
 import {createRoot} from "react-dom/client";
+import './sentry';
 import './index.css';
 import App from './App.tsx';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import ROUTES from "./Routes.ts";
 import NotFound from "./pages/error/NotFound.tsx";
 import Welcome from "./pages/welcome/Welcome.tsx";
+import * as Sentry from "@sentry/react";
 
 const ImageGeneratorSelect = lazy(() => import('./pages/image-generator/ImageGeneratorSelect.tsx'));
 const TextGenerator = lazy(() => import('./pages/image-generator/generator/TextGenerator.tsx'));
@@ -85,6 +87,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
-        <RouterProvider router={router}/>
+        <Sentry.ErrorBoundary fallback={<NotFound />}>
+            <RouterProvider router={router}/>
+        </Sentry.ErrorBoundary>
     </StrictMode>
 );

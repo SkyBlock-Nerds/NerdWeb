@@ -3,7 +3,6 @@
     top: 0;
     bottom: 0;
     right: 0;
-    width: 250px;
     padding: 20px;
     z-index: 10;
     overflow-y: scroll;
@@ -25,7 +24,19 @@
     top: 0;
     bottom: 0;
     width: 8px;
-    zIndex: 11;
+}
+
+.SidebarToggle {
+    position: fixed;
+    bottom: 8%;
+    right: 0;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 5px 0 0 5px;
+    z-index: 20;
+    transition: right 0.3s ease;
 }
 
 .ResizeHandle:hover {

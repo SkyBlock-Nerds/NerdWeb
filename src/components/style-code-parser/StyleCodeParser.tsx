@@ -75,7 +75,7 @@ function StyleCodeParser({textToBeParsed}: { textToBeParsed: string | undefined 
             }
 
             if (part === "\n") {
-                return <br key={index}/>; //TODO: find something that actually works here
+                return <br key={index}/>;
             }
 
             const style = {

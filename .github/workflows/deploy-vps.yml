@@ -8,7 +8,7 @@
 # - These variables must be set up in the repository settings:
 #   - SSH_USER: The SSH username for the vps
 #   - SSH_HOST: The SSH host (IP or domain) of the vps
-#   - ENV_FILE: The .env file used by the app (recommended to be in the environment vars)
+#   - ENV_FILE_PATH: The path to the .env file used by the app
 
 name: Publish to VPS
 
@@ -28,7 +28,7 @@ on:
         description: 'Environment type (for image/container name):'
         type: string
       githubEnvironment:
-        description: "The environment the .env file will be pulled from:"
+        description: "The environment the secrets/vars will be pulled from:"
         type: environment
         required: true
   push:
@@ -60,25 +60,17 @@ jobs:
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
 
-      - name: Create .env file
-        if: ${{ env.USE_OLD_IMAGE == 'false' }}
-        run: |
-          echo "${{ vars.ENV_FILE }}" > .env
-          echo "Contents of .env:"
-          cat .env
-
       - name: Build and push Docker image
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
         run: |
-          docker build . --tag ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]') \
-            --build-arg ENV_FILE=.env
+          docker build . --tag ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')
           docker push ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')
 
   deploy:
     needs: publish
     name: Deploy image
     runs-on: ubuntu-latest
-    environment: SSHKey
+    environment: ${{ github.event.inputs.githubEnvironment || 'MainBranch'}}
 
     steps:
       - name: Install SSH keys
@@ -98,6 +90,8 @@ jobs:
           sudo docker run -d \
             --name $(echo "${{ env.CONTAINER_NAME }}" | tr '[:upper:]' '[:lower:]' | tr '/' '-') \
             --restart unless-stopped \
+            --env-file "${{ vars.ENV_FILE_PATH }}" \
+            -v "${{ vars.ENV_FILE_PATH }}:/app/.env:ro" \
             -p ${{ env.OUTER_PORT }}:3000 \
             ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')
           EOF
