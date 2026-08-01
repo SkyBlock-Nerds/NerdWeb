@@ -15,7 +15,8 @@ export const ROUTES = {
     SHARE : {
         BASE: "/Share",
         GENERATOR: "/Generator",
-    }
+    },
+    TEST: "/test",
 };
 
 export default ROUTES;

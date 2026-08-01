@@ -1,13 +1,15 @@
-import {StrictMode, lazy, Suspense} from "react";
-import {createRoot} from "react-dom/client";
+import { StrictMode, lazy, Suspense } from "react";
+import { createRoot } from "react-dom/client";
 import './sentry';
 import './index.css';
 import App from './App.tsx';
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ROUTES from "./Routes.ts";
 import NotFound from "./pages/error/NotFound.tsx";
 import Welcome from "./pages/welcome/Welcome.tsx";
 import * as Sentry from "@sentry/react";
+import { createReleaseString } from "./utils/CreateReleaseString.ts";
+import Test from "./pages/test/Test.tsx";
 
 const ImageGeneratorSelect = lazy(() => import('./pages/image-generator/ImageGeneratorSelect.tsx'));
 const TextGenerator = lazy(() => import('./pages/image-generator/generator/TextGenerator.tsx'));
@@ -20,6 +22,8 @@ const SingleDialogueGenerator = lazy(() => import('./pages/image-generator/gener
 const MultiDialogueGenerator = lazy(() => import('./pages/image-generator/generator/MultiDialogueGenerator.tsx'));
 const History = lazy(() => import('./pages/history/History.tsx'));
 const Share = lazy(() => import('./pages/share/Share.tsx'));
+
+console.log(`Version: ${createReleaseString(import.meta.env.VITE_GIT_SHA)}`);
 
 const router = createBrowserRouter([
     {
@@ -81,6 +85,10 @@ const router = createBrowserRouter([
                 path: `${ROUTES.SHARE.BASE}/*`,
                 element: <Suspense fallback={null}><Share /></Suspense>,
             },
+            {
+                path: ROUTES.TEST,
+                element: <Test />,
+            }
         ],
     },
 ]);
@@ -88,7 +96,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <Sentry.ErrorBoundary fallback={<NotFound />}>
-            <RouterProvider router={router}/>
+            <RouterProvider router={router} />
         </Sentry.ErrorBoundary>
     </StrictMode>
 );

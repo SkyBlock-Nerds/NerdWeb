@@ -36,7 +36,7 @@ on:
       - 'main'
     paths-ignore:
       - '**.md'
-      - '.github/**'
+      - '.github/assets/**'
 
 env:
   REGISTRY: ghcr.io
@@ -69,7 +69,14 @@ jobs:
 
       - name: Build Docker image
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
-        run: docker build . --tag ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')
+        env:
+          SENTRY_RELEASE_AUTH_TOKEN: ${{ secrets.SENTRY_RELEASE_AUTH_TOKEN }}
+        run: |
+          docker build \
+            --secret id=sentry_release_auth_token,env=SENTRY_RELEASE_AUTH_TOKEN \
+            --build-arg GIT_SHA=${{ github.sha }} \
+            --tag ${{ env.REGISTRY }}/$(echo "${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]') \
+            .
 
       - name: Push Docker image
         if: ${{ env.USE_OLD_IMAGE == 'false' }}
