@@ -19,7 +19,7 @@ function TexturePackField({value, setValue}: { value?: string; setValue: (value:
                 value={value}
                 setValue={setValue}
                 options={options}
-                formLabel={"TexturePack:"}
+                formLabel={"Texture Pack:"}
                 formName={"texturePack"}
                 formInfo={"Select a TexturePack"}
                 tryNiceFormatting={false}
