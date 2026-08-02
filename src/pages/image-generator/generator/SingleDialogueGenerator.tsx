@@ -70,24 +70,24 @@ function SingleDialogueGenerator() {
                         />
                     </div>
                     <div className="mb-3">
-                        <SkinTextureField
-                            value={currentRequest.skinValue}
-                            setValue={(value) =>
-                                setCurrentRequest((prev) => {
-                                    const updatedRequest = new SingleDialogueRequest();
-                                    Object.assign(updatedRequest, prev, { skinValue: value });
-                                    return updatedRequest;
-                                })
-                            }
-                        />
-                    </div>
-                    <div className="mb-3">
                         <TexturePackField
                             value={currentRequest.texturePack}
                             setValue={(value) =>
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new SingleDialogueRequest();
                                     Object.assign(updatedRequest, prev, { texturePack: value });
+                                    return updatedRequest;
+                                })
+                            }
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <SkinTextureField
+                            value={currentRequest.skinValue}
+                            setValue={(value) =>
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new SingleDialogueRequest();
+                                    Object.assign(updatedRequest, prev, { skinValue: value });
                                     return updatedRequest;
                                 })
                             }
