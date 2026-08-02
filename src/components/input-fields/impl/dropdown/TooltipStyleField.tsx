@@ -19,7 +19,7 @@ function TooltipStyleField({value, setValue, texturePack}: { value?: string; set
                 value={value}
                 setValue={setValue}
                 options={options}
-                formLabel={"TooltipStyle:"}
+                formLabel={"Tooltip Style:"}
                 formName={"tooltipStyle"}
                 formInfo={"Select a TooltipStyle"}
             />
