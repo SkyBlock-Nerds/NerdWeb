@@ -12,7 +12,7 @@ import recipeImage from "../../assets/image-generator/recipe.png";
 import ROUTES from "../../Routes.ts";
 import CodeBox from "../../components/CodeBox.tsx";
 
-const baseGenCommand = "/gen2 ";
+const baseGenCommand = "/gen ";
 
 const imageGeneratorList: {
     name: string;
