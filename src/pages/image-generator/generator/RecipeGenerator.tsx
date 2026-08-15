@@ -28,6 +28,7 @@ function RecipeGenerator() {
                                         return updatedRequest;
                                     })
                                 }
+                                texturePack={currentRequest.texturePack}
                             />
                         </div>
                         <div className="mb-3">

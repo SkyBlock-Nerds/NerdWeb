@@ -98,6 +98,7 @@ function TooltipGenerator() {
                                     return updatedRequest;
                                 })
                             }
+                            texturePack={currentRequest.texturePack}
                         />
                     </div>
                     <div className="mb-3">
@@ -195,6 +196,7 @@ function TooltipGenerator() {
                                     return updatedRequest;
                                 })
                             }
+                            texturePack={currentRequest.texturePack}
                         />
                     </div>
                     <div className="mb-3">

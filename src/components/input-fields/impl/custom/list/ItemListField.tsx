@@ -10,10 +10,11 @@ type LocalItem = {
     data: InventoryItem;
 };
 
-function ItemListField({setValue, formTitle, value = []}: {
+function ItemListField({setValue, formTitle, value = [], texturePack}: {
     setValue: (value: InventoryItem[]) => void;
     formTitle: string;
     value?: InventoryItem[];
+    texturePack?: string;
 }) {
     const [items, setItems] = useState<LocalItem[]>(
         value.map((item) => ({ id: uuid(), data: item }))
@@ -42,6 +43,7 @@ function ItemListField({setValue, formTitle, value = []}: {
                     inventoryItem={itemWrapper.data}
                     setInventoryItem={(updatedItem) => handleSetInventoryItem(index, updatedItem)}
                     onRemove={() => handleRemoveItem(index)}
+                    texturePack={texturePack}
                 />
             ))}
 
