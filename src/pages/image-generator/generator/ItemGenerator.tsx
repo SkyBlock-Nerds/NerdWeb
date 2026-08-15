@@ -29,15 +29,16 @@ function ItemGenerator() {
                                     return updatedRequest;
                                 })
                             }
+                            texturePack={currentRequest.texturePack}
                         />
                     </div>
                     <div className="mb-3">
-                        <SkinTextureField
-                            value={currentRequest.skinValue}
+                        <TexturePackField
+                            value={currentRequest.texturePack}
                             setValue={(value) =>
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new ItemRequest();
-                                    Object.assign(updatedRequest, prev, { skinValue: value });
+                                    Object.assign(updatedRequest, prev, { texturePack: value });
                                     return updatedRequest;
                                 })
                             }
@@ -68,12 +69,12 @@ function ItemGenerator() {
                         />
                     </div>
                     <div className="mb-3">
-                        <TexturePackField
-                            value={currentRequest.texturePack}
+                        <SkinTextureField
+                            value={currentRequest.skinValue}
                             setValue={(value) =>
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new ItemRequest();
-                                    Object.assign(updatedRequest, prev, { texturePack: value });
+                                    Object.assign(updatedRequest, prev, { skinValue: value });
                                     return updatedRequest;
                                 })
                             }

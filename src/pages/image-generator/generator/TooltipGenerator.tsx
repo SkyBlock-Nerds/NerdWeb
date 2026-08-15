@@ -98,6 +98,7 @@ function TooltipGenerator() {
                                     return updatedRequest;
                                 })
                             }
+                            texturePack={currentRequest.texturePack}
                         />
                     </div>
                     <div className="mb-3">
@@ -107,18 +108,6 @@ function TooltipGenerator() {
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new TooltipRequest();
                                     Object.assign(updatedRequest, prev, { skinValue: value });
-                                    return updatedRequest;
-                                })
-                            }
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <RecipeField
-                            value={currentRequest.recipe}
-                            setValue={(value) =>
-                                setCurrentRequest((prev) => {
-                                    const updatedRequest = new TooltipRequest();
-                                    Object.assign(updatedRequest, prev, { recipe: value });
                                     return updatedRequest;
                                 })
                             }
@@ -161,48 +150,12 @@ function TooltipGenerator() {
                         />
                     </div>
                     <div className="mb-3">
-                        <PaddingFirstLineField
-                            value={currentRequest.paddingFirstLine}
-                            setValue={(value) =>
-                                setCurrentRequest((prev) => {
-                                    const updatedRequest = new TooltipRequest();
-                                    Object.assign(updatedRequest, prev, { paddingFirstLine: value });
-                                    return updatedRequest;
-                                })
-                            }
-                        />
-                    </div>
-                    <div className="mb-3">
                         <MaxLineLengthField
                             value={currentRequest.maxLineLength}
                             setValue={(value) =>
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new TooltipRequest();
                                     Object.assign(updatedRequest, prev, { maxLineLength: value });
-                                    return updatedRequest;
-                                })
-                            }
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <TooltipSideField
-                            value={currentRequest.toolTipSide}
-                            setValue={(value) =>
-                                setCurrentRequest((prev) => {
-                                    const updatedRequest = new TooltipRequest();
-                                    Object.assign(updatedRequest, prev, { tooltipSide: value });
-                                    return updatedRequest;
-                                })
-                            }
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <RenderBorderField
-                            value={currentRequest.renderBorder}
-                            setValue={(value) =>
-                                setCurrentRequest((prev) => {
-                                    const updatedRequest = new TooltipRequest();
-                                    Object.assign(updatedRequest, prev, { renderBorder: value });
                                     return updatedRequest;
                                 })
                             }
@@ -231,6 +184,55 @@ function TooltipGenerator() {
                                 })
                             }
                             texturePack={currentRequest.texturePack}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <RecipeField
+                            value={currentRequest.recipe}
+                            setValue={(value) =>
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { recipe: value });
+                                    return updatedRequest;
+                                })
+                            }
+                            texturePack={currentRequest.texturePack}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <PaddingFirstLineField
+                            value={currentRequest.paddingFirstLine}
+                            setValue={(value) =>
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { paddingFirstLine: value });
+                                    return updatedRequest;
+                                })
+                            }
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <TooltipSideField
+                            value={currentRequest.toolTipSide}
+                            setValue={(value) =>
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { tooltipSide: value });
+                                    return updatedRequest;
+                                })
+                            }
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <RenderBorderField
+                            value={currentRequest.renderBorder}
+                            setValue={(value) =>
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { renderBorder: value });
+                                    return updatedRequest;
+                                })
+                            }
                         />
                     </div>
                 </>

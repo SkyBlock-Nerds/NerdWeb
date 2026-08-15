@@ -34,6 +34,7 @@ function InventoryGenerator() {
                                         return updatedRequest;
                                     })
                                 }
+                                texturePack={currentRequest.texturePack}
                             />
                         </div>
                         <div className="mb-3">
@@ -86,24 +87,24 @@ function InventoryGenerator() {
                             />
                         </div>
                         <div className="mb-3">
-                            <RenderBorderField
-                                value={currentRequest.renderBorder}
-                                setValue={(value) =>
-                                    setCurrentRequest((prev) => {
-                                        const updatedRequest = new InventoryRequest();
-                                        Object.assign(updatedRequest, prev, { renderBorder: value });
-                                        return updatedRequest;
-                                    })
-                                }
-                            />
-                        </div>
-                        <div className="mb-3">
                             <TexturePackField
                                 value={currentRequest.texturePack}
                                 setValue={(value) =>
                                     setCurrentRequest((prev) => {
                                         const updatedRequest = new InventoryRequest();
                                         Object.assign(updatedRequest, prev, { texturePack: value });
+                                        return updatedRequest;
+                                    })
+                                }
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <RenderBorderField
+                                value={currentRequest.renderBorder}
+                                setValue={(value) =>
+                                    setCurrentRequest((prev) => {
+                                        const updatedRequest = new InventoryRequest();
+                                        Object.assign(updatedRequest, prev, { renderBorder: value });
                                         return updatedRequest;
                                     })
                                 }
