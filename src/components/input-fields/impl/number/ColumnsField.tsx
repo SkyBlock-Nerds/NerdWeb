@@ -1,6 +1,6 @@
 import NumberField from "../../NumberField.tsx";
 
-function ColumnsField({value, setValue}: {
+function ColumnsField({ value, setValue }: {
     value: number | undefined;
     setValue: (value: number | undefined) => void;
 }) {

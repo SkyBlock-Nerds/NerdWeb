@@ -1,6 +1,6 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import {useState} from "react";
-import {v4 as uuid} from 'uuid';
+import { useState } from "react";
+import { v4 as uuid } from 'uuid';
 import NpcNameField from '../NpcNameField.tsx';
 
 type LocalLine = {
@@ -8,17 +8,17 @@ type LocalLine = {
     data: string;
 };
 
-function SingleNpcDialogueLineListField({setValue, value = []}: {
+function SingleNpcDialogueLineListField({ setValue, value = [] }: {
     setValue: (value: string[]) => void;
     value?: string[];
 }) {
     const [npcNames, setNpcNames] = useState<LocalLine[]>(
-        value.map((name) => ({ id: uuid(), data: name }))
+        value.map((name) => ({ id: uuid(), data: name })),
     );
 
     const handleSetInventoryItem = (index: number, updatedLine: string) => {
         const updatedItems = [...npcNames];
-        updatedItems[index] = {...updatedItems[index], data: updatedLine};
+        updatedItems[index] = { ...updatedItems[index], data: updatedLine };
         setNpcNames(updatedItems);
         setValue(updatedItems.map((i) => i.data));
     };
@@ -32,7 +32,7 @@ function SingleNpcDialogueLineListField({setValue, value = []}: {
     return (
         <>
             <label className="form-label">Npc Names:</label>
-            {npcNames.length > 0 ? <br/> : ""}
+            {npcNames.length > 0 ? <br /> : ""}
             {npcNames.map((itemWrapper, index) => (
                 <NpcNameField
                     key={itemWrapper.id}
@@ -42,11 +42,11 @@ function SingleNpcDialogueLineListField({setValue, value = []}: {
                 />
             ))}
 
-            {npcNames.length === 0 ? <br/> : ""}
+            {npcNames.length === 0 ? <br /> : ""}
             <button
                 className="btn btn-secondary mt-2"
                 onClick={() =>
-                    setNpcNames([...npcNames, {id: uuid(), data: ""}])
+                    setNpcNames([...npcNames, { id: uuid(), data: "" }])
                 }
             >
                 Add Npc

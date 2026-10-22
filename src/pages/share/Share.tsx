@@ -1,17 +1,17 @@
-import {decompressFromEncodedURIComponent} from "lz-string";
-import {JSX, useEffect, useState} from "react";
-import {useNavigate, useParams, useSearchParams} from "react-router-dom";
+import { decompressFromEncodedURIComponent } from "lz-string";
+import { JSX, useEffect, useState } from "react";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import ROUTES from "../../Routes.ts";
 import CodeBox from "../../components/CodeBox.tsx";
 import UsePageTitle from "../../hooks/usePageTitle.ts";
-import {generatorMapping} from "../../services/FullGeneratorData.ts";
+import { generatorMapping } from "../../services/FullGeneratorData.ts";
 
 function Share() {
     UsePageTitle("Share");
 
     const [urlSearchParams] = useSearchParams();
     const navigate = useNavigate();
-    const {"*": shareEndpoint} = useParams();
+    const { "*": shareEndpoint } = useParams();
     const [errorContent, setErrorContent] = useState<JSX.Element | null>(null);
 
     useEffect(() => {

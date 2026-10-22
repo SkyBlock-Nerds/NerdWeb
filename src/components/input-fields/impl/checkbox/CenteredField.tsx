@@ -1,6 +1,6 @@
 import CheckBoxField from "../../CheckBoxField.tsx";
 
-function CenteredField({value, setValue}: {
+function CenteredField({ value, setValue }: {
     value: boolean | undefined;
     setValue: (value: boolean) => void;
 }) {

@@ -1,6 +1,6 @@
 import SmallTextField from "../../SmallTextField.tsx";
 
-function ContainerNameField({value, setValue}: {
+function ContainerNameField({ value, setValue }: {
     value: string | undefined;
     setValue: (value: string) => void;
 }) {

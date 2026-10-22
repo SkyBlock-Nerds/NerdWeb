@@ -1,5 +1,5 @@
 import usePageTitle from "../../hooks/usePageTitle.ts";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ROUTES from "../../Routes.ts";
 
 function Welcome() {
@@ -10,7 +10,7 @@ function Welcome() {
         <div className="text-center mt-3 justify-content-center">
             <h1>Welcome to the Nerd Bot website!</h1>
             <p>
-                This website serves as an easier way to use Nerd Bot than using the Discord commands.<br/>
+                This website serves as an easier way to use Nerd Bot than using the Discord commands.<br />
                 <i><sup>UI's on top!</sup></i>
             </p>
 
@@ -23,7 +23,7 @@ function Welcome() {
             </p>
             <h5>Bug Reports:</h5>
             <p>
-                Go to the Nerds Discord and make a bug report in the Bug Report channel.<br/>
+                Go to the Nerds Discord and make a bug report in the Bug Report channel.<br />
                 Not a True nerd?{" "}
                 <a href="https://github.com/SkyBlock-Nerds/NerdWeb/issues/new" target="_blank"
                    rel="noopener noreferrer">

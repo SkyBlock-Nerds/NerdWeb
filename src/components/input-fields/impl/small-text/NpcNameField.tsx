@@ -1,6 +1,6 @@
 import SmallTextField from "../../SmallTextField.tsx";
 
-function NpcNameField({value, setValue}: {
+function NpcNameField({ value, setValue }: {
     value: string | undefined;
     setValue: (value: string) => void;
 }) {

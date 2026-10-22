@@ -1,4 +1,4 @@
-import {generatorMapping, FullGeneratorData} from "./FullGeneratorData.ts";
+import { FullGeneratorData, generatorMapping } from "./FullGeneratorData.ts";
 
 const HISTORY_KEY: string = "history";
 const MAX_HISTORY: number = 50;
@@ -8,7 +8,7 @@ export class History {
 
     constructor(historyObjects: { generatorType: string; value: object; image?: string }[]) {
         this.historyEntries = historyObjects.map(
-            (entry) => new FullGeneratorData(entry.value, entry.generatorType, entry.image)
+            (entry) => new FullGeneratorData(entry.value, entry.generatorType, entry.image),
         );
     }
 }

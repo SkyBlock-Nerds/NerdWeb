@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import {Outlet, useNavigate} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import usePageTitle from "../../hooks/usePageTitle";
 import textImage from "../../assets/image-generator/text.png";
 import itemFullImage from "../../assets/image-generator/item_full.png";
@@ -26,56 +26,56 @@ const imageGeneratorList: {
         discordEquivalent: baseGenCommand + "text",
         description: "Generate some text.",
         exampleImg: textImage,
-        link: ROUTES.TEXT_GENERATOR
+        link: ROUTES.TEXT_GENERATOR,
     },
     {
         name: "Full Item Generator",
         discordEquivalent: baseGenCommand + "item full",
         description: "Generate a full item image. Supports displaying items, recipes, and tooltips.",
         exampleImg: itemFullImage,
-        link: ROUTES.ITEM_FULL_GENERATOR
+        link: ROUTES.ITEM_FULL_GENERATOR,
     },
     {
         name: "Item Display Generator",
         discordEquivalent: baseGenCommand + "item display",
         description: "Display an item.",
         exampleImg: itemDisplayImage,
-        link: ROUTES.DISPLAY_ITEM_GENERATOR
+        link: ROUTES.DISPLAY_ITEM_GENERATOR,
     },
     {
         name: "Inventory Generator",
         discordEquivalent: baseGenCommand + "inventory",
         description: "Generate an inventory.",
         exampleImg: inventoryImage,
-        link: ROUTES.INVENTORY_GENERATOR
+        link: ROUTES.INVENTORY_GENERATOR,
     },
     {
         name: "Recipe Generator",
         discordEquivalent: baseGenCommand + "recipe",
         description: "Generate a recipe.",
         exampleImg: recipeImage,
-        link: ROUTES.RECIPE_GENERATOR
+        link: ROUTES.RECIPE_GENERATOR,
     },
     {
         name: "Multi NPC Dialogue Generator",
         discordEquivalent: baseGenCommand + "dialogue multi",
         description: "Generate dialogue for multiple NPCs.",
         exampleImg: dialogueMultiImage,
-        link: ROUTES.MULTI_NPC_DIALOGUE_GENERATOR
+        link: ROUTES.MULTI_NPC_DIALOGUE_GENERATOR,
     },
     {
         name: "Single NPC Dialogue Generator",
         discordEquivalent: baseGenCommand + "dialogue single",
         description: "Generate dialogue for a single NPC.",
         exampleImg: dialogueSingleImage,
-        link: ROUTES.SINGLE_NPC_DIALOGUE_GENERATOR
+        link: ROUTES.SINGLE_NPC_DIALOGUE_GENERATOR,
     },
     {
         name: "Head Generator",
         discordEquivalent: baseGenCommand + "head",
         description: "Generate a player head.",
         exampleImg: headImage,
-        link: ROUTES.HEAD_GENERATOR
+        link: ROUTES.HEAD_GENERATOR,
     },
 ];
 
@@ -107,7 +107,7 @@ function ImageGeneratorSelect() {
         description: string;
         exampleImg: string;
         link: string;
-    }[][] = Array.from({length: numColumns}, () => []);
+    }[][] = Array.from({ length: numColumns }, () => []);
     imageGeneratorList.forEach((item, index) => {
         const colIndex = index % numColumns;
         columnItems[colIndex].push(item);
@@ -116,7 +116,7 @@ function ImageGeneratorSelect() {
     return (
         <>
             <div className="OutletContainer">
-                <Outlet/>
+                <Outlet />
             </div>
 
             <div className="container mt-3">
@@ -127,7 +127,7 @@ function ImageGeneratorSelect() {
                                 <div key={itemIndex} className="mb-4">
                                     <div className="card quaternary-color image-generator-item">
                                         <img src={item.exampleImg} className="card-img-top px-2 pt-2"
-                                             alt={`${item.name} example image`}/>
+                                             alt={`${item.name} example image`} />
                                         <div className="card-body">
                                             <h3 className="card-title">{item.name}</h3>
                                             <p className="card-text">{item.description}</p>

@@ -1,4 +1,4 @@
-function DropdownField({value, setValue, options, formLabel, formName, formInfo, tryNiceFormatting = true}: {
+function DropdownField({ value, setValue, options, formLabel, formName, formInfo, tryNiceFormatting = true }: {
     value?: string;
     setValue: (value: string) => void;
     options: string[];

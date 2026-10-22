@@ -1,6 +1,6 @@
 import CheckBoxField from "../../CheckBoxField.tsx";
 
-function EnchantedField({value, setValue}: {
+function EnchantedField({ value, setValue }: {
     value: boolean | undefined;
     setValue: (value: boolean) => void;
 }) {

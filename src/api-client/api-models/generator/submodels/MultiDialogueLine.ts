@@ -4,7 +4,7 @@ class MultiDialogueLine {
 
     constructor(
         npcIndex: number,
-        line: string
+        line: string,
     ) {
         this.npcIndex = npcIndex;
         this.line = line;

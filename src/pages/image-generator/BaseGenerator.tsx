@@ -1,12 +1,12 @@
-import {useState} from "react";
+import { useState } from "react";
 import GenerateButton from "../../components/generator/GenerateButton.tsx";
 import OutputDisplay from "../../components/generator/OutputDisplay.tsx";
 import postGetImg from "../../api-client/requests/PostGetImg.ts";
-import {addToHistory} from "../../services/GeneratorHistory.ts";
+import { addToHistory } from "../../services/GeneratorHistory.ts";
 import usePageTitle from "../../hooks/usePageTitle.ts";
 import { useLocation } from "react-router-dom";
 import ShareButton from "../../components/ShareButton.tsx";
-import {FullGeneratorData} from "../../services/FullGeneratorData.ts";
+import { FullGeneratorData } from "../../services/FullGeneratorData.ts";
 import ROUTES from "../../Routes.ts";
 
 interface BaseGeneratorProps<T> {
@@ -15,9 +15,9 @@ interface BaseGeneratorProps<T> {
     children: (currentRequest: T, setCurrentRequest: React.Dispatch<React.SetStateAction<T>>) => React.ReactNode;
 }
 
-function BaseGenerator<T extends object>({defaultRequest, endpoint, children}: BaseGeneratorProps<T>) {
+function BaseGenerator<T extends object>({ defaultRequest, endpoint, children }: BaseGeneratorProps<T>) {
     const [currentRequest, setCurrentRequest] = useState<T>(defaultRequest);
-    const [output, setOutput] = useState<string | undefined>( useLocation().state?.recoveredImage || undefined);
+    const [output, setOutput] = useState<string | undefined>(useLocation().state?.recoveredImage || undefined);
     const [error, setError] = useState<string | undefined>(undefined);
 
     usePageTitle("Image Generator");
@@ -37,7 +37,7 @@ function BaseGenerator<T extends object>({defaultRequest, endpoint, children}: B
                 new TextDecoder().decode(error.response?.data) ||
                 // @ts-expect-error default error type
                 error.message ||
-                "An error occurred while generating the image."
+                "An error occurred while generating the image.",
             );
         }
     };

@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import usePageTitle from "../../hooks/usePageTitle.ts";
 import ROUTES from "../../Routes.ts";

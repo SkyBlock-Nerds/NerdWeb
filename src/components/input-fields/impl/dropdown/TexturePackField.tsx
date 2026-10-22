@@ -1,8 +1,8 @@
-import {useEffect, useState} from "react";
-import {getTexturePackAutoComplete} from "../../../../api-client/requests/GetAutocomplete.ts";
+import { useEffect, useState } from "react";
+import { getTexturePackAutoComplete } from "../../../../api-client/requests/GetAutocomplete.ts";
 import DropdownField from "../../DropdownField.tsx";
 
-function TexturePackField({value, setValue}: { value?: string; setValue: (value: string) => void }) {
+function TexturePackField({ value, setValue }: { value?: string; setValue: (value: string) => void }) {
     const [options, setOptions] = useState<string[]>([]);
 
     useEffect(() => {

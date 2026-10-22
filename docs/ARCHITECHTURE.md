@@ -1,4 +1,5 @@
 ## File Structure
+
 ```
 /src
     /main.tsx
@@ -18,8 +19,9 @@
 ```
 
 ## Notes
+
 - Follow the naming conventions for files and folders.
 - Keep components small and focused on a single responsibility.
-  - Rather have components be too small than too big.
+    - Rather have components be too small than too big.
 - No uncommon npm packages.
-  - Don't want to have to deal with soon to be EOL (or similar) packages resulting in rewrites later.
+    - Don't want to have to deal with soon to be EOL (or similar) packages resulting in rewrites later.

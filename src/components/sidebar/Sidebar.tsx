@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Sidebar.css";
 import Accordion from "./Accordion";
 import colorCodesMap from "../style-code-parser/ColorCodes.ts";
@@ -84,7 +84,7 @@ function Sidebar() {
                                     width: "20px",
                                     height: "20px",
                                     border: "1px solid black",
-                                    margin: "0 0 0 10px"
+                                    margin: "0 0 0 10px",
                                 }}
                             />
                         </div>))}
@@ -181,7 +181,7 @@ function Sidebar() {
         }
         <button
             className={`SidebarToggle primary-color`}
-            style={{right: isOpen ? width : 0}}
+            style={{ right: isOpen ? width : 0 }}
             onClick={() => setIsOpen(!isOpen)}
         >
             {isOpen ? "Close" : "Open"}

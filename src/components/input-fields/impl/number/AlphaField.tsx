@@ -1,6 +1,6 @@
 import NumberField from "../../NumberField.tsx";
 
-function AlphaField({value, setValue}: {
+function AlphaField({ value, setValue }: {
     value: number | undefined;
     setValue: (value: number | undefined) => void;
 }) {

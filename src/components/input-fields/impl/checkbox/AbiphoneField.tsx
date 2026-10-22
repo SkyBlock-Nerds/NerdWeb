@@ -1,6 +1,6 @@
 import CheckBoxField from "../../CheckBoxField.tsx";
 
-function AbiphoneField({value, setValue}: {
+function AbiphoneField({ value, setValue }: {
     value: boolean | undefined;
     setValue: (value: boolean) => void;
 }) {

@@ -2,7 +2,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import SmallTextField from "../../SmallTextField.tsx";
 
 
-function NpcNameField({value, setValue, onRemove}: {
+function NpcNameField({ value, setValue, onRemove }: {
     value: string;
     setValue: (value: string) => void;
     onRemove: () => void

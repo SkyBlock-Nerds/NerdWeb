@@ -4,7 +4,8 @@ import SkinTextureField from "../../../components/input-fields/impl/small-text/S
 import MaxLineLengthField from "../../../components/input-fields/impl/number/MaxLineLengthField.tsx";
 import NpcNameField from "../../../components/input-fields/impl/small-text/NpcNameField.tsx";
 import AbiphoneField from "../../../components/input-fields/impl/checkbox/AbiphoneField.tsx";
-import SingleNpcDialogueLineListField from "../../../components/input-fields/impl/custom/list/SingleNpcDialogueLineListField.tsx";
+import SingleNpcDialogueLineListField
+    from "../../../components/input-fields/impl/custom/list/SingleNpcDialogueLineListField.tsx";
 import { useLocation } from "react-router-dom";
 import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
 import { CreateNpcTag } from "../../../utils/CreateNpcTag.ts";

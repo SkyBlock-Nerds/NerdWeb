@@ -1,6 +1,6 @@
 import NumberField from "../../NumberField.tsx";
 
-function PaddingField({value, setValue}: {
+function PaddingField({ value, setValue }: {
     value: number | undefined;
     setValue: (value: number | undefined) => void
 }) {

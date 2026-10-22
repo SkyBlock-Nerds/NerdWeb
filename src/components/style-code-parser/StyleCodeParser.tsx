@@ -1,8 +1,8 @@
 import colorMap from "./ColorCodes";
 
-function StyleCodeParser({textToBeParsed}: { textToBeParsed: string | undefined }) {
+function StyleCodeParser({ textToBeParsed }: { textToBeParsed: string | undefined }) {
     const parseTextWithStyles = (
-        text: string, defaultCode?: string
+        text: string, defaultCode?: string,
     ) => {
         const parts =
             text
@@ -75,7 +75,7 @@ function StyleCodeParser({textToBeParsed}: { textToBeParsed: string | undefined 
             }
 
             if (part === "\n") {
-                return <br key={index}/>;
+                return <br key={index} />;
             }
 
             const style = {
@@ -84,7 +84,7 @@ function StyleCodeParser({textToBeParsed}: { textToBeParsed: string | undefined 
                 fontStyle: isItalic ? "italic" : "normal",
                 textDecoration: [
                     isStrikethrough ? "line-through" : "",
-                    isUnderline ? "underline" : ""
+                    isUnderline ? "underline" : "",
                 ].join(" "),
             };
 

@@ -1,6 +1,6 @@
 import NumberField from "../../NumberField.tsx";
 
-function MaxLineLength({value, setValue}: {
+function MaxLineLength({ value, setValue }: {
     value: number | undefined;
     setValue: (value: number | undefined) => void
 }) {

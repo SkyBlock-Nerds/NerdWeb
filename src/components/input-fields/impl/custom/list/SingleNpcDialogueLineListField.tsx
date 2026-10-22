@@ -1,6 +1,6 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import {useState} from "react";
-import {v4 as uuid} from 'uuid';
+import { useState } from "react";
+import { v4 as uuid } from 'uuid';
 import SingleNpcDialogueLineField from "../SingleNpcDialogueLineField.tsx";
 
 type LocalLine = {
@@ -8,18 +8,18 @@ type LocalLine = {
     data: string;
 };
 
-function SingleNpcDialogueLineListField({setValue, value = [], npcNameFormatted}: {
+function SingleNpcDialogueLineListField({ setValue, value = [], npcNameFormatted }: {
     setValue: (value: string[]) => void;
     value?: string[];
     npcNameFormatted: string;
 }) {
     const [lines, setLines] = useState<LocalLine[]>(
-        value.map((line) => ({ id: uuid(), data: line }))
+        value.map((line) => ({ id: uuid(), data: line })),
     );
 
     const handleSetInventoryItem = (index: number, updatedLine: string) => {
         const updatedItems = [...lines];
-        updatedItems[index] = {...updatedItems[index], data: updatedLine};
+        updatedItems[index] = { ...updatedItems[index], data: updatedLine };
         setLines(updatedItems);
         setValue(updatedItems.map((i) => i.data));
     };
@@ -33,7 +33,7 @@ function SingleNpcDialogueLineListField({setValue, value = [], npcNameFormatted}
     return (
         <>
             <label className="form-label">Dialogue lines:</label>
-            {lines.length > 0 ? <br/> : ""}
+            {lines.length > 0 ? <br /> : ""}
             {lines.map((itemWrapper, index) => (
                 <SingleNpcDialogueLineField
                     key={itemWrapper.id}
@@ -44,11 +44,11 @@ function SingleNpcDialogueLineListField({setValue, value = [], npcNameFormatted}
                 />
             ))}
 
-            {lines.length === 0 ? <br/> : ""}
+            {lines.length === 0 ? <br /> : ""}
             <button
                 className="btn btn-secondary mt-2"
                 onClick={() =>
-                    setLines([...lines, {id: uuid(), data: ""}])
+                    setLines([...lines, { id: uuid(), data: "" }])
                 }
             >
                 Add Line
