@@ -1,4 +1,4 @@
-function OutputDisplay({outputImg, error}: {
+function OutputDisplay({ outputImg, error }: {
     outputImg?: string;
     error?: string;
 }) {
@@ -6,7 +6,7 @@ function OutputDisplay({outputImg, error}: {
         <>
             <h5>Output:</h5>
             <div className="align-content-center text-center">
-                {outputImg && <img src={outputImg} alt="Generated Output" className="img-fluid"/>}
+                {outputImg && <img src={outputImg} alt="Generated Output" className="img-fluid" />}
             </div>
             {error && <p className="text-danger">{error}</p>}
         </>

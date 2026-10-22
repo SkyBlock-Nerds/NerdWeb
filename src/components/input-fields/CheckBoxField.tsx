@@ -1,4 +1,4 @@
-function CheckBoxField({value, setValue, formLabel, formName, formInfo}: {
+function CheckBoxField({ value, setValue, formLabel, formName, formInfo }: {
     value: boolean | undefined;
     setValue: (value: boolean) => void;
     formLabel?: string;

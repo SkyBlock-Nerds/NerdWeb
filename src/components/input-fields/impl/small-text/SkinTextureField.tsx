@@ -1,6 +1,6 @@
 import SmallTextField from "../../SmallTextField.tsx";
 
-function SkinTextureField({value, setValue}: {
+function SkinTextureField({ value, setValue }: {
     value: string | undefined;
     setValue: (value: string) => void;
 }) {

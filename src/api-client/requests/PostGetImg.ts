@@ -7,7 +7,7 @@ const postGetImg = async (url: string, data: object) => {
 
     const base64Image = btoa(
         new Uint8Array(response.data)
-            .reduce((data, byte) => data + String.fromCharCode(byte), '')
+            .reduce((data, byte) => data + String.fromCharCode(byte), ''),
     );
 
     const imageType = detectImageType(response.data);

@@ -1,6 +1,6 @@
 import CheckBoxField from "../../CheckBoxField.tsx";
 
-function HoverEffectField({value, setValue}: {
+function HoverEffectField({ value, setValue }: {
     value: boolean | undefined;
     setValue: (value: boolean) => void;
 }) {

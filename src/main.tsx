@@ -1,4 +1,4 @@
-import { StrictMode, lazy, Suspense } from "react";
+import { lazy, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import './sentry';
 import './index.css';
@@ -41,37 +41,37 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: ROUTES.TEXT_GENERATOR,
-                        element: <Suspense fallback={null}><TextGenerator /></Suspense>
+                        element: <Suspense fallback={null}><TextGenerator /></Suspense>,
                     },
                     {
                         path: ROUTES.ITEM_FULL_GENERATOR,
-                        element: <Suspense fallback={null}><TooltipGenerator /></Suspense>
+                        element: <Suspense fallback={null}><TooltipGenerator /></Suspense>,
                     },
                     {
                         path: ROUTES.DISPLAY_ITEM_GENERATOR,
-                        element: <Suspense fallback={null}><ItemGenerator /></Suspense>
+                        element: <Suspense fallback={null}><ItemGenerator /></Suspense>,
                     },
                     {
                         path: ROUTES.MULTI_NPC_DIALOGUE_GENERATOR,
-                        element: <Suspense fallback={null}><MultiDialogueGenerator /></Suspense>
+                        element: <Suspense fallback={null}><MultiDialogueGenerator /></Suspense>,
                     },
                     {
                         path: ROUTES.SINGLE_NPC_DIALOGUE_GENERATOR,
-                        element: <Suspense fallback={null}><SingleDialogueGenerator /></Suspense>
+                        element: <Suspense fallback={null}><SingleDialogueGenerator /></Suspense>,
                     },
                     {
                         path: ROUTES.HEAD_GENERATOR,
-                        element: <Suspense fallback={null}><HeadGenerator /></Suspense>
+                        element: <Suspense fallback={null}><HeadGenerator /></Suspense>,
                     },
                     {
                         path: ROUTES.INVENTORY_GENERATOR,
-                        element: <Suspense fallback={null}><InventoryGenerator /></Suspense>
+                        element: <Suspense fallback={null}><InventoryGenerator /></Suspense>,
                     },
                     {
                         path: ROUTES.RECIPE_GENERATOR,
-                        element: <Suspense fallback={null}><RecipeGenerator /></Suspense>
+                        element: <Suspense fallback={null}><RecipeGenerator /></Suspense>,
                     },
-                ]
+                ],
             },
             {
                 path: ROUTES.HISTORY,
@@ -88,7 +88,7 @@ const router = createBrowserRouter([
             {
                 path: ROUTES.TEST,
                 element: <Test />,
-            }
+            },
         ],
     },
 ]);
@@ -98,5 +98,5 @@ createRoot(document.getElementById("root")!).render(
         <Sentry.ErrorBoundary fallback={<NotFound />}>
             <RouterProvider router={router} />
         </Sentry.ErrorBoundary>
-    </StrictMode>
+    </StrictMode>,
 );

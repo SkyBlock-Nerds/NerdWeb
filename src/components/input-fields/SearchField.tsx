@@ -1,4 +1,4 @@
-function SearchField({value, setValue, options, formLabel, formName, formInfo,}: {
+function SearchField({ value, setValue, options, formLabel, formName, formInfo }: {
     value?: string;
     setValue: (value: string) => void;
     options: string[];
@@ -21,7 +21,7 @@ function SearchField({value, setValue, options, formLabel, formName, formInfo,}:
                 onChange={(e) => setValue(e.target.value)}
             />
 
-            <datalist id={`${formName}-options`} >
+            <datalist id={`${formName}-options`}>
                 {options.sort().map((option) => (
                     <option key={option} value={option} />
                 ))}

@@ -1,6 +1,6 @@
 import BigTextField from "../../BigTextField.tsx";
 
-function HoveredItemStringField({value, setValue}: {
+function HoveredItemStringField({ value, setValue }: {
     value: string | undefined;
     setValue: (value: string) => void;
 }) {

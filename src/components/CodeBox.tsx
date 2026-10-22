@@ -1,4 +1,4 @@
-function CodeBox({text}: {
+function CodeBox({ text }: {
     text: string;
 }) {
     return (

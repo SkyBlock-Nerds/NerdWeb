@@ -3,7 +3,7 @@ import InventoryItem from "../../../../api-client/api-models/generator/submodels
 import ItemIdField from "../search-field/ItemIdField.tsx";
 import NumberField from "../../NumberField.tsx";
 
-function ItemField({inventoryItem, setInventoryItem, onRemove, texturePack}: {
+function ItemField({ inventoryItem, setInventoryItem, onRemove, texturePack }: {
     inventoryItem: InventoryItem;
     setInventoryItem: (value: InventoryItem) => void;
     onRemove: () => void;

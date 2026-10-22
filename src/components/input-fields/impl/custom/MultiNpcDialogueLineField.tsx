@@ -4,7 +4,7 @@ import SmallTextField from "../../SmallTextField.tsx";
 import StyleCodeParser from "../../../style-code-parser/StyleCodeParser.tsx";
 import { CreateNpcTag } from "../../../../utils/CreateNpcTag.ts";
 
-function MultiNpcDialogueLineField({npcNames, dialogueLine, setDialogueLine, onRemove, abiphone}: {
+function MultiNpcDialogueLineField({ npcNames, dialogueLine, setDialogueLine, onRemove, abiphone }: {
     npcNames: string[];
     dialogueLine: MultiDialogueLine;
     setDialogueLine: (value: MultiDialogueLine) => void;
@@ -27,7 +27,7 @@ function MultiNpcDialogueLineField({npcNames, dialogueLine, setDialogueLine, onR
                             const npcIndex = npcNames.indexOf(selectedValue);
                             if (npcIndex !== -1) {
                                 dialogueLine.npcIndex = npcIndex;
-                                setDialogueLine({...dialogueLine});
+                                setDialogueLine({ ...dialogueLine });
                             }
                         }}
                         options={npcNames}
@@ -37,7 +37,7 @@ function MultiNpcDialogueLineField({npcNames, dialogueLine, setDialogueLine, onR
                     <SmallTextField
                         setValue={(value) => {
                             dialogueLine.line = value;
-                            setDialogueLine({...dialogueLine});
+                            setDialogueLine({ ...dialogueLine });
                         }}
                         formInfo="Dialogue line"
                         formName="dialogueLine"
@@ -51,7 +51,7 @@ function MultiNpcDialogueLineField({npcNames, dialogueLine, setDialogueLine, onR
                         Remove
                     </button>
                 </div>
-                <StyleCodeParser textToBeParsed={`${CreateNpcTag(npcName, abiphone)} &f ${dialogueLine.line}`}/>
+                <StyleCodeParser textToBeParsed={`${CreateNpcTag(npcName, abiphone)} &f ${dialogueLine.line}`} />
             </div>
         </>
     );

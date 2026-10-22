@@ -1,8 +1,8 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import InventoryItem from "../../../../../api-client/api-models/generator/submodels/InventoryItem.ts";
-import {useState} from "react";
+import { useState } from "react";
 import ItemField from "../ItemField.tsx";
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 import ItemLocation from "../../../../../api-client/api-models/generator/submodels/ItemLocation.ts";
 
 type LocalItem = {
@@ -10,19 +10,19 @@ type LocalItem = {
     data: InventoryItem;
 };
 
-function ItemListField({setValue, formTitle, value = [], texturePack}: {
+function ItemListField({ setValue, formTitle, value = [], texturePack }: {
     setValue: (value: InventoryItem[]) => void;
     formTitle: string;
     value?: InventoryItem[];
     texturePack?: string;
 }) {
     const [items, setItems] = useState<LocalItem[]>(
-        value.map((item) => ({ id: uuid(), data: item }))
+        value.map((item) => ({ id: uuid(), data: item })),
     );
 
     const handleSetInventoryItem = (index: number, updatedItem: InventoryItem) => {
         const updatedItems = [...items];
-        updatedItems[index] = {...updatedItems[index], data: updatedItem};
+        updatedItems[index] = { ...updatedItems[index], data: updatedItem };
         setItems(updatedItems);
         setValue(updatedItems.map((i) => i.data)); // pass only the InventoryItems up
     };
@@ -36,7 +36,7 @@ function ItemListField({setValue, formTitle, value = [], texturePack}: {
     return (
         <>
             <label className="form-label">{formTitle}</label>
-            {items.length > 0 ? <br/> : ""}
+            {items.length > 0 ? <br /> : ""}
             {items.map((itemWrapper, index) => (
                 <ItemField
                     key={itemWrapper.id}
@@ -47,11 +47,11 @@ function ItemListField({setValue, formTitle, value = [], texturePack}: {
                 />
             ))}
 
-            {items.length === 0 ? <br/> : ""}
+            {items.length === 0 ? <br /> : ""}
             <button
                 className="btn btn-secondary mt-2"
                 onClick={() =>
-                    setItems([...items, {id: uuid(), data: new InventoryItem("", new ItemLocation(1), 1)}])
+                    setItems([...items, { id: uuid(), data: new InventoryItem("", new ItemLocation(1), 1) }])
                 }
             >
                 Add Item

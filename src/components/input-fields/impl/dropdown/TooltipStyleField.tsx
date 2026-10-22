@@ -1,8 +1,12 @@
-import {useEffect, useState} from "react";
-import {getTooltipStyleAutoComplete} from "../../../../api-client/requests/GetAutocomplete.ts";
+import { useEffect, useState } from "react";
+import { getTooltipStyleAutoComplete } from "../../../../api-client/requests/GetAutocomplete.ts";
 import DropdownField from "../../DropdownField.tsx";
 
-function TooltipStyleField({value, setValue, texturePack}: { value?: string; setValue: (value: string) => void; texturePack?: string;}) {
+function TooltipStyleField({ value, setValue, texturePack }: {
+    value?: string;
+    setValue: (value: string) => void;
+    texturePack?: string;
+}) {
     const [options, setOptions] = useState<string[]>([]);
 
     useEffect(() => {

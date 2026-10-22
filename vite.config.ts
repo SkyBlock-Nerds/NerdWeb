@@ -21,7 +21,7 @@ export default defineConfig({
                 assets: "./dist/**",
                 filesToDeleteAfterUpload: "./dist/**/*.map",
             },
-            url: "https://sentry.aerh.io/"
+            url: "https://sentry.aerh.io/",
         }),
     ],
     preview: {

@@ -10,7 +10,7 @@ class InventoryItem {
         itemId: string,
         location: ItemLocation,
         amount?: number,
-        extraData?: string
+        extraData?: string,
     ) {
         this.itemId = itemId;
         this.locations = [location];

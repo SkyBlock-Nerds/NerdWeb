@@ -1,4 +1,4 @@
-function SmallTextField({value, setValue, formLabel, formName, formInfo}: {
+function SmallTextField({ value, setValue, formLabel, formName, formInfo }: {
     value: string | undefined;
     setValue: (value: string) => void;
     formLabel?: string;

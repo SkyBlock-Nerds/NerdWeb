@@ -1,8 +1,8 @@
-import {useEffect, useState} from "react";
-import {getItemIdAutoComplete} from "../../../../api-client/requests/GetAutocomplete.ts";
+import { useEffect, useState } from "react";
+import { getItemIdAutoComplete } from "../../../../api-client/requests/GetAutocomplete.ts";
 import SearchField from "../../SearchField.tsx";
 
-function ItemIdField({value, setValue, noLabel, texturePack}: {
+function ItemIdField({ value, setValue, noLabel, texturePack }: {
     value?: string;
     setValue: (value: string) => void;
     noLabel?: boolean;

@@ -1,6 +1,6 @@
 import CheckBoxField from "../../CheckBoxField.tsx";
 
-function RenderBorderField({value, setValue}: { value: boolean | undefined; setValue: (value: boolean) => void; }) {
+function RenderBorderField({ value, setValue }: { value: boolean | undefined; setValue: (value: boolean) => void; }) {
     return (
         <>
             <CheckBoxField

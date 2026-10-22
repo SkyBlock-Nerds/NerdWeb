@@ -1,4 +1,4 @@
-function NumberField({value, setValue, minValue, maxValue, formLabel, formName, formInfo}: {
+function NumberField({ value, setValue, minValue, maxValue, formLabel, formName, formInfo }: {
     value: number | undefined;
     setValue: (value: number | undefined) => void;
     minValue?: number;

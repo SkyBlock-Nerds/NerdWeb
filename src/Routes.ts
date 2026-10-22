@@ -12,7 +12,7 @@ export const ROUTES = {
     RECIPE_GENERATOR: "/Image-Generator/Recipe-Generator",
     HISTORY: "/History",
     ERROR: "/Error",
-    SHARE : {
+    SHARE: {
         BASE: "/Share",
         GENERATOR: "/Generator",
     },

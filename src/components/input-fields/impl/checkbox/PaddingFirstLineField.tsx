@@ -1,6 +1,6 @@
 import CheckBoxField from "../../CheckBoxField.tsx";
 
-function PaddingFirstLineField({value, setValue}: {
+function PaddingFirstLineField({ value, setValue }: {
     value: boolean | undefined;
     setValue: (value: boolean) => void;
 }) {
