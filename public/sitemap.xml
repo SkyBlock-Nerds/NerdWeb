@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://nerdweb.socksm.dev/</loc>
+    </url>
+    <url>
+        <loc>https://nerdweb.socksm.dev/Image-Generator</loc>
+    </url>
+    <url>
+        <loc>https://nerdweb.socksm.dev/Image-Generator/Text-Generator</loc>
+    </url>
+    <url>
+        <loc>https://nerdweb.socksm.dev/Image-Generator/Item-Full-Generator</loc>
+    </url>
+    <url>
+        <loc>https://nerdweb.socksm.dev/Image-Generator/Display-Item-Generator</loc>
+    </url>
+    <url>
+        <loc>https://nerdweb.socksm.dev/Image-Generator/Multi-NPC-Dialogue-Generator</loc>
+    </url>
+    <url>
+        <loc>https://nerdweb.socksm.dev/Image-Generator/Single-NPC-Dialogue-Generator</loc>
+    </url>
+    <url>
+        <loc>https://nerdweb.socksm.dev/Image-Generator/Head-Generator</loc>
+    </url>
+    <url>
+        <loc>https://nerdweb.socksm.dev/Image-Generator/Inventory-Generator</loc>
+    </url>
+    <url>
+        <loc>https://nerdweb.socksm.dev/Image-Generator/Recipe-Generator</loc>
+    </url>
+</urlset>
