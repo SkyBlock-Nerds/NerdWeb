@@ -4,13 +4,13 @@ class InventoryItem {
     itemId: string;
     locations: ItemLocation[];
     amount?: number;
-    extraData?: string;
+    extraData?: string[];
 
     constructor(
         itemId: string,
         location: ItemLocation,
         amount?: number,
-        extraData?: string,
+        extraData?: string[],
     ) {
         this.itemId = itemId;
         this.locations = [location];

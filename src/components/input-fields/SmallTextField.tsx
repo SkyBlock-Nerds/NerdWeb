@@ -1,9 +1,11 @@
-function SmallTextField({ value, setValue, formLabel, formName, formInfo }: {
+function SmallTextField({ value, setValue, formLabel, formName, formInfo, disabled = false, required = true}: {
     value: string | undefined;
     setValue: (value: string) => void;
     formLabel?: string;
     formName: string;
     formInfo: string;
+    disabled?: boolean;
+    required?: boolean;
 }) {
     return (
         <>
@@ -19,7 +21,8 @@ function SmallTextField({ value, setValue, formLabel, formName, formInfo }: {
                 placeholder={formInfo}
                 className="form-control"
                 value={value}
-                required={true}
+                disabled={disabled}
+                required={required}
                 onChange={
                     (e) => {
                         setValue(e.target.value);

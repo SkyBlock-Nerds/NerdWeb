@@ -2,6 +2,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import InventoryItem from "../../../../api-client/api-models/generator/submodels/InventoryItem.ts";
 import ItemIdField from "../search-field/ItemIdField.tsx";
 import NumberField from "../../NumberField.tsx";
+import SmallTextField from "../../SmallTextField.tsx";
 
 function ItemField({ inventoryItem, setInventoryItem, onRemove, texturePack }: {
     inventoryItem: InventoryItem;
@@ -51,19 +52,21 @@ function ItemField({ inventoryItem, setInventoryItem, onRemove, texturePack }: {
                         minValue={1}
                         maxValue={64}
                         formInfo="Amount"
-                        formName="toLocation"
+                        formName="amount"
                         value={inventoryItem.amount}
                     />
-                    <input /*TODO: Probably should make this a <SmallTextField> (When it gets implemented (needs to be disabled={true} for now))*/
-                        disabled={true}
-                        type="text"
-                        className="form-control"
-                        placeholder="Extra Data"
-                        required={true}
-                        onChange={(e) => {
-                            inventoryItem.extraData = e.target.value;
+                    <SmallTextField
+                        value={inventoryItem.extraData?.join(", ") ?? ""}
+                        setValue={(value) => {
+                            inventoryItem.extraData = value
+                                .split(",")
+                                .map((entry) => entry.trim())
+                                .filter((entry) => entry.length > 0);
                             setInventoryItem(inventoryItem);
                         }}
+                        formName="extraData"
+                        formInfo="Extra Data (comma-separated)"
+                        required={false}
                     />
                     <button
                         type="button"
