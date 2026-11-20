@@ -1,4 +1,6 @@
 const formatCodesMap: Record<string, string> = {
+    "&g": "Galactic",
+    "&h": "Illager Script",
     "&k": "Obfuscated",
     "&l": "Bold",
     "&m": "Strikethrough",

@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "MinecraftGalactic";
+    src: url("../../assets/fonts/Minecraft-Galactic.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MinecraftIllageralt";
+    src: url("../../assets/fonts/Minecraft-Illageralt.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
