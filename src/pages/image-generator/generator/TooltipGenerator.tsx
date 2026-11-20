@@ -14,6 +14,7 @@ import MaxLineLengthField from "../../../components/input-fields/impl/number/Max
 import TooltipSideField from "../../../components/input-fields/impl/dropdown/TooltipSideField.tsx";
 import RenderBorderField from "../../../components/input-fields/impl/checkbox/RenderBorderField.tsx";
 import StyleCodeParser from "../../../components/style-code-parser/StyleCodeParser.tsx";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { ensureInstanceOf } from "../../../utils/ensureInstanceOf.ts";
 import TexturePackField from "../../../components/input-fields/impl/dropdown/TexturePackField.tsx";
@@ -22,6 +23,7 @@ import TooltipStyleField from "../../../components/input-fields/impl/dropdown/To
 function TooltipGenerator() {
     const location = useLocation();
     const recoveredRequest = ensureInstanceOf(location.state?.recoveredRequest, TooltipRequest);
+    const [hasEditedTooltipStyle, setHasEditedTooltipStyle] = useState(false);
 
     return (
         <BaseGenerator<TooltipRequest>
@@ -176,14 +178,24 @@ function TooltipGenerator() {
                     <div className="mb-3">
                         <TooltipStyleField
                             value={currentRequest.tooltipStyle}
-                            setValue={(value) =>
+                            setValue={(value) => {
+                                setHasEditedTooltipStyle(true);
+                                setCurrentRequest((prev) => {
+                                    const updatedRequest = new TooltipRequest();
+                                    Object.assign(updatedRequest, prev, { tooltipStyle: value });
+                                    return updatedRequest;
+                                });
+                            }}
+                            texturePack={currentRequest.texturePack}
+                            rarity={currentRequest.rarity}
+                            hasEditedTooltipStyle={hasEditedTooltipStyle}
+                            onAutoSelect={(value) =>
                                 setCurrentRequest((prev) => {
                                     const updatedRequest = new TooltipRequest();
                                     Object.assign(updatedRequest, prev, { tooltipStyle: value });
                                     return updatedRequest;
                                 })
                             }
-                            texturePack={currentRequest.texturePack}
                         />
                     </div>
                     <div className="mb-3">

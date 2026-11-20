@@ -2,10 +2,20 @@ import { useEffect, useState } from "react";
 import { getTooltipStyleAutoComplete } from "../../../../api-client/requests/GetAutocomplete.ts";
 import DropdownField from "../../DropdownField.tsx";
 
-function TooltipStyleField({ value, setValue, texturePack }: {
+function TooltipStyleField({
+    value,
+    setValue,
+    texturePack,
+    rarity,
+    hasEditedTooltipStyle,
+    onAutoSelect,
+}: {
     value?: string;
     setValue: (value: string) => void;
     texturePack?: string;
+    rarity?: string;
+    hasEditedTooltipStyle?: boolean;
+    onAutoSelect?: (value: string) => void;
 }) {
     const [options, setOptions] = useState<string[]>([]);
 
@@ -16,6 +26,16 @@ function TooltipStyleField({ value, setValue, texturePack }: {
         };
         fetchOptions();
     }, [texturePack]);
+
+    useEffect(() => {
+        if (hasEditedTooltipStyle || !rarity || !texturePack?.toLowerCase().includes("hypixel")) {
+            return;
+        }
+        const matchingStyle = options.find((option) => option.toLowerCase() === rarity.toLowerCase());
+        if (matchingStyle && matchingStyle !== value) {
+            onAutoSelect?.(matchingStyle);
+        }
+    }, [rarity, texturePack, options, hasEditedTooltipStyle, value, onAutoSelect]);
 
     return (
         <>
