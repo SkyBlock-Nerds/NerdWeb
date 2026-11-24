@@ -1,6 +1,7 @@
 import usePageTitle from "../../hooks/usePageTitle.ts";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../Routes.ts";
+import NerdBotIcon from "../../assets/icon.png";
 
 function Welcome() {
     usePageTitle("Welcome");
@@ -8,6 +9,7 @@ function Welcome() {
 
     return (
         <div className="text-center mt-3 justify-content-center">
+            <img src={NerdBotIcon} alt="Nerd Bot Icon" className="mb-3" style={{width: "10rem", height: "auto", imageRendering: "pixelated"}} />
             <h1>Welcome to the Nerd Bot website!</h1>
             <p>
                 This website serves as an easier way to use Nerd Bot than using the Discord commands.<br />
