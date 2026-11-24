@@ -27,7 +27,7 @@ function Welcome() {
             <p>
                 Go to the Nerds Discord and make a bug report in the Bug Report channel.<br />
                 Not a True nerd?{" "}
-                <a href="https://github.com/SkyBlock-Nerds/NerdWeb/issues/new" target="_blank"
+                <a href="https://github.com/SkyBlock-Nerds/NerdWeb/issues/new/choose" target="_blank"
                    rel="noopener noreferrer">
                     Create a GitHub Issue
                 </a>{" "}
