@@ -89,3 +89,13 @@ export const getHistory = (): History => {
 export const clearHistory = () => {
     localStorage.removeItem(HISTORY_KEY);
 };
+
+export const removeHistoryEntry = (index: number) => {
+    const history = getHistory();
+    if (!Number.isInteger(index) || index < 0 || index >= history.historyEntries.length) {
+        throw new RangeError("Cannot remove history entry: index is out of range");
+    }
+
+    history.historyEntries.splice(index, 1);
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+};
