@@ -1,5 +1,6 @@
+import { useState } from "react";
 import usePageTitle from "../../hooks/usePageTitle.ts";
-import { clearHistory, getHistory } from "../../services/GeneratorHistory.ts";
+import { clearHistory, getHistory, removeHistoryEntry } from "../../services/GeneratorHistory.ts";
 import { FullGeneratorData, generatorMapping } from "../../services/FullGeneratorData.ts";
 import ROUTES from "../../Routes.ts";
 import { useNavigate } from "react-router-dom";
@@ -9,11 +10,11 @@ function History() {
     usePageTitle("History");
 
     const navigate = useNavigate();
-    const history = getHistory();
+    const [history, setHistory] = useState(getHistory);
 
     const handleClearHistory = () => {
         clearHistory();
-        window.location.reload();
+        setHistory(getHistory());
     };
 
     return (
@@ -25,7 +26,7 @@ function History() {
                         To start creating images go to the <a href={ROUTES.IMAGE_GENERATOR}>image generators</a>.
                     </div>
                 ) : (
-                    history.historyEntries.reverse().map((item, index) => (
+                    [...history.historyEntries].reverse().map((item, index) => (
                         <div key={index} className="col-md-4 mb-3">
                             <div className="card quaternary-color image-generator-item">
                                 <img src={item.image} className="card-img-top pt-1" alt="Failed to load image" />
@@ -55,6 +56,15 @@ function History() {
                                         className="btn btn-primary"
                                     >
                                         Go to generator and recover inputs
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            removeHistoryEntry(history.historyEntries.length - 1 - index);
+                                            setHistory(getHistory());
+                                        }}
+                                        className="btn btn-danger mt-1"
+                                    >
+                                        Remove from history
                                     </button>
                                     <div className="mt-1">
                                         <ShareButton
